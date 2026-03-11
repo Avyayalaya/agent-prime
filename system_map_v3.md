@@ -1,6 +1,8 @@
-# Agent Prime — System Map v2
+# Agent Prime — System Map v3
 
-> A system to build systems. This document explains not just WHAT Agent Prime is, but HOW every piece works — the mechanics that make a system of 11 agents, persistent memory, and recursive self-improvement actually function.
+> A system to build systems. This document explains not just WHAT Agent Prime is, but HOW every piece works — the mechanics that make a system of 11 agents, persistent memory, automated runtime, and recursive self-improvement actually function.
+>
+> **v3 changes (2026-03-11):** Agent Identity System (frontmatter, communication style, vibes), formalized handoff protocol, 4 operational runbooks, Scout video source parsing. See [`projects/SYS-014_agency_agents_pattern_integration/`](projects/SYS-014_agency_agents_pattern_integration/) for full changelog.
 
 ---
 
@@ -138,44 +140,50 @@ Agents are **composable capabilities**, not a hierarchy. You don't use all 11 at
 
 ### Agent Identity System (SYS-014)
 
-Every agent carries structured identity metadata:
+Every agent carries structured identity metadata that makes it instantly recognizable in logs, dashboards, and multi-agent pipelines.
 
-**YAML Frontmatter** (Agent Prime `.md` prompts):
-```yaml
----
-name: [Agent Name]
-description: [One-line role description]
-color: [Hex color for visual identity]
-emoji: [Emoji for logs and dashboards]
-vibe: [One-line operating philosophy]
----
-```
+| Agent | Emoji | Color | Vibe |
+|-------|-------|-------|------|
+| ⚡ **Prime** | ⚡ | #1A1A2E | The room where excuses go to die — routes work, kills drift, demands proof |
+| 🔍 **Scout** | 🔍 | #4A90D9 | Finds the 10 signals that matter from the 1,000 that don't — then proves every one |
+| 🧬 **Synthesizer** | 🧬 | #6B4C9A | Connects what physics teaches about entropy to why your platform strategy is dying — then backs it with evidence |
+| ✍️ **Writer** | ✍️ | #B85C38 | Writes like a CXO who blogs on weekends — blunt, self-implicating, zero fluff |
+| 🤝 **Connector** | 🤝 | #5B7B6A | Never asks before giving — turns published work into warm conversations that compound |
+| 📐 **Planner** | 📐 | #B8963E | Takes a napkin sketch and returns a spec so precise a stranger could build it at 2am |
+| 🔨 **Builder** | 🔨 | #2D6A4F | Treats every spec like a contract — ships exactly what was promised, and files a defect report on everything that wasn't clear enough |
+| 🏗️ **Industry Analyst** | 🏗️ | #8B4513 | Digs until bedrock — maps the hidden architecture of industries that most analysts skim past |
+| 📊 **Investment Analyst** | 📊 | #1B4332 | Every number gets a confidence level, an assumption, and a source — or it doesn't ship |
+| 🧪 **Experimenter** | 🧪 | #D4A373 | Turns thesis claims into testable hypotheses with real data in under 2 hours |
+| 📋 **Clerk** | 📋 | #6C757D | The uncomfortable truth about what's actually moving vs. what's just sitting there |
 
-**Identity Block** (PM Runtime Python prompts):
-```
-> **Identity** | [emoji] [Name] | [color]
-> *[vibe]*
-```
+**Identity format** — Agent prompts use YAML frontmatter (`---` block with name, description, color, emoji, vibe) at the top of each `prompt.md` file.
 
-**Communication Style** (all agents): 5 example phrases showing how the agent talks and makes judgment calls.
+**Communication Style** — Every agent has 5 example phrases showing how it talks and makes judgment calls. These aren't decorative — they're implicit few-shot learning that shapes the agent's editorial judgment, voice, and decision-making patterns.
 
 ### Handoff Protocol
 
-Agent-to-agent transfers use standardized templates (`shared/toolkits/handoff_templates.md`):
-- **Standard Handoff** — routine transfers with context, artifacts, and expected output
-- **QA Pass / QA Fail** — quality gate results with specific gate status
-- **Escalation Report** — blocked work with root cause and recommended action
-- **Pipeline Stage Gate** — GO/NO-GO decisions at major transitions
+Agent-to-agent transfers use 5 standardized templates (`shared/toolkits/handoff_templates.md`):
+
+| Template | When to Use | Key Contract |
+|----------|------------|-------------|
+| **Standard Handoff** | Routine agent-to-agent transfers | Context + artifacts (with paths) + expected output + deadline |
+| **QA Pass** | Quality gates passed | Gate-by-gate status table + verdict + next action |
+| **QA Fail** | Quality gates failed | Failed gates with specific fix instructions + attempt count |
+| **Escalation Report** | Agent blocked or exceeded retries | What happened + attempts made + root cause + recommended action |
+| **Pipeline Stage Gate** | Major pipeline transitions | Completion checklist + known risks + GO/NO-GO decision |
+
+**Rules:** Every transfer uses a template. Artifacts must have paths. QA templates are mandatory before review/publish. Escalations go to Prime. Stage gates require explicit GO/NO-GO.
 
 ### Operational Runbooks
 
-Pre-defined agent sequences for common scenarios (`shared/runbooks/`):
+Pre-defined agent sequences for common scenarios (`shared/runbooks/`). Each runbook specifies: trigger, agents, phases, handoffs, quality gates, time caps, and escalation paths.
+
 | Runbook | Trigger | Agents | Duration |
 |---------|---------|--------|----------|
-| Competitive Analysis | Competitor move or scheduled refresh | Scout → Intel/Industry → Synthesizer → Writer | 1-2 sessions |
-| Morning Briefing | Daily 7 AM (automated) | Data Scout + Signal Monitor + Intel (parallel) → Synthesizer | ~5 min |
-| Artifact Production | On-demand PM artifact needed | Context Assembly → Producer + Skill → Quality Gates → Fix Loop | 1-2 sessions |
-| Incident: Metric Drop | >10% WoW drop detected | Signal Monitor → Data Scout → Intel → Prime | 1-3 hours |
+| **Competitive Analysis** | Competitor move or scheduled refresh | Scout → Intel/Industry → Synthesizer → Writer | 1-2 sessions |
+| **Morning Briefing** | Daily 7 AM (automated) | Data Scout + Signal Monitor + Intel (parallel) → Synthesizer | ~5 min |
+| **Artifact Production** | On-demand PM artifact needed | Context Assembly → Producer + Skill → Quality Gates → Fix Loop | 1-2 sessions |
+| **Incident: Metric Drop** | >10% WoW drop detected | Signal Monitor → Data Scout → Intel → Prime | 1-3 hours |
 
 ---
 
@@ -185,10 +193,13 @@ Every agent in Agent Prime is a markdown file — a prompt between 200 and 2,000
 
 ### The Anatomy of an Agent
 
-Every agent has four structural layers:
+Every agent has five structural layers:
 
 ```
   ┌─────────────────────────────────────────────┐
+  │  IDENTITY FRONTMATTER (SYS-014)             │  ← YAML: name, color, emoji, vibe
+  │  "Who am I at a glance?"                    │     Machine-readable metadata
+  ├─────────────────────────────────────────────┤
   │  CONTEXT VERIFICATION GATE                  │  ← Must load required files
   │  "Do I have everything I need?"             │     before producing ANY output
   ├─────────────────────────────────────────────┤
@@ -199,7 +210,7 @@ Every agent has four structural layers:
   │  Step 0 → Step 1 → ... → Step N            │     decision gates between steps
   ├─────────────────────────────────────────────┤
   │  QUALITY CHECKLIST / SELF-VERIFICATION      │  ← The agent checks its own output
-  │  "Did I follow every rule?"                 │     against encoded criteria
+  │  + COMMUNICATION STYLE (SYS-014)            │     + 5 example phrases for voice
   └─────────────────────────────────────────────┘
 ```
 
@@ -249,6 +260,8 @@ Agents don't work in isolation. They form **pipelines** where one agent's output
    signals/            theses/              drafts/             audience_maps/
    weekly_digest.json  thesis_v0.2.md       PP-001_substack.md  PP-001_brief.md
 ```
+
+Scout sources include text (arXiv, Hacker News, industry newsletters, blog posts) and video/audio (conference talks, podcast episodes, earnings calls) via `yt-dlp` transcript extraction. Video signals carry speaker attribution, timestamps, and transcript verification flags.
 
 Each handoff has a **contract** — a schema that defines exactly what the upstream agent must produce for the downstream agent to consume. The Scout's signal digest has a defined JSON schema. The Synthesizer's thesis has a required structure (Claim, Evidence, Implications, Sources). The Writer expects specific metadata (URLs for inline linking, author names for attribution, visual evidence descriptions for chart placeholders).
 
@@ -867,4 +880,4 @@ No databases. No vector stores. No APIs. No cloud services. Markdown and discipl
 
 ---
 
-*Built with VS Code, Claude, markdown files, and whichever AI is in the conversation.*
+*Built with VS Code, Claude, markdown files, and whichever AI is in the conversation. v3 — 2026-03-11.*

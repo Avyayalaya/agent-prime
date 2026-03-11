@@ -74,96 +74,147 @@
     </section>
 
     <section class="layer-section">
-      <h2 class="layer-section__title">What gets encoded</h2>
-      <p>11 agents organized by capability. Each is a standalone markdown file with its own methodology, quality gates, and context verification gate.</p>
+      <h2 class="layer-section__title">The 11 agents</h2>
+      <p>Each agent carries structured identity metadata &mdash; an emoji, a color, and a &ldquo;vibe&rdquo; that captures how it thinks and talks. These aren&rsquo;t decorative. Each agent&rsquo;s prompt includes 5 example phrases that shape its editorial judgment through implicit few-shot learning.</p>
 
       <div class="file-grid">
         <div class="file-card">
-          <div class="file-card__name">Scout</div>
-          <div class="file-card__desc">Scans sources for signals, evidence, and market data. Persists findings to structured signal files for downstream agents.</div>
+          <div class="file-card__name">&#9889; Prime</div>
+          <div class="file-card__desc">The room where excuses go to die &mdash; routes work, kills drift, demands proof. The default agent when no specific capability is invoked.</div>
         </div>
         <div class="file-card">
-          <div class="file-card__name">Synthesizer</div>
-          <div class="file-card__desc">Combines inputs into structured insight and theses. Turns raw signals into positions with evidence tiers and confidence levels.</div>
+          <div class="file-card__name">&#128269; Scout</div>
+          <div class="file-card__desc">Finds the 10 signals that matter from the 1,000 that don&rsquo;t &mdash; then proves every one. Parses text, video, and audio sources via transcript extraction.</div>
         </div>
         <div class="file-card">
-          <div class="file-card__name">Writer</div>
-          <div class="file-card__desc">Converts insight into publishable artifacts. Enforces voice rules, production order, and format constraints across every channel.</div>
+          <div class="file-card__name">&#129516; Synthesizer</div>
+          <div class="file-card__desc">Connects what physics teaches about entropy to why your platform strategy is dying &mdash; then backs it with evidence. Turns raw signals into theses.</div>
         </div>
         <div class="file-card">
-          <div class="file-card__name">Industry Analyst</div>
-          <div class="file-card__desc">Deep structural mapping of industries. Nine-step methodology producing 80&ndash;90KB of layered analysis per run.</div>
+          <div class="file-card__name">&#9997;&#65039; Writer</div>
+          <div class="file-card__desc">Writes like a CXO who blogs on weekends &mdash; blunt, self-implicating, zero fluff. Enforces voice rules and production order across every channel.</div>
         </div>
         <div class="file-card">
-          <div class="file-card__name">Investment Analyst</div>
-          <div class="file-card__desc">Investment-grade multi-lens analysis. Takes structural maps from Industry Analyst and runs valuation, moat assessment, and risk scoring.</div>
+          <div class="file-card__name">&#129309; Connector</div>
+          <div class="file-card__desc">Never asks before giving &mdash; turns published work into warm conversations that compound. Manages distribution and strategic relationships.</div>
         </div>
         <div class="file-card">
-          <div class="file-card__name">Planner</div>
-          <div class="file-card__desc">Takes ideas through a 4-stage planning pipeline to a Build Handoff Spec. Plan before build &mdash; every time.</div>
+          <div class="file-card__name">&#128208; Planner</div>
+          <div class="file-card__desc">Takes a napkin sketch and returns a spec so precise a stranger could build it at 2am. Four-stage pipeline to a Build Handoff Spec.</div>
         </div>
         <div class="file-card">
-          <div class="file-card__name">Builder</div>
-          <div class="file-card__desc">Executes Build Handoff Specs into deliverables. Receives the spec from Planner and ships without scope drift.</div>
+          <div class="file-card__name">&#128296; Builder</div>
+          <div class="file-card__desc">Treats every spec like a contract &mdash; ships exactly what was promised, and files a defect report on everything that wasn&rsquo;t clear enough.</div>
         </div>
         <div class="file-card">
-          <div class="file-card__name">Connector</div>
-          <div class="file-card__desc">Builds strategic relationships and distributes work. Manages outreach sequences, follow-ups, and distribution across channels.</div>
+          <div class="file-card__name">&#127959;&#65039; Industry Analyst</div>
+          <div class="file-card__desc">Digs until bedrock &mdash; maps the hidden architecture of industries that most analysts skim past. Nine-step methodology, 80&ndash;90KB per run.</div>
         </div>
         <div class="file-card">
-          <div class="file-card__name">Experimenter</div>
-          <div class="file-card__desc">Runs experiments to validate claims empirically. Designs test conditions, tracks outcomes, updates confidence levels.</div>
+          <div class="file-card__name">&#128202; Investment Analyst</div>
+          <div class="file-card__desc">Every number gets a confidence level, an assumption, and a source &mdash; or it doesn&rsquo;t ship. Multi-lens valuation from structural maps.</div>
         </div>
         <div class="file-card">
-          <div class="file-card__name">Clerk</div>
-          <div class="file-card__desc">Tracks commitments, deadlines, and staleness. Surfaces what&rsquo;s overdue, what&rsquo;s drifting, and what needs a decision.</div>
+          <div class="file-card__name">&#129514; Experimenter</div>
+          <div class="file-card__desc">Turns thesis claims into testable hypotheses with real data in under 2 hours. Designs test conditions, tracks outcomes.</div>
         </div>
         <div class="file-card">
-          <div class="file-card__name">Prime</div>
-          <div class="file-card__desc">Orchestrates, routes work, reviews quality, kills noise. The default agent when no specific capability is invoked.</div>
+          <div class="file-card__name">&#128203; Clerk</div>
+          <div class="file-card__desc">The uncomfortable truth about what&rsquo;s actually moving vs. what&rsquo;s just sitting there. Tracks commitments, deadlines, and staleness.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="layer-section">
+      <h2 class="layer-section__title">Agent anatomy</h2>
+      <p>Every agent is a markdown file with a five-layer sandwich structure. LLMs weight early and late content more heavily &mdash; hard rules at both ends means compliance is structurally enforced.</p>
+      <div class="layer-code">
+<pre>&#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;
+&#9474; IDENTITY FRONTMATTER (YAML)          &#9474;  name, color, emoji, vibe
+&#9500;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9508;
+&#9474; CONTEXT VERIFICATION GATE             &#9474;  must load files before output
+&#9500;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9508;
+&#9474; IDENTITY + CORE DIRECTIVE             &#9474;  who am I, what do I optimize
+&#9500;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9508;
+&#9474; METHODOLOGY                           &#9474;  step-by-step with decision gates
+&#9500;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9508;
+&#9474; QUALITY CHECKLIST + COMM STYLE        &#9474;  self-check + 5 example phrases
+&#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;</pre>
+      </div>
+    </section>
+
+    <section class="layer-section">
+      <h2 class="layer-section__title">Handoff protocol</h2>
+      <p>Agent-to-agent transfers use 5 standardized templates. Every transfer uses a template. Artifacts must have paths. Escalations go to Prime.</p>
+      <div class="file-grid">
+        <div class="file-card">
+          <div class="file-card__name">Standard Handoff</div>
+          <div class="file-card__desc">Routine agent-to-agent transfers. Context + artifacts with paths + expected output + deadline.</div>
+        </div>
+        <div class="file-card">
+          <div class="file-card__name">QA Pass / QA Fail</div>
+          <div class="file-card__desc">Quality gate results. Gate-by-gate status table with verdict and next action. Fail templates include specific fix instructions.</div>
+        </div>
+        <div class="file-card">
+          <div class="file-card__name">Escalation Report</div>
+          <div class="file-card__desc">Agent blocked or exceeded retries. What happened, attempts made, root cause analysis, and recommended action.</div>
+        </div>
+        <div class="file-card">
+          <div class="file-card__name">Pipeline Stage Gate</div>
+          <div class="file-card__desc">Major pipeline transitions. Completion checklist, known risks, and an explicit GO/NO-GO decision.</div>
         </div>
       </div>
     </section>
 
     <section class="layer-section">
       <h2 class="layer-section__title">Real example</h2>
-      <p>Every agent prompt opens with a Context Verification Gate &mdash; a blocking checklist that runs before any output is produced. Here&rsquo;s Scout&rsquo;s:</p>
+      <p>Every agent prompt starts with YAML frontmatter that encodes its identity, followed by a Context Verification Gate. Here&rsquo;s how Scout&rsquo;s prompt opens:</p>
 
       <div class="layer-code">
-        <div class="layer-code__label">agents/scout/prompt.md &mdash; Context Verification Gate</div>
-<pre>## Context Verification Gate
+        <div class="layer-code__label">agents/scout/prompt.md &mdash; Identity + Gate</div>
+<pre>---
+name: Scout
+emoji: &#128269;
+color: "#4A90D9"
+vibe: "Finds the 10 signals that matter from the
+      1,000 that don't — then proves every one"
+---
+
+## Context Verification Gate
 Before producing ANY output, verify access to:
 - [ ] shared/context.md (identity + epistemic guardrails)
 - [ ] shared/learnings.md (accumulated corrections)
 - [ ] shared/registry.json (current work items)
 - [ ] agents/scout/signals/ (prior signal scans)
 
-If ANY file is missing, STOP and ask. Do not proceed
-with degraded context.</pre>
+If ANY file is missing, STOP and ask.</pre>
       </div>
-      <p>This gate is non-negotiable. A 200-word output requires the same gate as a 4,000-word analysis. Skipping it because a task feels small is how you get generic output that ignores your thinking, voice, and prior corrections.</p>
+      <p>The gate is non-negotiable. A 200-word output requires the same gate as a 4,000-word analysis. The identity frontmatter makes agents instantly recognizable in logs and multi-agent pipelines.</p>
     </section>
 
     <section class="layer-section">
       <h2 class="layer-section__title">How to set it up</h2>
-      <p>Each agent is a standalone markdown file. Start with one &mdash; Scout is good for research, Writer for content, Planner for breaking down projects. Each prompt follows the same structure:</p>
+      <p>Each agent is a standalone markdown file. Start with one &mdash; Scout for research, Writer for content, Planner for breaking down projects. Use the five-layer structure:</p>
       <div class="layer-code">
-<pre>Context Verification Gate
-  → verify required files before producing anything
+<pre>---
+name: Your Agent
+emoji: &#128736;
+vibe: "One sentence that captures how it thinks"
+---
 
-Role Definition
-  → what this agent does and doesn't do
+## Context Verification Gate
+  Verify required files before producing anything
 
-Methodology
-  → step-by-step process, sequential not summarizable
+## Identity + Core Directive
+  What this agent does and optimizes for
 
-Output Format
-  → structure, naming conventions, where files land
+## Methodology
+  Step-by-step process, sequential not summarizable
 
-Quality Gates
-  → checks the agent runs before closing the task</pre>
+## Quality Checklist + Communication Style
+  Self-check + 5 example phrases for voice</pre>
       </div>
-      <p>Add more agents as your system grows. Each one compounds the value of the others &mdash; Scout signals feed Synthesizer theses, which feed Writer drafts, which Connector distributes. The pipeline self-reinforces once you have three or four agents running.</p>
+      <p>The communication style section at the bottom provides implicit few-shot learning &mdash; 5 example phrases that shape how the agent talks and makes judgment calls. These compound: Scout signals feed Synthesizer theses, which feed Writer drafts, which Connector distributes.</p>
     </section>
 
     <section class="layer-section">
