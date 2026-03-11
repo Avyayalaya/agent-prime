@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory — Layer 02 — Agent Prime</title>
+  <meta name="description" content="Two files that make corrections persist. A growing registry of patterns organized by category, and a change propagation map. AI stops repeating the same mistakes.">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('agent-prime-theme');
+        if (saved === 'dark' || saved === 'light') {
+          document.documentElement.setAttribute('data-theme', saved);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600;1,8..60,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+  <div class="progress-bar" aria-hidden="true"></div>
+
+  <header class="site-nav" role="banner">
+    <a href="index.html" class="site-nav__logo" aria-label="Agent Prime — home">Agent Prime</a>
+    <nav aria-label="Main navigation">
+      <ul class="site-nav__links" id="main-nav">
+        <li><a href="index.html#paradigm">The Problem</a></li>
+        <li><a href="index.html#levels">Three Levels</a></li>
+        <li><a href="index.html#layers">The System</a></li>
+        <li><a href="index.html#entry-points">Explore</a></li>
+        <li><a href="index.html#get-started">Get Started</a></li>
+      </ul>
+    </nav>
+    <div class="site-nav__right">
+      <a href="index.html#get-started" class="site-nav__cta">Clone the repo</a>
+      <button class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Toggle dark mode">
+        <span class="theme-toggle__icon--light" aria-hidden="true">&#9788;</span>
+        <span class="theme-toggle__icon--dark" aria-hidden="true">&#9789;</span>
+      </button>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav">
+        <span aria-hidden="true">&#9776;</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <div class="layer-hero" data-accent="memory">
+      <div class="layer-hero__breadcrumb">
+        <a href="index.html">Agent Prime</a> <span>/</span> The System <span>/</span> Memory
+      </div>
+      <div class="layer-hero__number">Layer 02</div>
+      <h1 class="layer-hero__title">Memory</h1>
+      <p class="layer-hero__subtitle">Two files that make corrections persist &mdash; a growing registry of patterns organized by category, and a change propagation map that prevents drift. AI stops repeating the same mistakes.</p>
+      <div class="layer-hero__meta">2 files &middot; 10 min setup &middot; shared/learnings.md &middot; shared/dependency_map.md</div>
+    </div>
+
+    <section class="layer-section">
+      <h2 class="layer-section__title">The problem</h2>
+      <p>Corrections don't persist. You fix the same mistake three times across three sessions. Each correction is local to one conversation. There's no system for capturing what you learned and applying it everywhere.</p>
+      <p>Most people re-explain their preferences every session. That's not a workflow problem &mdash; it's a missing layer. Memory is the structural fix: two files that accumulate corrections over time and make them permanent constraints for every agent.</p>
+    </section>
+
+    <section class="layer-section">
+      <h2 class="layer-section__title">What gets encoded</h2>
+      <p>Two files working together: one captures what you've learned, the other tracks what needs updating when things change.</p>
+
+      <div class="file-grid">
+        <div class="file-card">
+          <div class="file-card__name">learnings.md</div>
+          <div class="file-card__desc">A growing registry of corrections organized by category &mdash; Voice &amp; Tone, Conceptual Framing, Process &amp; Workflow, Content Quality, Build Patterns, Agent Design. Each entry captures what went wrong, why it happened, the reusable pattern, and when it was caught.</div>
+        </div>
+        <div class="file-card">
+          <div class="file-card__name">dependency_map.md</div>
+          <div class="file-card__desc">A change propagation registry. Maps which files depend on which. When one file changes, you know exactly what else needs updating. Prevents drift between assets, plans, and agent prompts that reference the same source of truth.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="layer-section">
+      <h2 class="layer-section__title">Real example</h2>
+      <p>Here's an entry from Agent Prime's actual learnings file &mdash; a voice pattern caught during a Writer draft review:</p>
+
+      <div class="layer-code">
+        <div class="layer-code__label">shared/learnings.md &mdash; Voice &amp; Tone</div>
+<pre>### V7: No "not X but Y" constructions
+**Source:** Writer draft review, 2026-02-15
+**Pattern:** AI defaults to defining things by contrast ("not a tool
+but a partner"). This is weak writing. State the positive thing
+directly. Say what it IS, not what it isn't.
+**Propagation:** All agent prompts, Writer voice rules</pre>
+      </div>
+      <p>Every agent reads learnings.md before producing output. That entry alone eliminated an entire class of weak framing across every artifact &mdash; permanently, from that session forward.</p>
+    </section>
+
+    <section class="layer-section">
+      <h2 class="layer-section__title">How to set it up</h2>
+      <p>Create <code>shared/learnings.md</code> with category headers. Start empty. Every time you correct AI output, capture the pattern &mdash; not just the fix, but what class of mistake it was:</p>
+      <div class="layer-code">
+<pre>## Voice & Tone
+## Conceptual Framing
+## Process & Workflow
+## Content Quality</pre>
+      </div>
+      <p>Create <code>shared/dependency_map.md</code> listing which files read from which. When you change one, update its dependents. The format is simple &mdash; source file, what depends on it, what to check after a change.</p>
+      <p>The rule that makes it compound: when AI corrects, the first action is to capture the pattern, not fix the immediate output. Fix comes second. Miss the capture and the same class of error recurs next session.</p>
+    </section>
+
+    <section class="layer-section">
+      <h2 class="layer-section__title">What you get</h2>
+      <div class="file-grid">
+        <div class="file-card">
+          <div class="file-card__name">shared/learnings.md</div>
+          <div class="file-card__desc">Your accumulated correction library. Every agent reads this before producing anything. Hard constraints, not suggestions.</div>
+          <div class="file-card__meta">~327 lines &middot; grows ~5&ndash;10 new rules/month</div>
+        </div>
+        <div class="file-card">
+          <div class="file-card__name">shared/dependency_map.md</div>
+          <div class="file-card__desc">Change propagation registry. Consult after modifying any file. Prevents drift across the system.</div>
+          <div class="file-card__meta">~60 lines &middot; stable</div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="layer-nav" aria-label="Layer navigation">
+      <a href="identity.html" class="layer-nav__link layer-nav__link--prev">Identity</a>
+      <a href="agents.html" class="layer-nav__link layer-nav__link--next">Agents</a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <p>Agent Prime &middot; MIT License &middot; Built by <a href="https://github.com/avyayalaya" target="_blank" rel="noopener noreferrer">Parth Sangani</a></p>
+    <p class="site-footer__motto">Gradatim Ferociter &mdash; Step by step, ferociously</p>
+  </footer>
+
+  <script src="assets/main.js"></script>
+</body>
+</html>

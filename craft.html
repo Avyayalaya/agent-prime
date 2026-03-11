@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Craft — Layer 06 — Agent Prime</title>
+  <meta name="description" content="Templates and a design system that turn markdown into publication-quality HTML. Investment analyses, theses, and competitive war maps that look like professional publications.">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('agent-prime-theme');
+        if (saved === 'dark' || saved === 'light') {
+          document.documentElement.setAttribute('data-theme', saved);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600;1,8..60,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+  <div class="progress-bar" aria-hidden="true"></div>
+
+  <header class="site-nav" role="banner">
+    <a href="index.html" class="site-nav__logo" aria-label="Agent Prime — home">Agent Prime</a>
+    <nav aria-label="Main navigation">
+      <ul class="site-nav__links" id="main-nav">
+        <li><a href="index.html#paradigm">The Problem</a></li>
+        <li><a href="index.html#levels">Three Levels</a></li>
+        <li><a href="index.html#layers">The System</a></li>
+        <li><a href="index.html#entry-points">Explore</a></li>
+        <li><a href="index.html#get-started">Get Started</a></li>
+      </ul>
+    </nav>
+    <div class="site-nav__right">
+      <a href="index.html#get-started" class="site-nav__cta">Clone the repo</a>
+      <button class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Toggle dark mode">
+        <span class="theme-toggle__icon--light" aria-hidden="true">&#9788;</span>
+        <span class="theme-toggle__icon--dark" aria-hidden="true">&#9789;</span>
+      </button>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav">
+        <span aria-hidden="true">&#9776;</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <div class="layer-hero" data-accent="craft">
+      <div class="layer-hero__breadcrumb">
+        <a href="index.html">Agent Prime</a> <span>/</span> The System <span>/</span> Craft
+      </div>
+      <div class="layer-hero__number">Layer 06</div>
+      <h1 class="layer-hero__title">Craft</h1>
+      <p class="layer-hero__subtitle">Templates and a design system that turn markdown into publication-quality HTML. Your system produces investment analyses, theses, and competitive war maps &mdash; they should look like professional publications, not ChatGPT exports.</p>
+      <div class="layer-hero__meta">Design system &middot; agents/builder/templates/ &middot; rendered/ (20+ outputs)</div>
+    </div>
+
+    <section class="layer-section">
+      <h2 class="layer-section__title">The problem</h2>
+      <p>AI output looks like AI output. Markdown dumps, generic formatting, no design identity. The content might be sharp &mdash; the presentation signals otherwise.</p>
+      <p>If your system produces investment analyses, theses, and competitive war maps, they should look like professional publications &mdash; not ChatGPT exports. Craft is the layer that closes that gap: a shared design system and a library of templates that every agent renders into.</p>
+    </section>
+
+    <section class="layer-section">
+      <h2 class="layer-section__title">What gets encoded</h2>
+      <p>Six templates built for the output types Agent Prime actually produces, all sharing the same CSS custom properties:</p>
+
+      <div class="file-grid">
+        <div class="file-card">
+          <div class="file-card__name">Thesis Template</div>
+          <div class="file-card__desc">Sticky table of contents, reading time estimates, word counts, breadcrumb navigation. For long-form strategic arguments.</div>
+        </div>
+        <div class="file-card">
+          <div class="file-card__name">Investment Dashboard</div>
+          <div class="file-card__desc">Tabbed interface with sortable tables, stat cards, collapsible sections. For multi-lens financial analysis.</div>
+        </div>
+        <div class="file-card">
+          <div class="file-card__name">Article Template</div>
+          <div class="file-card__desc">Clean editorial layout with author metadata, document versioning, expandable sections. For published pieces.</div>
+        </div>
+        <div class="file-card">
+          <div class="file-card__name">Showcase Template</div>
+          <div class="file-card__desc">Three-tab editorial format (Article / Process / System). For case studies and demonstrations.</div>
+        </div>
+        <div class="file-card">
+          <div class="file-card__name">Slide Deck</div>
+          <div class="file-card__desc">Presenter-mode with keyboard navigation. For conference talks and internal presentations.</div>
+        </div>
+        <div class="file-card">
+          <div class="file-card__name">Design System</div>
+          <div class="file-card__desc">CSS custom properties for the entire palette. Source Serif&nbsp;4, Inter, JetBrains Mono. Light/dark mode. Responsive grid.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="layer-section">
+      <h2 class="layer-section__title">Real example</h2>
+      <p>Every template pulls from the same token file. Change one variable and every rendered output updates:</p>
+
+      <div class="layer-code">
+        <div class="layer-code__label">assets/style.css &mdash; Design Tokens</div>
+<pre>:root {
+  /* Backgrounds */
+  --bg: #FDFAF6;
+  --surface: #FFFFFF;
+  --surface-warm: #F7F3ED;
+
+  /* Accent — Terracotta */
+  --accent: #B85C38;
+
+  /* Typography */
+  --font-heading: 'Source Serif 4', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+[data-theme="dark"] {
+  --bg: #1A1714;
+  --surface: #242019;
+  --accent: #D4845C;
+}</pre>
+      </div>
+      <p>Every rendered output inherits these tokens. Light and dark mode are free. Swap the accent color once and every template &mdash; thesis, dashboard, article &mdash; updates in one edit.</p>
+    </section>
+
+    <section class="layer-section">
+      <h2 class="layer-section__title">How to set it up</h2>
+      <p>Start with the design system &mdash; pick your fonts, colors, and spacing scale. Then build one template for your most common output type. Agent Prime started with the thesis template (the most frequently produced artifact) and expanded from there. Every rendered output shares the same CSS custom properties, so changing one color updates everything.</p>
+      <div class="layer-code">
+<pre>agents/builder/templates/
+  thesis.html          # Long-form strategic argument template
+  investment.html      # Multi-lens financial analysis template
+
+assets/
+  style.css            # Design system — ~2,000 lines
+
+rendered/
+  *.html               # 20+ publication-quality outputs</pre>
+      </div>
+      <p>Once the design system exists, rendering is mechanical. The Builder agent takes a markdown artifact, selects the matching template, and produces a styled HTML output in <code>rendered/</code>. The content stays in markdown; the presentation lives in the template.</p>
+    </section>
+
+    <section class="layer-section">
+      <h2 class="layer-section__title">What you get</h2>
+      <div class="file-grid">
+        <div class="file-card">
+          <div class="file-card__name">templates/ directory</div>
+          <div class="file-card__desc">2 reusable templates covering the most common output types.</div>
+          <div class="file-card__meta">~25KB each</div>
+        </div>
+        <div class="file-card">
+          <div class="file-card__name">style.css</div>
+          <div class="file-card__desc">The complete design system. Tokens, typography, layout, light/dark mode.</div>
+          <div class="file-card__meta">~2,000 lines</div>
+        </div>
+        <div class="file-card">
+          <div class="file-card__name">rendered/ directory</div>
+          <div class="file-card__desc">Every publication-quality HTML output the system has produced.</div>
+          <div class="file-card__meta">20+ outputs &middot; grows with every artifact</div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="layer-nav" aria-label="Layer navigation">
+      <a href="skills.html" class="layer-nav__link layer-nav__link--prev">Skills</a>
+      <a href="the-loop.html" class="layer-nav__link layer-nav__link--next">The Loop</a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <p>Agent Prime &middot; MIT License &middot; Built by <a href="https://github.com/avyayalaya" target="_blank" rel="noopener noreferrer">Parth Sangani</a></p>
+    <p class="site-footer__motto">Gradatim Ferociter &mdash; Step by step, ferociously</p>
+  </footer>
+
+  <script src="assets/main.js"></script>
+</body>
+</html>

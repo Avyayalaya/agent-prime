@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Recursive Loop — Layer 07 — Agent Prime</title>
+  <meta name="description" content="The loop isn't a file — it's what happens when the other six layers work together. Every correction compounds. Every session makes the next one smarter.">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('agent-prime-theme');
+        if (saved === 'dark' || saved === 'light') {
+          document.documentElement.setAttribute('data-theme', saved);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600;1,8..60,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+  <div class="progress-bar" aria-hidden="true"></div>
+
+  <header class="site-nav" role="banner">
+    <a href="index.html" class="site-nav__logo" aria-label="Agent Prime — home">Agent Prime</a>
+    <nav aria-label="Main navigation">
+      <ul class="site-nav__links" id="main-nav">
+        <li><a href="index.html#paradigm">The Problem</a></li>
+        <li><a href="index.html#levels">Three Levels</a></li>
+        <li><a href="index.html#layers">The System</a></li>
+        <li><a href="index.html#entry-points">Explore</a></li>
+        <li><a href="index.html#get-started">Get Started</a></li>
+      </ul>
+    </nav>
+    <div class="site-nav__right">
+      <a href="index.html#get-started" class="site-nav__cta">Clone the repo</a>
+      <button class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Toggle dark mode">
+        <span class="theme-toggle__icon--light" aria-hidden="true">&#9788;</span>
+        <span class="theme-toggle__icon--dark" aria-hidden="true">&#9789;</span>
+      </button>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav">
+        <span aria-hidden="true">&#9776;</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <div class="layer-hero" data-accent="the-loop">
+      <div class="layer-hero__breadcrumb">
+        <a href="index.html">Agent Prime</a> <span>/</span> The System <span>/</span> The Recursive Loop
+      </div>
+      <div class="layer-hero__number">Layer 07</div>
+      <h1 class="layer-hero__title">The Recursive Loop</h1>
+      <p class="layer-hero__subtitle">The loop isn&rsquo;t a file &mdash; it&rsquo;s what happens when the other six layers work together. Every correction becomes a permanent rule. Every session makes the next one smarter. The system improves itself every time you use it.</p>
+      <div class="layer-hero__meta">Emerges from layers 1&ndash;6 &middot; No setup required</div>
+    </div>
+
+    <section class="layer-section">
+      <h2 class="layer-section__title">The problem</h2>
+      <p>Most AI setups are static. You set them up, they stay the same. There&rsquo;s no mechanism for the system to get better on its own. You make a correction and it&rsquo;s a one-time fix, not a compounding improvement.</p>
+      <p>You tell the AI &ldquo;stop using jargon in the executive summary&rdquo; and it does &mdash; this session. Next session, it&rsquo;s back to jargon. The correction never sticks. The same mistake costs you the same effort to fix, over and over.</p>
+    </section>
+
+    <section class="layer-section">
+      <h2 class="layer-section__title">What gets encoded</h2>
+      <p>The loop isn&rsquo;t a file &mdash; it&rsquo;s what happens when the other six layers work together. Four mechanisms make it recursive:</p>
+
+      <div class="file-grid">
+        <div class="file-card">
+          <div class="file-card__name">Learning Capture</div>
+          <div class="file-card__desc">Every correction becomes a permanent rule. The first action after any feedback is to identify the pattern, add it to <code>learnings.md</code>, and mark propagation targets. One correction, zero recurrence.</div>
+        </div>
+        <div class="file-card">
+          <div class="file-card__name">Automatic Propagation</div>
+          <div class="file-card__desc">When a learning is captured, the dependency map shows which agent prompts need updating. The correction reaches every agent that needs it &mdash; not just the one that received the feedback.</div>
+        </div>
+        <div class="file-card">
+          <div class="file-card__name">Successor Chaining</div>
+          <div class="file-card__desc">When an agent finishes a task, it writes the next logical task to the dispatch queue. Work chains forward without manual intervention. The system knows what comes next.</div>
+        </div>
+        <div class="file-card">
+          <div class="file-card__name">Self-Audit</div>
+          <div class="file-card__desc">Scripts detect staleness (work items not updated in 7+ days), broken dependencies, and in-progress items that may have crashed. The system flags its own problems before you notice them.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="layer-section">
+      <h2 class="layer-section__title">Real example</h2>
+      <p>Here&rsquo;s how a single correction compounds across sessions in Agent Prime:</p>
+
+      <div class="layer-code">
+        <div class="layer-code__label">The Recursive Loop in Action</div>
+<pre>Session 1: Writer produces a draft
+  &rarr; Parth: "Too many frameworks, no reader guide"
+  &rarr; Learning captured: FM-8 (Right Frameworks Wrong Question)
+  &rarr; Learning captured: FM-9 (Expert-Only Document)
+  &rarr; Propagated to: ALL agent prompts
+
+Session 2: Writer reads updated learnings
+  &rarr; Automatically adds Reader Navigation
+  &rarr; Automatically adds Context Gate
+  &rarr; Draft quality jumps
+
+Session 3: New correction surfaces
+  &rarr; "Framework jargon in Executive Summary"
+  &rarr; Learning captured: "Zero-jargon exec summary"
+  &rarr; Propagated to: Writer, Synthesizer, Analyst agents
+
+Each session makes the next one smarter.
+The cost of each correction drops to zero
+because it never needs to be made again.</pre>
+      </div>
+      <p>The correction in Session 1 is never re-made. It becomes infrastructure. By Session 10, the system has internalized dozens of Parth&rsquo;s preferences &mdash; all applied automatically, before any output is produced.</p>
+    </section>
+
+    <section class="layer-section">
+      <h2 class="layer-section__title">How to set it up</h2>
+      <p>The loop emerges from the other layers. If you have Identity (layer 1) and Memory (layer 2), you already have a basic loop &mdash; corrections persist and compound. Add Agents (layer 3) and the corrections propagate across specialists. Add Orchestration (layer 4) and work chains forward automatically.</p>
+      <p>The full loop requires all six layers, but you start getting compounding returns from just the first two. The earlier you start capturing corrections, the more sessions you have to compound on.</p>
+      <div class="layer-code">
+<pre>Layer 1 (Identity) + Layer 2 (Memory)
+  &rarr; Basic loop: corrections persist
+
++ Layer 3 (Agents)
+  &rarr; Corrections propagate to all specialists
+
++ Layer 4 (Orchestration)
+  &rarr; Work chains forward automatically
+
++ Layer 5 (Craft) + Layer 6 (Nerve)
+  &rarr; Quality gates + ambient intelligence
+  &rarr; Full recursive loop: system improves itself</pre>
+      </div>
+      <p>You don&rsquo;t need to build this deliberately. The loop is what you get when you use the other six layers correctly. The four scripts that power it &mdash; <code>learnings.md</code>, <code>dispatch.md</code>, <code>integrity_check.py</code>, <code>generate_briefing.py</code> &mdash; are already part of the layers above.</p>
+    </section>
+
+    <section class="layer-section">
+      <h2 class="layer-section__title">What you get</h2>
+      <div class="file-grid">
+        <div class="file-card">
+          <div class="file-card__name">No new files</div>
+          <div class="file-card__desc">The loop is the emergent behavior of layers 1&ndash;6 working together. What you get is a system that improves itself every time you use it. The compounding is the product.</div>
+          <div class="file-card__meta">shared/learnings.md &middot; prime/dispatch.md &middot; meta/scripts/integrity_check.py &middot; meta/scripts/generate_briefing.py</div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="layer-nav" aria-label="Layer navigation">
+      <a href="craft.html" class="layer-nav__link layer-nav__link--prev">Craft</a>
+      <a href="index.html#get-started" class="layer-nav__link layer-nav__link--next">Get Started</a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <p>Agent Prime &middot; MIT License &middot; Built by <a href="https://github.com/avyayalaya" target="_blank" rel="noopener noreferrer">Parth Sangani</a></p>
+    <p class="site-footer__motto">Gradatim Ferociter &mdash; Step by step, ferociously</p>
+  </footer>
+
+  <script src="assets/main.js"></script>
+</body>
+</html>

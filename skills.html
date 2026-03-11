@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skills — Layer 05 — Agent Prime</title>
+  <meta name="description" content="Six PM skills that encode expert frameworks, failure modes, and quality gates. AI stops producing generic output when it knows how an expert thinks about a problem.">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('agent-prime-theme');
+        if (saved === 'dark' || saved === 'light') {
+          document.documentElement.setAttribute('data-theme', saved);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600;1,8..60,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+  <div class="progress-bar" aria-hidden="true"></div>
+
+  <header class="site-nav" role="banner">
+    <a href="index.html" class="site-nav__logo" aria-label="Agent Prime — home">Agent Prime</a>
+    <nav aria-label="Main navigation">
+      <ul class="site-nav__links" id="main-nav">
+        <li><a href="index.html#paradigm">The Problem</a></li>
+        <li><a href="index.html#levels">Three Levels</a></li>
+        <li><a href="index.html#layers">The System</a></li>
+        <li><a href="index.html#entry-points">Explore</a></li>
+        <li><a href="index.html#get-started">Get Started</a></li>
+      </ul>
+    </nav>
+    <div class="site-nav__right">
+      <a href="index.html#get-started" class="site-nav__cta">Clone the repo</a>
+      <button class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Toggle dark mode">
+        <span class="theme-toggle__icon--light" aria-hidden="true">&#9788;</span>
+        <span class="theme-toggle__icon--dark" aria-hidden="true">&#9789;</span>
+      </button>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav">
+        <span aria-hidden="true">&#9776;</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <div class="layer-hero" data-accent="skills">
+      <div class="layer-hero__breadcrumb">
+        <a href="index.html">Agent Prime</a> <span>/</span> The System <span>/</span> Skills
+      </div>
+      <div class="layer-hero__number">Layer 05</div>
+      <h1 class="layer-hero__title">Skills</h1>
+      <p class="layer-hero__subtitle">Six PM skills that encode expert frameworks, failure modes, and quality gates. When an agent knows how an expert thinks about a problem, it stops producing generic output and starts producing defensible analysis.</p>
+      <div class="layer-hero__meta">1 directory &middot; Extensible &middot; shared/toolkits/skills/</div>
+    </div>
+
+    <section class="layer-section">
+      <h2 class="layer-section__title">The problem</h2>
+      <p>AI gives you generic output because it lacks domain expertise. Ask it to do competitive analysis and you get a Wikipedia summary. Ask it to write a spec and you get vague requirements.</p>
+      <p>Skills encode how an expert thinks about a problem &mdash; frameworks, failure modes, quality gates. Not what to produce, but how to reason. Load a skill and the agent stops guessing at methodology and starts applying the right one.</p>
+    </section>
+
+    <section class="layer-section">
+      <h2 class="layer-section__title">What gets encoded</h2>
+      <p>Six PM skills, each a standalone markdown file. Extensible to any domain you know deeply.</p>
+
+      <div class="file-grid">
+        <div class="file-card">
+          <div class="file-card__name">Competitive Market Analysis</div>
+          <div class="file-card__desc">9 frameworks: 7 Powers, Aggregation Theory, Wardley Mapping, JTBD, Blue Ocean, Crossing the Chasm, and more. Produces a Competitive War Map with evidence tier annotations.</div>
+        </div>
+        <div class="file-card">
+          <div class="file-card__name">Metric Design</div>
+          <div class="file-card__desc">North Star metric rubrics, Goodhart&apos;s Law countermeasures, A/B test design, retention cohort methodology. Builds measurement systems that don&apos;t get gamed.</div>
+        </div>
+        <div class="file-card">
+          <div class="file-card__name">Specification Writing</div>
+          <div class="file-card__desc">Outcome-first methodology, acceptance criteria taxonomy, scope boundary protocol. Produces zero-question documents &mdash; specs engineers can build from without a follow-up meeting.</div>
+        </div>
+        <div class="file-card">
+          <div class="file-card__name">Problem Framing</div>
+          <div class="file-card__desc">Problem Definition Canvas, 5 Whys, opportunity sizing, constraint mapping, ICE/RICE prioritization. Separates the real problem from the presenting symptom.</div>
+        </div>
+        <div class="file-card">
+          <div class="file-card__name">Discovery Research</div>
+          <div class="file-card__desc">Evidence triangulation, interview analysis, research quality assessment, signal vs noise classification. Turns raw data into defensible insight.</div>
+        </div>
+        <div class="file-card">
+          <div class="file-card__name">Narrative Building</div>
+          <div class="file-card__desc">Narrative arc construction, positioning, Why Now analysis, audience adaptation, objection anticipation. Builds arguments that hold up under pressure.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="layer-section">
+      <h2 class="layer-section__title">Real example</h2>
+      <p>Here&apos;s an excerpt from the competitive analysis skill &mdash; the structure that routes to the right framework and catches the most common failure modes:</p>
+
+      <div class="layer-code">
+        <div class="layer-code__label">skills/competitive-market-analysis/SKILL.md</div>
+<pre>## Step 0: Framework Selection
+Route to the right frameworks based on the question:
+- Market entry?      &#8594; 7 Powers + Wardley + JTBD
+- Competitor move?   &#8594; COAP + Aggregation Theory
+- Build/buy/partner? &#8594; Blue Ocean + Crossing the Chasm
+
+## Step 1: Context Gate
+Before applying ANY framework, verify:
+- Is competitive analysis the right artifact?
+- Is this user-choice or IT-provisioned?
+- Do you have internal data access?
+
+## Failure Modes
+FM-1: Framework without evidence (applying 7 Powers
+      with no market data)
+FM-8: Right frameworks, wrong question
+FM-9: Expert-only document (no reader navigation)</pre>
+      </div>
+      <p>The Context Gate exists because the most expensive mistake isn&apos;t a bad framework &mdash; it&apos;s the right framework applied to the wrong question. Agent Prime caught this on a real M365 Copilot analysis: the war map was technically correct but the real problem was internal activation, not competitive positioning.</p>
+    </section>
+
+    <section class="layer-section">
+      <h2 class="layer-section__title">How to set it up</h2>
+      <p>Each skill is a standalone markdown file that any agent can load. The structure is consistent across all six:</p>
+      <div class="layer-code">
+<pre>Context Gate        &#8594; Is this the right artifact?
+Framework Selection &#8594; Which frameworks apply to this question?
+Step-by-step method &#8594; Exactly how to apply each framework
+Output format       &#8594; What a complete output looks like
+Failure modes       &#8594; What breaks this analysis
+Quality gates       &#8594; How to know if the output is good</pre>
+      </div>
+      <p>Start by encoding one domain you know deeply. Write down how you actually think when you&apos;re doing it well &mdash; the sequence of questions, the frameworks you reach for, the mistakes you&apos;ve seen people make. That&apos;s a skill file.</p>
+      <p>Agent Prime&apos;s skills went from 44% baseline to 93% benchmark score. The methodology is the difference, not the model.</p>
+    </section>
+
+    <section class="layer-section">
+      <h2 class="layer-section__title">What you get</h2>
+      <div class="file-grid">
+        <div class="file-card">
+          <div class="file-card__name">skills/</div>
+          <div class="file-card__desc">Six PM skills, each a complete methodology file. Portable across agents, extensible to any domain.</div>
+          <div class="file-card__meta">6 skills &middot; ~1,200 lines each &middot; portable across agents</div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="layer-nav" aria-label="Layer navigation">
+      <a href="orchestration.html" class="layer-nav__link layer-nav__link--prev">Orchestration</a>
+      <a href="craft.html" class="layer-nav__link layer-nav__link--next">Craft</a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <p>Agent Prime &middot; MIT License &middot; Built by <a href="https://github.com/avyayalaya" target="_blank" rel="noopener noreferrer">Parth Sangani</a></p>
+    <p class="site-footer__motto">Gradatim Ferociter &mdash; Step by step, ferociously</p>
+  </footer>
+
+  <script src="assets/main.js"></script>
+</body>
+</html>

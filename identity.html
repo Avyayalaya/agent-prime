@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Identity — Layer 01 — Agent Prime</title>
+  <meta name="description" content="One markdown file that encodes who you are. Your thinking patterns, judgment heuristics, epistemic guardrails. AI becomes dramatically more effective when it knows how you think.">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('agent-prime-theme');
+        if (saved === 'dark' || saved === 'light') {
+          document.documentElement.setAttribute('data-theme', saved);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600;1,8..60,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+  <div class="progress-bar" aria-hidden="true"></div>
+
+  <header class="site-nav" role="banner">
+    <a href="index.html" class="site-nav__logo" aria-label="Agent Prime — home">Agent Prime</a>
+    <nav aria-label="Main navigation">
+      <ul class="site-nav__links" id="main-nav">
+        <li><a href="index.html#paradigm">The Problem</a></li>
+        <li><a href="index.html#levels">Three Levels</a></li>
+        <li><a href="index.html#layers">The System</a></li>
+        <li><a href="index.html#entry-points">Explore</a></li>
+        <li><a href="index.html#get-started">Get Started</a></li>
+      </ul>
+    </nav>
+    <div class="site-nav__right">
+      <a href="index.html#get-started" class="site-nav__cta">Clone the repo</a>
+      <button class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Toggle dark mode">
+        <span class="theme-toggle__icon--light" aria-hidden="true">&#9788;</span>
+        <span class="theme-toggle__icon--dark" aria-hidden="true">&#9789;</span>
+      </button>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav">
+        <span aria-hidden="true">&#9776;</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <div class="layer-hero" data-accent="identity">
+      <div class="layer-hero__breadcrumb">
+        <a href="index.html">Agent Prime</a> <span>/</span> The System <span>/</span> Identity
+      </div>
+      <div class="layer-hero__number">Layer 01</div>
+      <h1 class="layer-hero__title">Identity</h1>
+      <p class="layer-hero__subtitle">One markdown file that encodes who you are &mdash; your thinking patterns, judgment heuristics, epistemic guardrails, and operating principles. AI becomes dramatically more effective when it knows how you think.</p>
+      <div class="layer-hero__meta">1 file &middot; 5 min setup &middot; shared/context.md</div>
+    </div>
+
+    <section class="layer-section">
+      <h2 class="layer-section__title">The problem</h2>
+      <p>Every AI conversation starts from zero. The model has no idea how you reason, what you value, or what quality means to you. So you get generic output. You correct it, and the correction disappears next session.</p>
+      <p>Most people solve this by writing longer prompts each time. That doesn't scale. Identity is the structural fix: a persistent file that every agent reads before producing anything.</p>
+    </section>
+
+    <section class="layer-section">
+      <h2 class="layer-section__title">What gets encoded</h2>
+      <p>The identity file isn't a bio. It's a thinking model. Agent Prime's context.md captures five layers of who you are:</p>
+
+      <div class="file-grid">
+        <div class="file-card">
+          <div class="file-card__name">Career Arc</div>
+          <div class="file-card__desc">Your trajectory and what makes your perspective unusual. The cross-domain experience that shapes your pattern recognition.</div>
+        </div>
+        <div class="file-card">
+          <div class="file-card__name">Operating Philosophy</div>
+          <div class="file-card__desc">Your core drives and values. In Agent Prime, this is the Four Wills &mdash; Know, Think, Act, Will.</div>
+        </div>
+        <div class="file-card">
+          <div class="file-card__name">Reasoning Operations</div>
+          <div class="file-card__desc">How you actually think. Layer thinking, isomorphic mapping, adversarial self-critique, hidden dependency hunting.</div>
+        </div>
+        <div class="file-card">
+          <div class="file-card__name">Intellectual Range</div>
+          <div class="file-card__desc">The cross-disciplinary models you draw from. Chaos theory, quantum mechanics, evolutionary dynamics, philosophy &mdash; the full substrate of your pattern recognition.</div>
+        </div>
+        <div class="file-card">
+          <div class="file-card__name">Epistemic Guardrails</div>
+          <div class="file-card__desc">Nine failure modes that corrupt thinking when using AI. Premature coherence, analogy capture, forced synthesis, deference drift, and more.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="layer-section">
+      <h2 class="layer-section__title">Real example</h2>
+      <p>Here's an excerpt from Agent Prime's actual identity file &mdash; the reasoning operations section:</p>
+
+      <div class="layer-code">
+        <div class="layer-code__label">shared/context.md — Reasoning Operations</div>
+<pre>1. Layer thinking.
+   Any complex system has layers. The interesting failures
+   and opportunities happen at the interfaces between layers.
+   First question in any new domain: "What are the layers
+   and where are the hidden dependencies between them?"
+
+2. Isomorphic mapping.
+   Structural parallels between systems in completely
+   different domains — the same shape, different substrate.
+   The bar: if you can't state the isomorphism in one
+   sentence, the analogy isn't precise enough.
+
+3. Adversarial self-critique.
+   "Now rip this entire thinking to shreds." Genuine
+   attempts to break your own reasoning — not devil's
+   advocacy as performance.</pre>
+      </div>
+      <p>Every agent reads this before producing output. The result: output that thinks the way you think, catches its own mistakes, and uses your vocabulary &mdash; from the first message.</p>
+    </section>
+
+    <section class="layer-section">
+      <h2 class="layer-section__title">How to set it up</h2>
+      <p>Create one file: <code>shared/context.md</code>. Write down:</p>
+      <div class="layer-code">
+<pre>## Who Am I?
+Your role, trajectory, and what makes your lens unusual.
+
+## How I Think
+Your reasoning patterns. What do you do when you
+encounter a new problem? What's your first instinct?
+
+## What I Value
+Your quality bar. What does "good" look like to you?
+What makes you reject output?
+
+## Failure Modes
+How does your own thinking break? Where do you
+get lazy, overconfident, or sloppy?</pre>
+      </div>
+      <p>Start with a paragraph for each. You'll expand it over time as you notice patterns in your own corrections. The Memory layer captures those patterns automatically.</p>
+    </section>
+
+    <section class="layer-section">
+      <h2 class="layer-section__title">What you get</h2>
+      <div class="file-grid">
+        <div class="file-card">
+          <div class="file-card__name">shared/context.md</div>
+          <div class="file-card__desc">Your complete thinking model. Every agent reads this first.</div>
+          <div class="file-card__meta">~300 lines &middot; grows over time</div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="layer-nav" aria-label="Layer navigation">
+      <a href="index.html#layers" class="layer-nav__link layer-nav__link--prev">All Layers</a>
+      <a href="memory.html" class="layer-nav__link layer-nav__link--next">Memory</a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <p>Agent Prime &middot; MIT License &middot; Built by <a href="https://github.com/avyayalaya" target="_blank" rel="noopener noreferrer">Parth Sangani</a></p>
+    <p class="site-footer__motto">Gradatim Ferociter &mdash; Step by step, ferociously</p>
+  </footer>
+
+  <script src="assets/main.js"></script>
+</body>
+</html>

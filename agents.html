@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agents &mdash; Layer 03 &mdash; Agent Prime</title>
+  <meta name="description" content="11 specialized agents that each carry encoded expertise. Split your work across Scout, Synthesizer, Writer, Analyst, Planner, Builder, and more — each running with full context.">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('agent-prime-theme');
+        if (saved === 'dark' || saved === 'light') {
+          document.documentElement.setAttribute('data-theme', saved);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600;1,8..60,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+  <div class="progress-bar" aria-hidden="true"></div>
+
+  <header class="site-nav" role="banner">
+    <a href="index.html" class="site-nav__logo" aria-label="Agent Prime &mdash; home">Agent Prime</a>
+    <nav aria-label="Main navigation">
+      <ul class="site-nav__links" id="main-nav">
+        <li><a href="index.html#paradigm">The Problem</a></li>
+        <li><a href="index.html#levels">Three Levels</a></li>
+        <li><a href="index.html#layers">The System</a></li>
+        <li><a href="index.html#entry-points">Explore</a></li>
+        <li><a href="index.html#get-started">Get Started</a></li>
+      </ul>
+    </nav>
+    <div class="site-nav__right">
+      <a href="index.html#get-started" class="site-nav__cta">Clone the repo</a>
+      <button class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Toggle dark mode">
+        <span class="theme-toggle__icon--light" aria-hidden="true">&#9788;</span>
+        <span class="theme-toggle__icon--dark" aria-hidden="true">&#9789;</span>
+      </button>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav">
+        <span aria-hidden="true">&#9776;</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <div class="layer-hero" data-accent="agents">
+      <div class="layer-hero__breadcrumb">
+        <a href="index.html">Agent Prime</a> <span>/</span> The System <span>/</span> Agents
+      </div>
+      <div class="layer-hero__number">Layer 03</div>
+      <h1 class="layer-hero__title">Agents</h1>
+      <p class="layer-hero__subtitle">11 specialized agents that each carry encoded expertise &mdash; Scout, Synthesizer, Writer, Analyst, Planner, Builder, and more. Split the work. Run it in parallel. Each agent knows exactly what to do.</p>
+      <div class="layer-hero__meta">11 agents &middot; pick one to start &middot; agents/ directory</div>
+    </div>
+
+    <section class="layer-section">
+      <h2 class="layer-section__title">The problem</h2>
+      <p>One conversation, one task, one thread. You can&rsquo;t run research while writing while analyzing. Every task gets your full attention or none of it.</p>
+      <p>Agent Prime splits the work across specialized agents that each carry encoded expertise. Scout doesn&rsquo;t write. Writer doesn&rsquo;t analyze markets. Prime doesn&rsquo;t do the work &mdash; it routes it. Specialization is how you scale output without scaling effort.</p>
+    </section>
+
+    <section class="layer-section">
+      <h2 class="layer-section__title">What gets encoded</h2>
+      <p>11 agents organized by capability. Each is a standalone markdown file with its own methodology, quality gates, and context verification gate.</p>
+
+      <div class="file-grid">
+        <div class="file-card">
+          <div class="file-card__name">Scout</div>
+          <div class="file-card__desc">Scans sources for signals, evidence, and market data. Persists findings to structured signal files for downstream agents.</div>
+        </div>
+        <div class="file-card">
+          <div class="file-card__name">Synthesizer</div>
+          <div class="file-card__desc">Combines inputs into structured insight and theses. Turns raw signals into positions with evidence tiers and confidence levels.</div>
+        </div>
+        <div class="file-card">
+          <div class="file-card__name">Writer</div>
+          <div class="file-card__desc">Converts insight into publishable artifacts. Enforces voice rules, production order, and format constraints across every channel.</div>
+        </div>
+        <div class="file-card">
+          <div class="file-card__name">Industry Analyst</div>
+          <div class="file-card__desc">Deep structural mapping of industries. Nine-step methodology producing 80&ndash;90KB of layered analysis per run.</div>
+        </div>
+        <div class="file-card">
+          <div class="file-card__name">Investment Analyst</div>
+          <div class="file-card__desc">Investment-grade multi-lens analysis. Takes structural maps from Industry Analyst and runs valuation, moat assessment, and risk scoring.</div>
+        </div>
+        <div class="file-card">
+          <div class="file-card__name">Planner</div>
+          <div class="file-card__desc">Takes ideas through a 4-stage planning pipeline to a Build Handoff Spec. Plan before build &mdash; every time.</div>
+        </div>
+        <div class="file-card">
+          <div class="file-card__name">Builder</div>
+          <div class="file-card__desc">Executes Build Handoff Specs into deliverables. Receives the spec from Planner and ships without scope drift.</div>
+        </div>
+        <div class="file-card">
+          <div class="file-card__name">Connector</div>
+          <div class="file-card__desc">Builds strategic relationships and distributes work. Manages outreach sequences, follow-ups, and distribution across channels.</div>
+        </div>
+        <div class="file-card">
+          <div class="file-card__name">Experimenter</div>
+          <div class="file-card__desc">Runs experiments to validate claims empirically. Designs test conditions, tracks outcomes, updates confidence levels.</div>
+        </div>
+        <div class="file-card">
+          <div class="file-card__name">Clerk</div>
+          <div class="file-card__desc">Tracks commitments, deadlines, and staleness. Surfaces what&rsquo;s overdue, what&rsquo;s drifting, and what needs a decision.</div>
+        </div>
+        <div class="file-card">
+          <div class="file-card__name">Prime</div>
+          <div class="file-card__desc">Orchestrates, routes work, reviews quality, kills noise. The default agent when no specific capability is invoked.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="layer-section">
+      <h2 class="layer-section__title">Real example</h2>
+      <p>Every agent prompt opens with a Context Verification Gate &mdash; a blocking checklist that runs before any output is produced. Here&rsquo;s Scout&rsquo;s:</p>
+
+      <div class="layer-code">
+        <div class="layer-code__label">agents/scout/prompt.md &mdash; Context Verification Gate</div>
+<pre>## Context Verification Gate
+Before producing ANY output, verify access to:
+- [ ] shared/context.md (identity + epistemic guardrails)
+- [ ] shared/learnings.md (accumulated corrections)
+- [ ] shared/registry.json (current work items)
+- [ ] agents/scout/signals/ (prior signal scans)
+
+If ANY file is missing, STOP and ask. Do not proceed
+with degraded context.</pre>
+      </div>
+      <p>This gate is non-negotiable. A 200-word output requires the same gate as a 4,000-word analysis. Skipping it because a task feels small is how you get generic output that ignores your thinking, voice, and prior corrections.</p>
+    </section>
+
+    <section class="layer-section">
+      <h2 class="layer-section__title">How to set it up</h2>
+      <p>Each agent is a standalone markdown file. Start with one &mdash; Scout is good for research, Writer for content, Planner for breaking down projects. Each prompt follows the same structure:</p>
+      <div class="layer-code">
+<pre>Context Verification Gate
+  → verify required files before producing anything
+
+Role Definition
+  → what this agent does and doesn't do
+
+Methodology
+  → step-by-step process, sequential not summarizable
+
+Output Format
+  → structure, naming conventions, where files land
+
+Quality Gates
+  → checks the agent runs before closing the task</pre>
+      </div>
+      <p>Add more agents as your system grows. Each one compounds the value of the others &mdash; Scout signals feed Synthesizer theses, which feed Writer drafts, which Connector distributes. The pipeline self-reinforces once you have three or four agents running.</p>
+    </section>
+
+    <section class="layer-section">
+      <h2 class="layer-section__title">What you get</h2>
+      <div class="file-grid">
+        <div class="file-card">
+          <div class="file-card__name">agents/</div>
+          <div class="file-card__desc">11 agent directories, each with a standalone prompt file that encodes role, methodology, and quality gates.</div>
+          <div class="file-card__meta">11 agents &middot; ~1,500 lines each &middot; each a standalone prompt</div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="layer-nav" aria-label="Layer navigation">
+      <a href="memory.html" class="layer-nav__link layer-nav__link--prev">Memory</a>
+      <a href="orchestration.html" class="layer-nav__link layer-nav__link--next">Orchestration</a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <p>Agent Prime &middot; MIT License &middot; Built by <a href="https://github.com/avyayalaya" target="_blank" rel="noopener noreferrer">Parth Sangani</a></p>
+    <p class="site-footer__motto">Gradatim Ferociter &mdash; Step by step, ferociously</p>
+  </footer>
+
+  <script src="assets/main.js"></script>
+</body>
+</html>

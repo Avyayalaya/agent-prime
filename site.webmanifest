@@ -1,0 +1,21 @@
+{
+  "name": "Agent Prime",
+  "short_name": "Agent Prime",
+  "description": "A system that builds systems. 7 layers, 11 agents, recursive self-improvement.",
+  "icons": [
+    {
+      "src": "android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#B85C38",
+  "background_color": "#FDFAF6",
+  "display": "standalone",
+  "start_url": "."
+}

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agent Prime — A Persistent AI Operating System</title>
+  <meta name="description" content="An open-source AI operating system built entirely from markdown files. Seven architectural layers that give any LLM persistent identity, memory, and craft.">
+  <meta property="og:title" content="Agent Prime — A Persistent AI Operating System">
+  <meta property="og:description" content="Seven architectural layers built from markdown files. Persistent identity, compounding memory, parallel agents, publication-quality output.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://avyayalaya.github.io/agent-prime/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Agent Prime — A Persistent AI Operating System">
+  <meta name="twitter:description" content="An open-source AI operating system. Seven layers, eleven agents, zero dependencies.">
+  <meta name="twitter:image" content="https://avyayalaya.github.io/agent-prime/assets/og-image.png">
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Prevent dark mode flash -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('agent-prime-theme');
+        if (saved === 'dark' || saved === 'light') {
+          document.documentElement.setAttribute('data-theme', saved);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Google Fonts: preconnect + load -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600;1,8..60,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+  <!-- Progress bar -->
+  <div class="progress-bar" aria-hidden="true"></div>
+
+  <!-- Floating shapes (behind hero) -->
+
+  <!-- Site navigation -->
+  <header class="site-nav" role="banner">
+    <a href="#" class="site-nav__logo" aria-label="Agent Prime — home">Agent Prime</a>
+
+    <nav aria-label="Main navigation">
+      <ul class="site-nav__links" id="main-nav">
+        <li><a href="#paradigm">The Problem</a></li>
+        <li><a href="#levels">Three Levels</a></li>
+        <li><a href="#layers">The System</a></li>
+        <li><a href="#entry-points">Explore</a></li>
+        <li><a href="#get-started">Get Started</a></li>
+      </ul>
+    </nav>
+
+    <div class="site-nav__right">
+      <a href="#get-started" class="site-nav__cta">Clone the repo</a>
+      <button
+        class="theme-toggle"
+        type="button"
+        aria-label="Switch to dark mode"
+        title="Toggle dark mode"
+      >
+        <span class="theme-toggle__icon--light" aria-hidden="true">&#9788;</span>
+        <span class="theme-toggle__icon--dark" aria-hidden="true">&#9789;</span>
+      </button>
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-label="Open navigation"
+        aria-expanded="false"
+        aria-controls="main-nav"
+      >
+        <span aria-hidden="true">&#9776;</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===================== HERO (Cinematic) ===================== -->
+    <section id="hero" class="hero">
+      <div class="hero-shape s1"></div>
+      <div class="hero-shape s2"></div>
+      <div class="hero__grid-overlay"></div>
+
+      <div class="hero__content">
+        <h1 class="hero__headline">Agent <span class="gradient-text">Prime</span></h1>
+        <div class="hero__manifesto">
+          <p>Every interesting failure happens at interfaces. That's the first thing worth looking for in any system — where are the layers, and where do they break?</p>
+          <p>AI has structural breaks most people learn to live with. Sessions start blank. Corrections evaporate. You can only do one thing at a time. Output sounds like a machine wrote it. And none of it gets better on its own.</p>
+          <p>Agent Prime came out of pulling at those threads. Seven architectural layers, each a markdown file, each compounding on the last.</p>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat__val" data-count="7">0</div>
+            <div class="hero-stat__label">Layers</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat__val" data-count="11">0</div>
+            <div class="hero-stat__label">Agents</div>
+          </div>
+        </div>
+
+        <div class="hero__author">
+          <strong>Parth Sangani</strong> &middot; <em>Gradatim Ferociter</em> &mdash; step by step, ferociously
+        </div>
+
+        <div class="hero__cta">
+          <a href="#get-started" class="btn btn--primary">Get Started</a>
+          <a href="https://github.com/avyayalaya/agent-prime" class="btn btn--secondary" target="_blank" rel="noopener">Star on GitHub</a>
+        </div>
+      </div>
+
+      <div class="scroll-indicator" aria-hidden="true"><span></span></div>
+    </section>
+
+    <!-- ===================== THREE CEILINGS ===================== -->
+    <section id="paradigm" class="section fade-in">
+      <div class="section-number" aria-hidden="true">01</div>
+      <div class="section__header">
+        <h2 class="section__title">Three ceilings</h2>
+        <p class="section__subtitle">The structural problems that cap what one person can do with AI</p>
+      </div>
+
+      <div class="ceilings-grid stagger">
+        <div class="ceiling-card reveal">
+          <h3 class="ceiling-card__title">Context Ceiling</h3>
+          <p class="ceiling-card__desc">Every session starts from zero. Your goals, your thinking patterns, what you tried last week — gone. Agent Prime retains 42+ key decisions, 14+ voice corrections, and 11+ agent design learnings. Every session starts where the last one ended.</p>
+        </div>
+
+        <div class="ceiling-card reveal">
+          <h3 class="ceiling-card__title">Consistency Ceiling</h3>
+          <p class="ceiling-card__desc">You fix the same mistake three times. Each correction is local to one session. Agent Prime captures each mistake as a permanent rule. The rule propagates to every agent that needs it. The mistake cannot recur.</p>
+        </div>
+
+        <div class="ceiling-card reveal">
+          <h3 class="ceiling-card__title">Throughput Ceiling</h3>
+          <p class="ceiling-card__desc">One conversation, one task, one thread. Agent Prime runs parallel workstreams — research, synthesis, writing, analysis — each agent carrying encoded expertise. You review and decide. The system does the rest.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== THREE LEVELS ===================== -->
+    <section id="levels" class="section fade-in">
+      <div class="section-number" aria-hidden="true">02</div>
+      <div class="section__header">
+        <h2 class="section__title">Three levels</h2>
+        <p class="section__subtitle">Most people stop at Level 1. The system lives at Level 3.</p>
+      </div>
+
+      <div class="levels-grid stagger">
+        <div class="level-card reveal">
+          <div class="level-card__num">1</div>
+          <h3>AI as Tool</h3>
+          <p>Give AI your thinking model — your frameworks, evidence standards, quality bar. Output quality jumps immediately.</p>
+        </div>
+
+        <div class="level-card reveal">
+          <div class="level-card__num">2</div>
+          <h3>AI as Partner</h3>
+          <p>It challenges you. Each conversation sharpens your mental model. AI as thinking partner, pushing back where you're wrong.</p>
+        </div>
+
+        <div class="level-card level-card--featured reveal">
+          <div class="level-card__num">3</div>
+          <h3>AI as Infrastructure</h3>
+          <p>A system of agents pursuing your goals. Every session makes the next one smarter. Recursive loops. A system that builds systems. Agent Prime is what Level 3 looks like in practice.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== THE SYSTEM (7 Layers) ===================== -->
+    <section id="layers" class="section fade-in">
+      <div class="section-number" aria-hidden="true">03</div>
+      <div class="section__header">
+        <h2 class="section__title">The System</h2>
+        <p class="section__subtitle">Seven layers, each independently useful. Together, they compound.</p>
+        <a href="https://github.com/avyayalaya/agent-prime/blob/main/system_map_v2.md" class="section__map-link" target="_blank" rel="noopener noreferrer">View the full system map &rarr;</a>
+      </div>
+
+      <div class="layers-grid stagger">
+        <div class="layer-card reveal" data-layer="identity">
+          <span class="layer-card__number">Layer 01</span>
+          <h3 class="layer-card__title">Identity</h3>
+          <p class="layer-card__description">One markdown file that encodes who you are — your thinking patterns, judgment heuristics, epistemic guardrails, and operating principles. AI becomes dramatically more effective when it knows how you think.</p>
+          <span class="layer-card__meta">1 file &middot; 5 min setup</span>
+          <a href="identity.html" class="layer-card__link">Explore Identity &rarr;</a>
+        </div>
+
+        <div class="layer-card reveal" data-layer="memory">
+          <span class="layer-card__number">Layer 02</span>
+          <h3 class="layer-card__title">Memory</h3>
+          <p class="layer-card__description">Corrections compound across every session. Fix something in one agent, it propagates everywhere. A dependency map ensures nothing drifts. The system gets smarter every time you use it.</p>
+          <span class="layer-card__meta">2 files &middot; 10 min setup</span>
+          <a href="memory.html" class="layer-card__link">Explore Memory &rarr;</a>
+        </div>
+
+        <div class="layer-card reveal" data-layer="agents">
+          <span class="layer-card__number">Layer 03</span>
+          <h3 class="layer-card__title">Agents</h3>
+          <p class="layer-card__description">Eleven specialized agents — scout, synthesizer, writer, planner, builder, and more. Each is a standalone markdown prompt. Run one, run several, compose them into workflows. Each works on its own.</p>
+          <span class="layer-card__meta">11 agents &middot; pick any</span>
+          <a href="agents.html" class="layer-card__link">Explore Agents &rarr;</a>
+        </div>
+
+        <div class="layer-card reveal" data-layer="orchestration">
+          <span class="layer-card__number">Layer 04</span>
+          <h3 class="layer-card__title">Orchestration</h3>
+          <p class="layer-card__description">A registry tracks every work item. A dispatch queue sequences what happens next. A briefing pipeline tells you what's overdue, what's ready, and what needs your input. Wake up to a system that already knows the plan.</p>
+          <span class="layer-card__meta">3 files &middot; system backbone</span>
+          <a href="orchestration.html" class="layer-card__link">Explore Orchestration &rarr;</a>
+        </div>
+
+        <div class="layer-card reveal" data-layer="skills">
+          <span class="layer-card__number">Layer 05</span>
+          <h3 class="layer-card__title">Skills</h3>
+          <p class="layer-card__description">Plug domain expertise into any agent. Skills encode how to think about a problem — frameworks, failure modes, quality gates, adversarial self-critique. Encoded methodologies, portable across agents.</p>
+          <span class="layer-card__meta">6 PM skills &middot; extensible</span>
+          <a href="skills.html" class="layer-card__link">Explore Skills &rarr;</a>
+        </div>
+
+        <div class="layer-card reveal" data-layer="craft">
+          <span class="layer-card__number">Layer 06</span>
+          <h3 class="layer-card__title">Craft</h3>
+          <p class="layer-card__description">Eight HTML templates turn markdown into publication-quality pages. Theses with sticky navigation. Investment dashboards with sortable tables. Articles with word-count progress bars. Output that carries your voice and design standards.</p>
+          <span class="layer-card__meta">8 templates &middot; design system</span>
+          <a href="craft.html" class="layer-card__link">Explore Craft &rarr;</a>
+        </div>
+
+        <div class="layer-card layer-card--full reveal" data-layer="the-loop">
+          <span class="layer-card__number">Layer 07</span>
+          <h3 class="layer-card__title">The Recursive Loop</h3>
+          <p class="layer-card__description">Every session produces learnings. Learnings propagate to agent prompts. Better prompts produce better output. Better output reveals subtler corrections. The system audits itself, flags staleness, and pushes work forward. The reason the whole thing works.</p>
+          <a href="the-loop.html" class="layer-card__link">Explore The Loop &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PULL QUOTE ===================== -->
+    <div class="pull-quote reveal">
+      <p>A single person operating with the output, consistency, and strategic depth of a small team — <span class="pull-quote__accent">with every session compounding on the last.</span></p>
+    </div>
+
+    <!-- ===================== WHERE DO YOU START? ===================== -->
+    <section id="entry-points" class="section fade-in">
+      <div class="section-number" aria-hidden="true">04</div>
+      <div class="section__header">
+        <h2 class="section__title">Where do you start?</h2>
+        <p class="section__subtitle">Pick the layer that solves your most pressing problem.</p>
+      </div>
+
+      <div class="decision-grid stagger">
+        <a href="identity.html" class="decision-card reveal" data-layer="identity">
+          <p class="decision-card__problem">Identity</p>
+          <span class="decision-card__solution">AI becomes dramatically more effective when it knows how you think</span>
+        </a>
+
+        <a href="memory.html" class="decision-card reveal" data-layer="memory">
+          <p class="decision-card__problem">Memory</p>
+          <span class="decision-card__solution">Every correction compounds across every session and every agent</span>
+        </a>
+
+        <a href="agents.html" class="decision-card reveal" data-layer="agents">
+          <p class="decision-card__problem">Agents</p>
+          <span class="decision-card__solution">Run research, writing, and analysis in parallel with specialized agents</span>
+        </a>
+
+        <a href="orchestration.html" class="decision-card reveal" data-layer="orchestration">
+          <p class="decision-card__problem">Orchestration</p>
+          <span class="decision-card__solution">A system that tracks everything, sequences work, and knows the plan</span>
+        </a>
+
+        <a href="skills.html" class="decision-card reveal" data-layer="skills">
+          <p class="decision-card__problem">Skills</p>
+          <span class="decision-card__solution">Encode domain expertise as repeatable methodology any agent can use</span>
+        </a>
+
+        <a href="craft.html" class="decision-card reveal" data-layer="craft">
+          <p class="decision-card__problem">Craft</p>
+          <span class="decision-card__solution">Publication-quality output that carries your voice and design standards</span>
+        </a>
+
+        <a href="#get-started" class="decision-card decision-card--full reveal" data-layer="all">
+          <p class="decision-card__problem">The whole system</p>
+          <span class="decision-card__solution">All seven layers, recursive improvement, compounding from day one &rarr; Clone Agent Prime</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===================== ARTIFACTS ===================== -->
+    <section id="artifacts" class="section fade-in">
+      <div class="section-number" aria-hidden="true">05</div>
+      <div class="section__header">
+        <h2 class="section__title">Built with Agent Prime</h2>
+        <p class="section__subtitle">Every artifact below was produced by the system. Actual rendered output.</p>
+      </div>
+
+      <div class="gallery-grid stagger">
+        <div class="artifact-card reveal">
+          <div class="artifact-card__img"><img src="assets/artifact-thesis.png" alt="The Meta-Skill Thesis screenshot" loading="lazy"></div>
+          <div class="artifact-card__body">
+            <h3 class="artifact-card__title">The Meta-Skill Thesis</h3>
+            <p class="artifact-card__meta">Strategic thesis &middot; 5,200 words</p>
+          </div>
+        </div>
+
+        <div class="artifact-card reveal">
+          <div class="artifact-card__img"><img src="assets/artifact-investment.png" alt="Cloud AI Investment Analysis screenshot" loading="lazy"></div>
+          <div class="artifact-card__body">
+            <h3 class="artifact-card__title">Cloud AI Investment Analysis</h3>
+            <p class="artifact-card__meta">Investment dashboard &middot; 8 analytical lenses</p>
+          </div>
+        </div>
+
+        <div class="artifact-card reveal">
+          <div class="artifact-card__img"><img src="assets/artifact-warmap.png" alt="Competitive War Map screenshot" loading="lazy"></div>
+          <div class="artifact-card__body">
+            <h3 class="artifact-card__title">Figma vs Canva Competitive War Map</h3>
+            <p class="artifact-card__meta">Competitive analysis &middot; 9 frameworks</p>
+          </div>
+        </div>
+
+        <div class="artifact-card reveal">
+          <div class="artifact-card__img"><img src="assets/artifact-paradox.png" alt="The Personalization Paradox screenshot" loading="lazy"></div>
+          <div class="artifact-card__body">
+            <h3 class="artifact-card__title">The Personalization Paradox</h3>
+            <p class="artifact-card__meta">Published article &middot; Substack</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== GET STARTED ===================== -->
+    <section id="get-started" class="section fade-in">
+      <div class="section-number" aria-hidden="true">06</div>
+      <div class="section__header">
+        <h2 class="section__title">Get Started</h2>
+      </div>
+
+      <div class="paths-grid stagger">
+        <div class="path-card reveal">
+          <h3 class="path-card__title">Take One Piece</h3>
+          <p class="path-card__desc">Grab a context file, an agent prompt, or the memory pattern. Drop it into your workflow. Start compounding today.</p>
+        </div>
+
+        <div class="path-card path-card--primary reveal">
+          <h3 class="path-card__title">Build Your Own</h3>
+          <p class="path-card__desc">Follow the guided projects. Research and Publish or Plan and Build. From zero to a working system in 30 minutes.</p>
+        </div>
+
+        <div class="path-card reveal">
+          <h3 class="path-card__title">Clone Everything</h3>
+          <p class="path-card__desc">Full Agent Prime. Eleven agents, seven layers, recursive improvement. Instantiate it for your domain and make it yours.</p>
+        </div>
+      </div>
+
+      <div class="clone-command">
+        <code class="clone-command__command">git clone https://github.com/avyayalaya/agent-prime</code>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site footer -->
+  <footer class="site-footer">
+    <p>Agent Prime &middot; MIT License &middot; Built by <a href="https://github.com/avyayalaya" target="_blank" rel="noopener noreferrer">Parth Sangani</a></p>
+    <p class="site-footer__motto">Gradatim Ferociter &mdash; Step by step, ferociously</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/main.js"></script>
+</body>
+</html>

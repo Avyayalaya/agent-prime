@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orchestration — Layer 04 — Agent Prime</title>
+  <meta name="description" content="Four files that create an orchestration backbone. Registry, dispatch queue, dashboard, and session briefing. Wake up to a system that already knows the plan.">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('agent-prime-theme');
+        if (saved === 'dark' || saved === 'light') {
+          document.documentElement.setAttribute('data-theme', saved);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600;1,8..60,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+  <div class="progress-bar" aria-hidden="true"></div>
+
+  <header class="site-nav" role="banner">
+    <a href="index.html" class="site-nav__logo" aria-label="Agent Prime — home">Agent Prime</a>
+    <nav aria-label="Main navigation">
+      <ul class="site-nav__links" id="main-nav">
+        <li><a href="index.html#paradigm">The Problem</a></li>
+        <li><a href="index.html#levels">Three Levels</a></li>
+        <li><a href="index.html#layers">The System</a></li>
+        <li><a href="index.html#entry-points">Explore</a></li>
+        <li><a href="index.html#get-started">Get Started</a></li>
+      </ul>
+    </nav>
+    <div class="site-nav__right">
+      <a href="index.html#get-started" class="site-nav__cta">Clone the repo</a>
+      <button class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Toggle dark mode">
+        <span class="theme-toggle__icon--light" aria-hidden="true">&#9788;</span>
+        <span class="theme-toggle__icon--dark" aria-hidden="true">&#9789;</span>
+      </button>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav">
+        <span aria-hidden="true">&#9776;</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <div class="layer-hero" data-accent="orchestration">
+      <div class="layer-hero__breadcrumb">
+        <a href="index.html">Agent Prime</a> <span>/</span> The System <span>/</span> Orchestration
+      </div>
+      <div class="layer-hero__number">Layer 04</div>
+      <h1 class="layer-hero__title">Orchestration</h1>
+      <p class="layer-hero__subtitle">Four files that create an orchestration backbone &mdash; a registry, a dispatch queue, a pipeline tracker, and a session briefing. Wake up to a system that already knows the plan.</p>
+      <div class="layer-hero__meta">4 files &middot; System backbone &middot; shared/registry.json &middot; prime/dispatch.md &middot; prime/dashboard.md &middot; prime/briefing.md</div>
+    </div>
+
+    <section class="layer-section">
+      <h2 class="layer-section__title">The problem</h2>
+      <p>Without a system, you forget what you were working on. Tasks fall through cracks. You spend the first 10 minutes of every session figuring out where you left off. There's no queue, no priority, no staleness detection.</p>
+      <p>Most people track work in their heads, or in a notes app with no structure. That works for five items. It breaks at fifty. Orchestration is the structural fix: a set of files that hold state so your brain doesn't have to.</p>
+    </section>
+
+    <section class="layer-section">
+      <h2 class="layer-section__title">What gets encoded</h2>
+      <p>Four files that wire the system together. Each one does a specific job:</p>
+
+      <div class="file-grid">
+        <div class="file-card">
+          <div class="file-card__name">registry.json</div>
+          <div class="file-card__desc">Single source of truth for every work item. Projects, tasks, theses, backlog. Status tracking, goal mapping, timestamps. If it isn't in the registry, it doesn't exist.</div>
+        </div>
+        <div class="file-card">
+          <div class="file-card__name">dispatch.md</div>
+          <div class="file-card__desc">Active queue with decision types: auto, approve, review, input. Blocking relationships. Successor rules &mdash; when one task finishes, the next one queues automatically.</div>
+        </div>
+        <div class="file-card">
+          <div class="file-card__name">dashboard.md</div>
+          <div class="file-card__desc">Auto-generated pipeline tracker. Today's priorities, staleness flags, what needs your input. Regenerated from registry every session so it's always current.</div>
+        </div>
+        <div class="file-card">
+          <div class="file-card__name">briefing.md</div>
+          <div class="file-card__desc">Session-start briefing. What's overdue, what's ready, what changed. Generated by a Python script so you wake up to a system that already knows the plan.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="layer-section">
+      <h2 class="layer-section__title">Real example</h2>
+      <p>Here's an actual work item from Agent Prime's registry &mdash; a task for this landing site:</p>
+
+      <div class="layer-code">
+        <div class="layer-code__label">shared/registry.json &mdash; Work Item</div>
+<pre>{
+  "id": "TSK-014",
+  "title": "Build landing site for open-source release",
+  "type": "task",
+  "status": "in_progress",
+  "goal": "Matter",
+  "parent": "PLN-009",
+  "assigned_to": "builder",
+  "created": "2026-03-08",
+  "updated": "2026-03-10",
+  "next_action": "Build layer pages"
+}</pre>
+      </div>
+      <p>Every item has a type, a status, a goal it serves, and a next action. The registry doesn't just track what exists &mdash; it tracks what happens next.</p>
+    </section>
+
+    <section class="layer-section">
+      <h2 class="layer-section__title">How to set it up</h2>
+      <p>Start with <code>registry.json</code> &mdash; a JSON array of work items. Each item gets an ID, status, and goal. Add <code>dispatch.md</code> when you have enough items to need sequencing. The dashboard and briefing scripts are optional but powerful &mdash; they turn raw state into actionable summaries.</p>
+      <div class="layer-code">
+<pre>// registry.json — minimum viable item
+{
+  "id": "TSK-001",
+  "title": "Describe the work in one line",
+  "type": "task",        // task | project | thesis | backlog
+  "status": "backlog",   // backlog | planning | in_progress | done
+  "goal": "Matter",      // which life goal this serves
+  "next_action": "What happens next"
+}</pre>
+      </div>
+      <p>The key insight: track work items in structured data, not in your head. JSON is machine-readable, so agents can query it, scripts can generate dashboards from it, and nothing falls through the cracks.</p>
+    </section>
+
+    <section class="layer-section">
+      <h2 class="layer-section__title">What you get</h2>
+      <div class="file-grid">
+        <div class="file-card">
+          <div class="file-card__name">shared/registry.json</div>
+          <div class="file-card__desc">Single source of truth for all work items. Every agent reads this first.</div>
+          <div class="file-card__meta">~1,900 lines &middot; 50+ items</div>
+        </div>
+        <div class="file-card">
+          <div class="file-card__name">prime/dispatch.md</div>
+          <div class="file-card__desc">Active queue with decision types and successor rules.</div>
+          <div class="file-card__meta">44 active items</div>
+        </div>
+        <div class="file-card">
+          <div class="file-card__name">prime/dashboard.md</div>
+          <div class="file-card__desc">Pipeline tracker. Auto-generated from registry each session.</div>
+          <div class="file-card__meta">Auto-generated</div>
+        </div>
+        <div class="file-card">
+          <div class="file-card__name">prime/briefing.md</div>
+          <div class="file-card__desc">Session-start briefing. Overdue, ready, and changed items.</div>
+          <div class="file-card__meta">Auto-generated</div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="layer-nav" aria-label="Layer navigation">
+      <a href="agents.html" class="layer-nav__link layer-nav__link--prev">Agents</a>
+      <a href="skills.html" class="layer-nav__link layer-nav__link--next">Skills</a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <p>Agent Prime &middot; MIT License &middot; Built by <a href="https://github.com/avyayalaya" target="_blank" rel="noopener noreferrer">Parth Sangani</a></p>
+    <p class="site-footer__motto">Gradatim Ferociter &mdash; Step by step, ferociously</p>
+  </footer>
+
+  <script src="assets/main.js"></script>
+</body>
+</html>
