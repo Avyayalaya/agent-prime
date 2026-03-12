@@ -1,0 +1,88 @@
+{
+  "items": [
+    {
+      "id": "THS-001",
+      "type": "THS",
+      "title": "Code Review is the Last Unautomated Knowledge Transfer Mechanism",
+      "status": "developing",
+      "priority": "P0",
+      "owner": "user",
+      "created": "2026-03-01",
+      "updated": "2026-03-01",
+      "next_action": "Scout: scan for recent data on engineering time spent in code review across enterprise teams. Need numbers to anchor the thesis.",
+      "goal": "Build",
+      "notes": "Core product thesis. If this is wrong, Forge doesn't need to exist."
+    },
+    {
+      "id": "THS-002",
+      "type": "THS",
+      "title": "AI Code Tools Will Bifurcate: Generation vs. Understanding",
+      "status": "backlog",
+      "priority": "P1",
+      "owner": "user",
+      "created": "2026-03-01",
+      "updated": "2026-03-01",
+      "next_action": "Synthesizer: build a thesis from the competitive landscape — which tools are generation-focused vs. understanding-focused?",
+      "goal": "Build",
+      "notes": "Positioning thesis. Forge is in the 'understanding' category. Need to prove this bifurcation is structural, not temporary."
+    },
+    {
+      "id": "BLD-001",
+      "type": "BLD",
+      "title": "Series B Investor Narrative",
+      "status": "planning",
+      "priority": "P0",
+      "owner": "user",
+      "created": "2026-03-01",
+      "updated": "2026-03-01",
+      "next_action": "Planner: design the narrative arc for Series B pitch. Start with Stage 1 Excavation.",
+      "goal": "Raise",
+      "notes": "Need compelling narrative that connects product thesis to market opportunity. Board wants to see this by end of Q2."
+    },
+    {
+      "id": "STR-001",
+      "type": "STR",
+      "title": "Dev Tools Thought Leadership Campaign",
+      "status": "backlog",
+      "priority": "P1",
+      "owner": "user",
+      "created": "2026-03-01",
+      "updated": "2026-03-01",
+      "next_action": "Scout: identify top dev tools publications and conferences accepting submissions in the next 3 months.",
+      "goal": "Lead",
+      "notes": "Three articles + one talk. Production order: Substack first, LinkedIn second. Topics should flow from THS-001 and THS-002."
+    },
+    {
+      "id": "TLK-001",
+      "type": "TLK",
+      "title": "Competitive Analysis: AI Code Review Landscape",
+      "status": "planning",
+      "priority": "P0",
+      "owner": "user",
+      "created": "2026-03-01",
+      "updated": "2026-03-01",
+      "next_action": "Industry Analyst: map the AI code review competitive landscape. Full Step 0-9 methodology.",
+      "goal": "Build",
+      "notes": "Need this for both product positioning (Build) and investor narrative (Raise). Feed output to Investment Analyst for market sizing."
+    },
+    {
+      "id": "TSK-001",
+      "type": "TSK",
+      "title": "Write 'Why Code Review is Broken' article",
+      "status": "backlog",
+      "priority": "P1",
+      "owner": "user",
+      "created": "2026-03-01",
+      "updated": "2026-03-01",
+      "next_action": "Writer: draft article from THS-001 once thesis reaches 'mature' status.",
+      "goal": "Lead",
+      "due": "2026-04-15",
+      "notes": "First Substack article. Establishes Maya as a voice in the dev tools space."
+    }
+  ],
+  "meta": {
+    "last_updated": "2026-03-01",
+    "version": "1.0",
+    "notes": "Seeded by Onboarding Agent. 6 items across 3 goals (Build, Raise, Lead)."
+  }
+}

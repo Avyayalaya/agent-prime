@@ -1,0 +1,34 @@
+{
+  "goals": {
+    "goal_1": {
+      "name": "Goal 1",
+      "agents": ["scout", "synthesizer", "writer", "connector"],
+      "description": "Define your first strategic goal"
+    },
+    "goal_2": {
+      "name": "Goal 2",
+      "agents": ["scout", "industry_analyst", "investment_analyst"],
+      "description": "Define your second strategic goal"
+    },
+    "goal_3": {
+      "name": "Goal 3",
+      "agents": ["writer", "connector", "planner", "builder"],
+      "description": "Define your third strategic goal"
+    }
+  },
+  "cadences": {
+    "prime": { "days": ["sunday"], "minutes": 30 },
+    "synthesizer": { "days": ["monday", "wednesday"], "minutes": 120 },
+    "writer": { "days": ["thursday", "saturday"], "minutes": 120 },
+    "scout": { "days": ["tuesday"], "minutes": 30 },
+    "connector": { "days": ["friday"], "minutes": 60 },
+    "builder": { "days": ["on_demand"], "minutes": 30 },
+    "clerk": { "days": ["async"], "minutes": 0 }
+  },
+  "kill_rules": {
+    "thesis_staleness_days": 30,
+    "task_staleness_days": 14,
+    "max_active_theses": 5,
+    "max_active_projects": 8
+  }
+}

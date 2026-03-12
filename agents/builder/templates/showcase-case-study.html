@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{TITLE}} — Case Study</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600;8..60,700&family=Inter:wght@300;400;500;600&display=swap');
+
+  :root {
+    --bg: #FDFAF6;
+    --surface: #FFFFFF;
+    --surface-warm: #F7F3ED;
+    --border: #E8E0D4;
+    --border-light: #F0EBE3;
+    --text: #2C2520;
+    --text-secondary: #6B5E52;
+    --text-muted: #9B8E82;
+    --accent: #B85C38;
+    --accent-light: rgba(184, 92, 56, 0.08);
+    --accent-medium: rgba(184, 92, 56, 0.15);
+    --sage: #5B7B6A;
+    --sage-light: rgba(91, 123, 106, 0.08);
+    --sage-medium: rgba(91, 123, 106, 0.15);
+    --warm-gold: #B8963E;
+    --warm-gold-light: rgba(184, 150, 62, 0.08);
+    --stone: #8B7D6B;
+    --error: #A04030;
+    --error-light: rgba(160, 64, 48, 0.06);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* === HEADER === */
+  .page-header {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 64px 48px 48px;
+  }
+  .page-header .overline {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .page-header h1 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text);
+    max-width: 700px;
+    margin-bottom: 16px;
+  }
+  .page-header .subtitle {
+    font-size: 17px;
+    color: var(--text-secondary);
+    max-width: 580px;
+    line-height: 1.65;
+  }
+  .stats-row {
+    display: flex;
+    gap: 40px;
+    margin-top: 36px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+  }
+  .stat { text-align: left; }
+  .stat .val {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .stat .lbl {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  /* === NAV === */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(253, 250, 246, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-light);
+  }
+  nav .inner {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 48px;
+    display: flex;
+    gap: 0;
+  }
+  nav button {
+    padding: 14px 24px;
+    border: none;
+    background: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.15s;
+  }
+  nav button.active {
+    color: var(--text);
+    border-bottom-color: var(--accent);
+  }
+  nav button:hover:not(.active) { color: var(--text-secondary); }
+
+  /* === SECTIONS === */
+  .section {
+    display: none;
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 48px 48px 80px;
+  }
+  .section.active { display: block; }
+
+  /* === ARTICLE TAB === */
+  .byline {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 40px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border-light);
+  }
+  .byline .mono {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--accent-light);
+    border: 1.5px solid var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 600; color: var(--accent);
+    flex-shrink: 0;
+  }
+  .byline .meta .name { font-weight: 600; font-size: 14px; }
+  .byline .meta .role { font-size: 13px; color: var(--text-muted); }
+  .byline .tag {
+    margin-left: auto;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: var(--sage);
+    padding: 4px 10px;
+    background: var(--sage-light);
+    border-radius: 4px;
+  }
+
+  .article h2 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 28px;
+    color: var(--text);
+  }
+  .article p {
+    font-size: 16px;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    max-width: 640px;
+  }
+  .article em { color: var(--accent); font-style: italic; }
+  .article strong { color: var(--text); font-weight: 600; }
+
+  .aside-block {
+    display: flex;
+    gap: 14px;
+    padding: 18px 20px;
+    background: var(--surface-warm);
+    border-left: 2px solid var(--stone);
+    margin: 32px 0;
+  }
+  .aside-block .a-icon { font-size: 16px; flex-shrink: 0; margin-top: 2px; }
+  .aside-block p { margin: 0; font-size: 14px; color: var(--text-secondary); max-width: none; }
+
+  .section-label {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin: 48px 0 20px;
+  }
+
+  .highlight-item {
+    display: flex;
+    gap: 14px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border-light);
+  }
+  .highlight-item:last-child { border-bottom: none; }
+  .highlight-item .h-marker {
+    font-size: 18px;
+    flex-shrink: 0;
+    width: 32px;
+    text-align: center;
+    margin-top: 1px;
+  }
+  .highlight-item .h-body { flex: 1; }
+  .highlight-item .h-title {
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--text);
+    margin-bottom: 3px;
+  }
+  .highlight-item .h-desc {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .metrics-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 16px 0 4px;
+  }
+  .metric-cell {
+    padding: 20px;
+    background: var(--surface);
+    text-align: center;
+  }
+  .metric-cell .m-val {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--sage);
+  }
+  .metric-cell .m-vs {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+  .metric-cell .m-lbl {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-top: 8px;
+  }
+
+  .vision-block {
+    margin: 48px 0;
+    padding: 28px 32px;
+    background: var(--surface-warm);
+    border-radius: 8px;
+  }
+  .vision-block h3 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+  .vision-block p {
+    font-size: 15px;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+    max-width: none;
+  }
+  .vision-block .closing {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 18px;
+    color: var(--accent);
+    font-style: italic;
+    margin-top: 16px;
+    margin-bottom: 0;
+  }
+
+  .footer-contact {
+    text-align: center;
+    padding: 24px;
+    margin-top: 40px;
+    border-top: 1px solid var(--border);
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+  .footer-contact a { color: var(--accent); text-decoration: none; }
+
+  /* === PROCESS TAB === */
+  .process-intro {
+    max-width: 580px;
+    margin-bottom: 48px;
+  }
+  .process-intro h2 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .process-intro p {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+  }
+
+  .timeline {
+    position: relative;
+    padding-left: 32px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 8px;
+    bottom: 8px;
+    width: 1px;
+    background: var(--border);
+  }
+
+  .tl-phase {
+    position: relative;
+    margin-bottom: 36px;
+  }
+  .tl-phase:last-child { margin-bottom: 0; }
+
+  .tl-dot {
+    position: absolute;
+    left: -32px;
+    top: 5px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+    background: var(--bg);
+    z-index: 2;
+  }
+  .tl-dot.done   { border-color: var(--sage);      background: var(--sage); }
+  .tl-dot.fail   { border-color: var(--error);     background: var(--error); }
+  .tl-dot.pivot  { border-color: var(--warm-gold); background: var(--warm-gold); }
+
+  .tl-head {
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .tl-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+  }
+  .tl-steps { list-style: none; }
+  .tl-steps li {
+    font-size: 14px;
+    color: var(--text-secondary);
+    padding: 6px 0;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .tl-steps li::before       { content: '·'; color: var(--text-muted); font-weight: 700; font-size: 18px; line-height: 1; }
+  .tl-steps li.fail           { color: var(--error); }
+  .tl-steps li.fail::before   { content: '×'; color: var(--error); }
+  .tl-steps li.ok::before     { content: '→'; color: var(--sage); }
+
+  /* === SYSTEM TAB === */
+  .system-map h2 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .system-map > p {
+    font-size: 15px;
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+    max-width: 520px;
+  }
+
+  .arch-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .arch-layer {
+    background: var(--surface);
+    padding: 24px 28px;
+  }
+  .arch-layer.warm { background: var(--surface-warm); }
+
+  .layer-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+  }
+  .layer-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .layer-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    background: var(--bg);
+    border: 1px solid var(--border-light);
+    border-radius: 6px;
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+  .layer-item .li-icon { font-size: 14px; }
+  .layer-item.active { border-color: var(--sage);   background: var(--sage-light);   color: var(--text); }
+  .layer-item.built  { border-color: var(--accent);  background: var(--accent-light); color: var(--text); }
+  .layer-item .li-tag {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 1px 5px;
+    border-radius: 3px;
+    text-transform: uppercase;
+  }
+  .layer-item .li-tag.new   { background: var(--accent-medium);    color: var(--accent); }
+  .layer-item .li-tag.fixed { background: var(--warm-gold-light);  color: var(--warm-gold); }
+
+  .flow-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 0;
+    background: var(--surface);
+  }
+  .flow-arrow {
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 3px;
+  }
+
+  .principles {
+    margin-top: 56px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border);
+  }
+  .principles h3 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+  .principle-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .principle {
+    padding: 20px;
+    background: var(--surface-warm);
+    border-radius: 6px;
+  }
+  .principle .p-title {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+  .principle .p-desc {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .gen-footer {
+    text-align: center;
+    padding: 32px;
+    margin-top: 48px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 768px) {
+    .page-header { padding: 40px 24px 32px; }
+    .page-header h1 { font-size: 28px; }
+    .stats-row { gap: 24px; }
+    nav .inner { padding: 0 24px; }
+    .section { padding: 32px 24px 60px; }
+    .metrics-row { grid-template-columns: 1fr; }
+    .principle-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!--
+  ╔══════════════════════════════════════════════════════════════╗
+  ║  SHOWCASE CASE STUDY — TEMPLATE                            ║
+  ║                                                            ║
+  ║  Three-tab layout: Article · Process · System              ║
+  ║  Design: warm/organic palette, serif headings, editorial   ║
+  ║                                                            ║
+  ║  HOW TO USE:                                               ║
+  ║  1. Copy this file to showcase/{slug}.html                 ║
+  ║  2. Replace all {{PLACEHOLDERS}} with real content         ║
+  ║  3. Add/remove highlight items, timeline phases,           ║
+  ║     architecture layers, and principle cards as needed      ║
+  ║  4. Open in browser — self-contained, no server required   ║
+  ║                                                            ║
+  ║  COMPONENTS REFERENCE:                                     ║
+  ║  • .stats-row          — Hero metrics (3-5 numbers)        ║
+  ║  • .aside-block        — Callout with left border + icon   ║
+  ║  • .highlight-item     — Numbered list item (01, 02…)      ║
+  ║  • .metrics-row        — Grid of metric cells              ║
+  ║  • .vision-block       — Closing narrative block           ║
+  ║  • .tl-phase           — Timeline step (done/fail/pivot)   ║
+  ║  • .arch-layer         — System architecture row           ║
+  ║  • .layer-item         — Component chip (active/built)     ║
+  ║  • .principle          — Principle card in 2-col grid      ║
+  ║                                                            ║
+  ║  DOT STATES:                                               ║
+  ║  • .tl-dot.done   — Green (sage) — completed successfully  ║
+  ║  • .tl-dot.fail   — Red — failed, led to recovery         ║
+  ║  • .tl-dot.pivot  — Gold — creative pivot or workaround   ║
+  ║                                                            ║
+  ║  STEP MARKERS:                                             ║
+  ║  • li (default)   — · neutral step                         ║
+  ║  • li.fail        — × failure step (red)                   ║
+  ║  • li.ok          — → success / resolution step (green)    ║
+  ║                                                            ║
+  ║  CHIP STATES:                                              ║
+  ║  • .layer-item           — inactive (grey)                 ║
+  ║  • .layer-item.active    — used this session (sage border) ║
+  ║  • .layer-item.built     — new/fixed this session (accent) ║
+  ║  • .li-tag.new           — "NEW" badge                     ║
+  ║  • .li-tag.fixed         — "FIXED" badge                   ║
+  ╚══════════════════════════════════════════════════════════════╝
+-->
+
+<!-- ============ HEADER ============ -->
+<header class="page-header">
+  <div class="overline">{{SYSTEM_NAME}} · Case Study</div>
+  <h1>{{HEADLINE}}</h1>
+  <p class="subtitle">{{SUBTITLE — one sentence describing what happened and why it matters}}</p>
+  <div class="stats-row">
+    <div class="stat"><div class="val">{{N1}}</div><div class="lbl">{{Label 1}}</div></div>
+    <div class="stat"><div class="val">{{N2}}</div><div class="lbl">{{Label 2}}</div></div>
+    <div class="stat"><div class="val">{{N3}}</div><div class="lbl">{{Label 3}}</div></div>
+    <div class="stat"><div class="val">{{N4}}</div><div class="lbl">{{Label 4}}</div></div>
+  </div>
+</header>
+
+<!-- ============ NAV ============ -->
+<nav>
+  <div class="inner">
+    <button class="active" onclick="switchTab('article')">Article</button>
+    <button onclick="switchTab('process')">Process</button>
+    <button onclick="switchTab('system')">System</button>
+  </div>
+</nav>
+
+<!-- ============ TAB 1: ARTICLE ============ -->
+<div class="section active" id="article">
+
+  <div class="byline">
+    <div class="mono">{{INITIALS}}</div>
+    <div class="meta">
+      <div class="name">{{AUTHOR_NAME}}</div>
+      <div class="role">{{ROLE}} · {{DATE}}</div>
+    </div>
+    <div class="tag">{{BADGE — e.g. "AI-generated"}}</div>
+  </div>
+
+  <div class="article">
+    <h2>{{ARTICLE_TITLE}}</h2>
+
+    <p>{{Opening paragraph — set the problem, hook the reader}}</p>
+
+    <p>{{Second paragraph — the solution or approach}}</p>
+
+    <p>{{Third paragraph — how it works}}</p>
+
+    <!-- CALLOUT BLOCK (optional, repeat as needed) -->
+    <div class="aside-block">
+      <span class="a-icon">{{ICON — emoji}}</span>
+      <p><strong>{{Callout title.}}</strong> {{Callout body text}}</p>
+    </div>
+
+    <!-- NUMBERED HIGHLIGHTS -->
+    <div class="section-label">Highlights</div>
+
+    <div class="highlight-item">
+      <div class="h-marker">01</div>
+      <div class="h-body">
+        <div class="h-title">{{Highlight title}}</div>
+        <div class="h-desc">{{Highlight description}}</div>
+      </div>
+    </div>
+
+    <div class="highlight-item">
+      <div class="h-marker">02</div>
+      <div class="h-body">
+        <div class="h-title">{{Highlight title}}</div>
+        <div class="h-desc">{{Highlight description}}</div>
+      </div>
+    </div>
+
+    <div class="highlight-item">
+      <div class="h-marker">03</div>
+      <div class="h-body">
+        <div class="h-title">{{Highlight title}}</div>
+        <div class="h-desc">{{Highlight description}}</div>
+      </div>
+    </div>
+
+    <!-- METRICS ROW (optional — use inside a highlight-item or standalone) -->
+    <div class="highlight-item">
+      <div class="h-marker">04</div>
+      <div class="h-body">
+        <div class="h-title">{{Metrics highlight title}}</div>
+        <div class="metrics-row">
+          <div class="metric-cell">
+            <div class="m-val">{{%}}</div>
+            <div class="m-vs">{{vs baseline}}</div>
+            <div class="m-lbl">{{Metric name}}</div>
+          </div>
+          <div class="metric-cell">
+            <div class="m-val">{{%}}</div>
+            <div class="m-vs">{{context}}</div>
+            <div class="m-lbl">{{Metric name}}</div>
+          </div>
+          <div class="metric-cell">
+            <div class="m-val">{{%}}</div>
+            <div class="m-vs">{{vs baseline}}</div>
+            <div class="m-lbl">{{Metric name}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VISION / CLOSING BLOCK -->
+    <div class="vision-block">
+      <h3>{{Closing section title}}</h3>
+      <p>{{Closing narrative paragraph 1}}</p>
+      <p>{{Closing narrative paragraph 2}}</p>
+      <p class="closing">{{One-line italic closing statement}}</p>
+    </div>
+
+    <div class="footer-contact">
+      Questions or feedback? <a href="mailto:{{EMAIL}}">{{AUTHOR_NAME}}</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ TAB 2: PROCESS ============ -->
+<div class="section" id="process">
+
+  <div class="process-intro">
+    <h2>{{PROCESS_TITLE — e.g. "How this was produced"}}</h2>
+    <p>{{One-sentence process summary}}</p>
+  </div>
+
+  <div class="timeline">
+
+    <!-- PHASE: Success -->
+    <div class="tl-phase">
+      <div class="tl-dot done"></div>
+      <div class="tl-head">{{Phase name}}</div>
+      <div class="tl-sub">{{Phase subtitle}}</div>
+      <ul class="tl-steps">
+        <li>{{Neutral step}}</li>
+        <li class="ok">{{Success step}}</li>
+        <li class="fail">{{Failure step — led to next phase}}</li>
+      </ul>
+    </div>
+
+    <!-- PHASE: Failure -->
+    <div class="tl-phase">
+      <div class="tl-dot fail"></div>
+      <div class="tl-head">{{Phase name}}</div>
+      <div class="tl-sub">{{Phase subtitle}}</div>
+      <ul class="tl-steps">
+        <li class="fail">{{What failed}}</li>
+        <li>{{Diagnosis}}</li>
+        <li class="ok">{{Resolution}}</li>
+      </ul>
+    </div>
+
+    <!-- PHASE: Pivot -->
+    <div class="tl-phase">
+      <div class="tl-dot pivot"></div>
+      <div class="tl-head">{{Phase name}}</div>
+      <div class="tl-sub">{{Phase subtitle}}</div>
+      <ul class="tl-steps">
+        <li class="ok">{{Creative workaround}}</li>
+        <li class="ok">{{Result}}</li>
+      </ul>
+    </div>
+
+    <!-- PHASE: Final success -->
+    <div class="tl-phase">
+      <div class="tl-dot done"></div>
+      <div class="tl-head">{{Phase name}}</div>
+      <div class="tl-sub">{{Phase subtitle}}</div>
+      <ul class="tl-steps">
+        <li class="ok">{{Final deliverable produced}}</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="gen-footer">{{DATE}} · {{Duration}}</div>
+</div>
+
+<!-- ============ TAB 3: SYSTEM ============ -->
+<div class="section" id="system">
+
+  <div class="system-map">
+    <h2>System architecture</h2>
+    <p>{{Architecture intro — what made this possible}}</p>
+
+    <div class="arch-grid">
+
+      <!-- LAYER 1 -->
+      <div class="arch-layer">
+        <div class="layer-label">{{Layer 1 name}}</div>
+        <div class="layer-items">
+          <div class="layer-item active">
+            <span class="li-icon">◆</span> {{Component}}
+          </div>
+          <div class="layer-item">
+            <span class="li-icon">◇</span> {{Component}}
+          </div>
+        </div>
+      </div>
+
+      <div class="flow-row"><span class="flow-arrow">▼ {{relationship}}</span></div>
+
+      <!-- LAYER 2 -->
+      <div class="arch-layer warm">
+        <div class="layer-label">{{Layer 2 name}}</div>
+        <div class="layer-items">
+          <div class="layer-item active">
+            <span class="li-icon">◆</span> {{Component}}
+          </div>
+          <div class="layer-item built">
+            <span class="li-icon">◆</span> {{Component}} <span class="li-tag new">new</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flow-row"><span class="flow-arrow">▼ {{relationship}}</span></div>
+
+      <!-- LAYER 3 -->
+      <div class="arch-layer">
+        <div class="layer-label">{{Layer 3 name}}</div>
+        <div class="layer-items">
+          <div class="layer-item built">
+            <span class="li-icon">◆</span> {{Component}} <span class="li-tag fixed">fixed</span>
+          </div>
+          <div class="layer-item">
+            <span class="li-icon">◇</span> {{Component}}
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PRINCIPLES -->
+  <div class="principles">
+    <h3>{{Principles section title}}</h3>
+    <div class="principle-grid">
+      <div class="principle">
+        <div class="p-title">{{Principle 1}}</div>
+        <div class="p-desc">{{Description}}</div>
+      </div>
+      <div class="principle">
+        <div class="p-title">{{Principle 2}}</div>
+        <div class="p-desc">{{Description}}</div>
+      </div>
+      <div class="principle">
+        <div class="p-title">{{Principle 3}}</div>
+        <div class="p-desc">{{Description}}</div>
+      </div>
+      <div class="principle">
+        <div class="p-title">{{Principle 4}}</div>
+        <div class="p-desc">{{Description}}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gen-footer">
+    {{TOOLS_CREDIT}}<br>
+    <span style="color: var(--stone);">{{GENERATION_NOTE}}</span>
+  </div>
+</div>
+
+<script>
+function switchTab(id) {
+  document.querySelectorAll('nav button').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+</body>
+</html>

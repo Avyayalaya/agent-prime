@@ -592,7 +592,7 @@ Every session starts with `python meta/scripts/generate_briefing.py`, which read
   📊 System Pulse [date]
   🎯 Top priority: [the highest-priority active item]
   ⏳ Stale: [count of items not updated in 7+ days]
-  📋 Parth owes: [count of tasks where owner = parth]
+  📋 Owner owes: [count of tasks where owner = user]
   🔴 Issues: [count from integrity check]
 
   Today's priorities:

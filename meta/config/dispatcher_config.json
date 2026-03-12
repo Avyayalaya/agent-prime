@@ -1,0 +1,55 @@
+{
+  "version": "1.0",
+  "last_updated": "",
+
+  "apis": {
+    "primary": {
+      "provider": "lmstudio",
+      "base_url": "http://localhost:1234/v1",
+      "auth_env": "LMSTUDIO_BASE_URL",
+      "model_env": "LMSTUDIO_MODEL",
+      "note": "Local LM Studio — large context, no rate limits. Run: lms server start"
+    },
+    "fallback": {
+      "provider": "github_models",
+      "base_url": "https://models.inference.ai.azure.com",
+      "auth_env": "GITHUB_TOKEN",
+      "note": "GitHub Models free tier — 16K token cap. Used only when LM Studio is offline."
+    }
+  },
+
+  "models": {
+    "quality": "openai/gpt-oss-20b",
+    "fast": "openai/gpt-oss-20b",
+    "fallback_cloud": "gpt-4o"
+  },
+
+  "agent_config": {
+    "scout":               { "model_tier": "quality", "output_dir": "agents/scout/signals",                "output_suffix": "signals_digest.md" },
+    "synthesizer":         { "model_tier": "quality", "output_dir": "agents/synthesizer/theses",           "output_suffix": "thesis_draft.md" },
+    "writer":              { "model_tier": "quality", "output_dir": "agents/writer/drafts",                "output_suffix": "draft.md" },
+    "connector":           { "model_tier": "quality", "output_dir": "agents/connector/audience_maps",      "output_suffix": "audience_map.md" },
+    "clerk":               { "model_tier": "fast",    "output_dir": "agents/clerk",                        "output_suffix": "clerk_output.md" },
+    "experimenter":        { "model_tier": "quality", "output_dir": "agents/experimenter/results",         "output_suffix": "experiment_result.md" },
+    "planner":             { "model_tier": "quality", "output_dir": "shared/planner/plans",                "output_suffix": "plan.md" },
+    "builder":             { "model_tier": "quality", "output_dir": "projects",                            "output_suffix": "build_output.md" },
+    "industry_analyst":    { "model_tier": "quality", "output_dir": "agents/industry_analyst/outputs",     "output_suffix": "analysis.md" },
+    "investment_analyst":  { "model_tier": "quality", "output_dir": "agents/investment_analyst/outputs",   "output_suffix": "analysis.md" },
+    "prime":               { "model_tier": "quality", "output_dir": "prime",                               "output_suffix": "prime_output.md" }
+  },
+
+  "dispatcher": {
+    "process_auto_only": true,
+    "max_tasks_per_run": 5,
+    "context_max_chars": 80000,
+    "output_file_naming": "{agent}_{date}_{suffix}",
+    "log_dir": "meta/logs/dispatcher",
+    "dry_run": false,
+    "core_context_files": [
+      "shared/registry.json",
+      "shared/dependency_map.md",
+      "prime/config.json",
+      "prime/proof_stack.json"
+    ]
+  }
+}

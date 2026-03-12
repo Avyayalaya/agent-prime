@@ -1,0 +1,13 @@
+{
+  "sources": [],
+  "meta": {
+    "note": "Add RSS feeds, newsletters, X accounts, and other signal sources for the Scout agent to scan.",
+    "example": {
+      "name": "Example Source",
+      "type": "rss",
+      "url": "https://example.com/feed",
+      "topics": ["topic1", "topic2"],
+      "priority": "high"
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Tasks",
+  "description": "Master task list maintained by the Clerk agent",
+  "type": "object",
+  "required": ["tasks"],
+  "properties": {
+    "last_updated": { "type": "string", "format": "date" },
+    "tasks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "owner", "priority", "status", "created", "due"],
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "owner": {
+            "type": "string",
+            "enum": ["user", "prime", "synthesizer", "writer", "scout", "connector", "builder", "clerk"]
+          },
+          "source": { "type": "string" },
+          "priority": {
+            "type": "string",
+            "enum": ["P0", "P1", "P2"]
+          },
+          "status": {
+            "type": "string",
+            "enum": ["not_started", "in_progress", "blocked", "completed", "killed"]
+          },
+          "created": { "type": "string", "format": "date" },
+          "due": { "type": "string", "format": "date" },
+          "last_updated": { "type": "string", "format": "date" },
+          "stale_days": { "type": "integer", "minimum": 0 },
+          "notes": { "type": "string" },
+          "proof_dimension": {
+            "type": "string",
+            "enum": ["vision", "industry_influence", "org_building", "scale_execution", "cross_domain", "business_acumen"]
+          },
+          "thesis_id": {
+            "type": "string",
+            "description": "The thesis ID this task serves (must match an 'id' from shared/theses.json). Optional — not all tasks are thesis-related."
+          },
+          "dependencies": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

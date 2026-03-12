@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Network Pipeline",
+  "description": "Strategic relationship pipeline maintained by the Connector agent",
+  "type": "object",
+  "required": ["contacts"],
+  "properties": {
+    "last_updated": { "type": "string", "format": "date" },
+    "monthly_targets": {
+      "type": "object",
+      "properties": {
+        "new_conversations": { "type": "integer", "default": 3 },
+        "artifacts_shared": { "type": "integer", "default": 5 },
+        "conference_proposals": { "type": "integer", "default": 1 }
+      }
+    },
+    "contacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "role", "company", "relevance", "category", "status"],
+        "properties": {
+          "name": { "type": "string" },
+          "role": { "type": "string" },
+          "company": { "type": "string" },
+          "relevance": { "type": "string" },
+          "category": {
+            "type": "string",
+            "enum": ["cpo_peer", "hiring_decision_maker", "conference_organizer", "media", "investor", "advisor", "internal_employer"]
+          },
+          "warm_path": { "type": "string" },
+          "status": {
+            "type": "string",
+            "enum": ["identified", "engaged", "in_conversation", "relationship_active"]
+          },
+          "last_action": { "type": "string" },
+          "last_action_date": { "type": "string", "format": "date" },
+          "next_action": { "type": "string" },
+          "next_action_date": { "type": "string", "format": "date" },
+          "artifacts_shared": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

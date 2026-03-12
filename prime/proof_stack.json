@@ -1,0 +1,20 @@
+# Proof Stack
+
+> Evidence gaps by dimension. Tracks what proof points exist and what's missing for each goal.
+
+<!-- 
+Format:
+{
+  "dimensions": {
+    "goal_1": {
+      "existing_proof": ["proof point 1", "proof point 2"],
+      "gaps": ["what's missing"],
+      "priority_gap": "the single most important gap to fill"
+    }
+  }
+}
+-->
+
+{
+  "dimensions": {}
+}

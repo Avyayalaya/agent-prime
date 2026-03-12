@@ -1,0 +1,8 @@
+{
+  "items": [],
+  "meta": {
+    "last_updated": "",
+    "version": "1.0",
+    "notes": "This is the single source of truth for all work items. Projects, tasks, theses, backlog — everything lives here. Use meta/scripts/generate_dashboard.py to regenerate the dashboard from this file."
+  }
+}

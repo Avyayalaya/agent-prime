@@ -1,0 +1,16 @@
+# Thesis Registry
+
+<!-- 
+This file stores structured thesis data. Each thesis has:
+- id: unique identifier (THS-001, THS-002, etc.)
+- title: thesis name
+- status: draft | developing | mature | published | killed
+- evidence: supporting data points
+- counter_evidence: challenges to the thesis
+- confidence: 0-100
+
+Agents read from this file — never hardcode thesis data. 
+The Synthesizer agent creates and updates theses.
+-->
+
+[]

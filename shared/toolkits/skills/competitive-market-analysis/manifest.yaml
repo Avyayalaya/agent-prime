@@ -1,0 +1,51 @@
+name: "competitive-market-analysis"
+display_name: "Competitive & Market Analysis"
+description: "Produce elite-tier competitive analysis scoring competitors against 7+ strategic frameworks with evidence-graded confidence and board-ready artifacts."
+version: "1.0.0"
+type: "knowledge-weapon"
+category: "Business / Product Management"
+tags:
+  - "Analyze"
+  - "Strategy"
+  - "Market Intelligence"
+  - "Competitive Analysis"
+  - "PM Frameworks"
+  - "Product Strategy"
+license: "MIT"
+author: "Agent Prime"
+created: "2026-02-18"
+valid_until: "2026-08-18"
+tested_with:
+  - "Claude Sonnet 4"
+  - "Claude Opus 4"
+keywords:
+  - "competitive analysis"
+  - "7 Powers"
+  - "aggregation theory"
+  - "disruption theory"
+  - "market sizing"
+  - "switching costs"
+  - "moat assessment"
+  - "PM frameworks"
+  - "product strategy"
+  - "outcome measurement"
+files:
+  skill: "SKILL.md"
+  readme: "README.md"
+  examples:
+    - "examples/sample.md"
+  scripts:
+    - "scripts/market_sizing.py"
+    - "scripts/competitive_scorer.py"
+  requirements: "requirements.txt"
+chain:
+  receives_from:
+    - skill: "problem-framing"
+      artifact: "Problem Definition Document"
+  passes_to:
+    - skill: "narrative-building"
+      artifact: "Competitive War Map"
+    - skill: "spec-writing"
+      artifact: "Competitive requirements"
+  standalone: true
+  standalone_trigger: "Competitive question, market entry decision, or positioning challenge"

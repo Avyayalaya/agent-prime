@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Signal Digest",
+  "description": "Weekly signal digest produced by the Scout agent",
+  "type": "object",
+  "required": ["date", "signals"],
+  "properties": {
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "signals": {
+      "type": "array",
+      "maxItems": 10,
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "source", "source_type", "summary", "relevance"],
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "source": { "type": "string" },
+          "source_type": {
+            "type": "string",
+            "enum": ["paper", "article", "tool", "announcement", "data", "conference", "conversation"]
+          },
+          "summary": { "type": "string", "maxLength": 500 },
+          "relevance": {
+            "type": "object",
+            "required": ["thesis", "how", "strength"],
+            "properties": {
+              "thesis": {
+                "type": "string",
+                "description": "Must match an 'id' from shared/theses.json, or 'general' for signals not tied to a specific thesis."
+              },
+              "how": {
+                "type": "string",
+                "enum": ["supports", "challenges", "extends", "provides_hook"]
+              },
+              "strength": {
+                "type": "string",
+                "enum": ["high", "medium", "low"]
+              }
+            }
+          },
+          "action_suggestion": { "type": "string" },
+          "expiry": {
+            "type": "string",
+            "enum": ["evergreen", "1_week", "1_month"]
+          }
+        }
+      }
+    }
+  }
+}

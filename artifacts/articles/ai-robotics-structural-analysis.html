@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI-Powered Robotics — Structural Industry Analysis — Agent Prime Output</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FDFAF6;
+  --surface: #FFFFFF;
+  --surface-warm: #F7F3ED;
+  --text: #2C2520;
+  --text-secondary: #6B5E52;
+  --text-muted: #9B8E82;
+  --accent: #B85C38;
+  --accent-light: rgba(184,92,56,0.08);
+  --sage: #5B7B6A;
+  --sage-light: rgba(91,123,106,0.08);
+  --warm-gold: #B8963E;
+  --warm-gold-light: rgba(184,150,62,0.08);
+  --border: #E8E0D4;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+h1, h2, h3, h4 { font-family: 'Source Serif 4', serif; }
+code { font-family: 'JetBrains Mono', monospace; font-size: 13px; background: var(--surface-warm); padding: 2px 6px; border-radius: 3px; }
+
+.pipeline-banner {
+  background: var(--surface-warm);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 24px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.5px;
+}
+.pipeline-banner strong { color: var(--sage); }
+.pipeline-banner .arrow { color: var(--text-muted); margin: 0 6px; }
+
+article {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+.meta-block {
+  background: var(--surface-warm);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 40px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; }
+.meta-label { font-weight: 600; color: var(--text-muted); text-transform: uppercase; font-size: 10px; letter-spacing: 1px; }
+
+.depth-note {
+  background: var(--sage-light);
+  border-left: 3px solid var(--sage);
+  border-radius: 0 6px 6px 0;
+  padding: 14px 18px;
+  margin: 24px 0 40px;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+.depth-note strong { color: var(--sage); }
+
+h1 {
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.doc-subtitle {
+  font-size: 16px;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 48px 0 16px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 28px 0 12px;
+}
+h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin: 20px 0 8px;
+}
+p { margin-bottom: 16px; font-size: 15px; }
+strong { color: var(--text); }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0 24px;
+  font-size: 13px;
+}
+th {
+  background: var(--surface-warm);
+  font-weight: 600;
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 2px solid var(--border);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-secondary);
+}
+td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.table-wrapper {
+  overflow-x: auto;
+  margin: 16px 0 24px;
+}
+
+.callout {
+  background: var(--accent-light);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 6px 6px 0;
+  padding: 14px 18px;
+  margin: 20px 0;
+  font-size: 14px;
+}
+.callout strong { color: var(--accent); }
+
+.insight {
+  background: var(--warm-gold-light);
+  border-left: 3px solid var(--warm-gold);
+  border-radius: 0 6px 6px 0;
+  padding: 14px 18px;
+  margin: 20px 0;
+  font-size: 14px;
+}
+.insight strong { color: var(--warm-gold); }
+
+ol, ul { margin: 12px 0 16px 24px; }
+li { margin-bottom: 8px; font-size: 15px; }
+
+.step-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 48px 0 16px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.step-number {
+  background: var(--sage);
+  color: white;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.step-title {
+  font-family: 'Source Serif 4', serif;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.toc {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin: 24px 0 40px;
+}
+.toc h3 { margin: 0 0 12px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); }
+.toc ol { margin: 0; padding-left: 20px; }
+.toc li { font-size: 14px; margin-bottom: 4px; color: var(--text-secondary); }
+.toc li.current { color: var(--accent); font-weight: 600; }
+.toc li.muted { color: var(--text-muted); }
+
+.moat-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  margin-left: 4px;
+}
+.moat-high { background: rgba(91,123,106,0.15); color: var(--sage); }
+.moat-medium { background: rgba(184,150,62,0.15); color: var(--warm-gold); }
+.moat-low { background: rgba(184,92,56,0.1); color: var(--accent); }
+</style>
+</head>
+<body>
+
+<div class="pipeline-banner">
+  <strong>Agent Prime Output</strong>
+  <span class="arrow">&mdash;</span>
+  Industry Analyst (9-step structural methodology)
+  <span class="arrow">&mdash;</span>
+  Full analysis: 88KB &middot; 705 lines &middot; 9 steps &middot; Showing: Executive Summary + Steps 1&ndash;5
+</div>
+
+<article>
+
+  <div class="meta-block">
+    <div class="meta-grid">
+      <div><span class="meta-label">Industry</span><br>AI-Powered Robotics</div>
+      <div><span class="meta-label">Agent</span><br>Industry Analyst v2.0</div>
+      <div><span class="meta-label">Mode</span><br>Investment</div>
+      <div><span class="meta-label">Data Freshness</span><br>Dec 2024 &ndash; Jul 2025</div>
+    </div>
+  </div>
+
+  <h1>AI-Powered Robotics</h1>
+  <div class="doc-subtitle">Structural Industry Analysis</div>
+
+  <div class="depth-note">
+    <strong>What you're seeing:</strong> This is the first half of a 9-step structural analysis produced by Agent Prime's Industry Analyst. The full document is 88KB and includes value chain decomposition, bottleneck analysis, key player mapping with moat scores, ETF cross-referencing, competitive dynamics, bear case registry, macro risk matrix, and an investment implications handoff. Every step produces output before the next step begins &mdash; methodology is sequential, not summarizable.
+  </div>
+
+  <div class="toc">
+    <h3>Full Analysis Structure</h3>
+    <ol>
+      <li class="current">Industry Scoping</li>
+      <li class="current">Systems Mapping</li>
+      <li class="current">Value Chain Decomposition</li>
+      <li class="current">Bottleneck Identification</li>
+      <li class="current">Key Player Mapping + ETF Landscape</li>
+      <li class="muted">Chokepoint Analysis &mdash; <em>not shown</em></li>
+      <li class="muted">Competitive Dynamics &mdash; <em>not shown</em></li>
+      <li class="muted">Bear Case Registry &amp; Macro Risk Matrix &mdash; <em>not shown</em></li>
+      <li class="muted">Investment Implications &amp; Handoff &mdash; <em>not shown</em></li>
+    </ol>
+  </div>
+
+  <h2>Executive Summary</h2>
+
+  <p>AI-powered robotics sits at the inflection point of its S-curve &mdash; past the technology-risk phase, entering scaling-risk territory. ARK Invest's Big Ideas 2026 quantifies a <strong>$26T revenue opportunity</strong> by 2030: $13T from manufacturing and $13T from household robotics. Morgan Stanley targets $5T by 2050 with 1B+ humanoid units.</p>
+
+  <div class="callout">
+    <strong>Where the power concentrates:</strong> Not in OEMs (150+ humanoid startups in China alone &mdash; a commodity race), but in the picks-and-shovels layer. Three chokepoints dominate: (1) precision actuators (Harmonic Drive, Nabtesco &mdash; duopoly in strain wave gears, physics-limited bottleneck), (2) AI compute for embodied intelligence (NVIDIA's Isaac/Jetson ecosystem &mdash; 85%+ market share in robotics GPU), and (3) perception sensors (Sony CMOS, Hesai LiDAR).
+  </div>
+
+  <p><strong>The hidden dependency most analysts miss:</strong> Vision-Language-Action (VLA) foundation models. Google DeepMind's Gemini Robotics and open-source alternatives (OpenVLA) are creating a new layer &mdash; the "robot brain" &mdash; that didn't exist 18 months ago. Whoever controls the dominant VLA model controls what every humanoid can learn. This is the LLM platform war replayed in physical space. Humanoid robots are <strong>~200,000&times; more complex</strong> than robotaxis across kinetic demand, mobility, perception, adaptability, and error tolerance.</p>
+
+  <p><strong>Investment thesis:</strong> The Vertiv-like play here is the actuator/sensor infrastructure layer, not the robot OEMs. Harmonic Drive Systems is the structural analog to Vertiv: a hidden dependency that every robot manufacturer needs, with a physics-limited moat. Avoid OEMs &mdash; the winner is unknowable, and vertical integration risk is real.</p>
+
+  <!-- STEP 1 -->
+  <div class="step-header">
+    <span class="step-number">STEP 1</span>
+    <span class="step-title">Industry Scoping</span>
+  </div>
+
+  <h4>Boundary Definition</h4>
+  <div class="table-wrapper">
+  <table>
+    <thead><tr><th>In Scope</th><th>Out of Scope</th></tr></thead>
+    <tbody>
+      <tr><td>Humanoid robots (Figure, Tesla Optimus, Agility)</td><td>Traditional industrial arms without AI integration</td></tr>
+      <tr><td>AI-native collaborative robots (cobots)</td><td>Simple pick-and-place automation</td></tr>
+      <tr><td>Embodied AI / VLA foundation models</td><td>Pure-software AI (ChatGPT, etc.)</td></tr>
+      <tr><td>Robotics compute hardware (NVIDIA Isaac, edge AI)</td><td>General data center GPUs</td></tr>
+      <tr><td>Precision actuators, sensors, LiDAR for robots</td><td>Consumer drones (different value chain)</td></tr>
+      <tr><td>Simulation platforms (Omniverse, digital twins)</td><td>Gaming engines for non-robotics</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p><strong>Core problem solved:</strong> Replacing human labor in physical tasks that are dangerous, repetitive, or economically unviable due to labor shortages. Who pays: manufacturers ($13T), logistics ($9T), eventually households ($13T).</p>
+
+  <p><strong>Cumulative deployment context:</strong> ~27M industrial robots (since 1961), ~2,000 quadrupeds (since 2015), ~12 humanoids (since 2020). The humanoid market is embryonic.</p>
+
+  <p><strong>Robot density benchmark:</strong> Amazon has 1,279 robots per 10,000 employees (2025) vs. US manufacturing at 291, Korea at 1,129, Japan at 1,500. "Industrial automation is in its infancy" &mdash; ARK.</p>
+
+  <h4>S-Curve Positioning</h4>
+  <p>Pre-chasm for humanoids, early majority for industrial cobots. The S-curve inflection requires unit costs dropping from ~$200K to ~$50K. ARK's Wright's Law projection: each cumulative doubling of production cuts costs ~15-20%. At Figure's 12K units/year target by 2026, we're at the very beginning of the curve.</p>
+
+  <!-- STEP 2 -->
+  <div class="step-header">
+    <span class="step-number">STEP 2</span>
+    <span class="step-title">Systems Mapping</span>
+  </div>
+
+  <p>This is a <strong>layered industry</strong> &mdash; clear supply chain from raw materials through components through integration through deployment.</p>
+
+  <h4>Key Feedback Loops</h4>
+  <ol>
+    <li><strong>Data flywheel:</strong> More deployed robots &rarr; more real-world training data &rarr; better VLA models &rarr; more capable robots &rarr; more deployments</li>
+    <li><strong>Cost-volume spiral (Wright's Law):</strong> More production &rarr; lower unit costs &rarr; larger addressable market &rarr; more production</li>
+    <li><strong>Simulation-reality loop:</strong> Better simulation (Omniverse) &rarr; faster training &rarr; better real-world performance &rarr; more deployment data &rarr; better simulation</li>
+  </ol>
+
+  <p><strong>Critical dependency chain:</strong> AI Models &rarr; Compute Hardware &rarr; Actuators/Sensors &rarr; Robot Assembly &rarr; Deployment &rarr; Data Collection &rarr; AI Models (circular)</p>
+
+  <!-- STEP 3 -->
+  <div class="step-header">
+    <span class="step-number">STEP 3</span>
+    <span class="step-title">Value Chain Decomposition</span>
+  </div>
+
+  <div class="table-wrapper">
+  <table>
+    <thead>
+      <tr><th>Layer</th><th>Name</th><th>Key Players</th><th style="text-align:center">Bottleneck</th><th>Confidence</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>L1</td><td><strong>AI Foundation Models (VLA)</strong></td><td>Google DeepMind, OpenAI, Meta</td><td style="text-align:center">7/10</td><td>M</td></tr>
+      <tr><td>L2</td><td><strong>Compute &amp; Semiconductors</strong></td><td>NVIDIA, AMD, Qualcomm</td><td style="text-align:center">8/10</td><td>H</td></tr>
+      <tr><td>L3</td><td><strong>Perception (Sensors &amp; Vision)</strong></td><td>Sony, Hesai, Cognex, Keyence</td><td style="text-align:center">6/10</td><td>M</td></tr>
+      <tr><td>L4</td><td><strong>Actuation (Motors &amp; Gears)</strong></td><td>Harmonic Drive, Nabtesco, Maxon</td><td style="text-align:center"><strong>9/10</strong></td><td>H</td></tr>
+      <tr><td>L5</td><td><strong>Power &amp; Thermal</strong></td><td>Samsung SDI, TI, Infineon</td><td style="text-align:center">5/10</td><td>H</td></tr>
+      <tr><td>L6</td><td><strong>Robot OEM / Integration</strong></td><td>Figure, Tesla, Agility, Unitree, 150+ others</td><td style="text-align:center">4/10</td><td>H</td></tr>
+      <tr><td>L7</td><td><strong>Simulation &amp; Digital Twin</strong></td><td>NVIDIA Omniverse, Unity, MathWorks</td><td style="text-align:center">6/10</td><td>M</td></tr>
+      <tr><td>L8</td><td><strong>Deployment &amp; Services</strong></td><td>GXO, Amazon Robotics, Symbotic</td><td style="text-align:center">3/10</td><td>H</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h4>Porter's Five Forces per Critical Layer</h4>
+  <div class="table-wrapper">
+  <table>
+    <thead>
+      <tr><th>Layer</th><th>Rivalry</th><th>Supplier Power</th><th>Buyer Power</th><th>Substitutes</th><th>New Entrants</th><th>Net</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>L1 (VLA Models)</td><td>Low</td><td>High</td><td>Low</td><td>Med</td><td>Low</td><td><strong>High</strong></td></tr>
+      <tr><td>L2 (Compute)</td><td>Low</td><td>High</td><td>Low</td><td>Low</td><td>Very Low</td><td><strong>Very High</strong></td></tr>
+      <tr><td>L4 (Actuators)</td><td>Low</td><td>Med</td><td>Low</td><td>Very Low</td><td>Very Low</td><td><strong>Very High</strong></td></tr>
+      <tr><td>L6 (OEMs)</td><td>Extreme</td><td>High</td><td>Med</td><td>Med</td><td>High</td><td><strong>Low</strong></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step-header">
+    <span class="step-number">STEP 4</span>
+    <span class="step-title">Bottleneck Identification</span>
+  </div>
+
+  <h4>Wright's Law Test on Each Bottleneck</h4>
+  <div class="table-wrapper">
+  <table>
+    <thead>
+      <tr><th>Bottleneck</th><th>Wright's Law?</th><th>Classification</th><th>Score Now &rarr; 2027</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>VLA Models (L1)</td><td>Yes &mdash; compute costs &minus;30%/yr</td><td><strong>Temporary</strong> (3-5 yr)</td><td>7 &rarr; 5</td></tr>
+      <tr><td>Compute/GPU (L2)</td><td>Partially &mdash; demand outpaces decline</td><td><strong>Temporary</strong> (capacity)</td><td>8 &rarr; 6</td></tr>
+      <tr><td>Perception (L3)</td><td>Yes &mdash; LiDAR costs &minus;80% since 2018</td><td><strong>Declining</strong></td><td>6 &rarr; 4</td></tr>
+      <tr><td><strong>Actuators (L4)</strong></td><td><strong>No &mdash; physics-limited</strong></td><td><strong>Permanent</strong></td><td><strong>9 &rarr; 9</strong></td></tr>
+      <tr><td>Power (L5)</td><td>Yes &mdash; EV cross-subsidy</td><td><strong>Declining</strong></td><td>5 &rarr; 3</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="insight">
+    <strong>Key insight:</strong> L4 (Actuators) is the only permanent bottleneck. Every other bottleneck dissolves with scale. This is where structural margin concentrates long-term &mdash; analogous to Vertiv in data centers or ASML in semiconductors.
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step-header">
+    <span class="step-number">STEP 5</span>
+    <span class="step-title">Key Player Mapping</span>
+  </div>
+
+  <p>20+ companies mapped across 8 value chain layers, with moat scores (1-10), moat type, replication cost, biggest risk, and investability assessment.</p>
+
+  <div class="table-wrapper">
+  <table>
+    <thead>
+      <tr><th>Company</th><th>Ticker</th><th>Layer</th><th>Moat</th><th>Moat Type</th><th>Investable?</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>NVIDIA</strong></td><td>NVDA</td><td>L2, L7</td><td><span class="moat-badge moat-high">9/10</span></td><td>Ecosystem lock-in + CUDA moat; replication &gt;$50B/10yr</td><td>Public</td></tr>
+      <tr><td><strong>Harmonic Drive</strong></td><td>6324.T</td><td>L4</td><td><span class="moat-badge moat-high">8/10</span></td><td>Physics-based precision; 50+ years learning; ~$5B/15yr</td><td>Tokyo / OTC</td></tr>
+      <tr><td><strong>Intuitive Surgical</strong></td><td>ISRG</td><td>L6</td><td><span class="moat-badge moat-high">9/10</span></td><td>9,000+ installed base; razor/blade; 20+ year head start; &gt;$15B/15yr</td><td>Public</td></tr>
+      <tr><td><strong>Teradyne</strong></td><td>TER</td><td>L6, L8</td><td><span class="moat-badge moat-medium">7/10</span></td><td>Diversified: UR cobots + Symbotic stake; ~$5B/8yr</td><td>Public</td></tr>
+      <tr><td><strong>Cognex</strong></td><td>CGNX</td><td>L3</td><td><span class="moat-badge moat-medium">6/10</span></td><td>Software + installed base + calibration IP; ~$2B/5yr</td><td>Public</td></tr>
+      <tr><td><strong>Synopsys</strong></td><td>SNPS</td><td>L2</td><td><span class="moat-badge moat-high">8/10</span></td><td>EDA duopoly; 30+ year head start; &gt;$20B/15yr</td><td>Public</td></tr>
+      <tr><td><strong>Figure AI</strong></td><td>Private</td><td>L6</td><td><span class="moat-badge moat-low">4/10</span></td><td>Speed + talent; but replication &lt;$2B/3yr (fails SIG test)</td><td>Private</td></tr>
+      <tr><td><strong>Tesla</strong></td><td>TSLA</td><td>L6</td><td><span class="moat-badge moat-medium">5/10</span></td><td>Manufacturing scale + capital; robotics &lt;5% of thesis</td><td>Public</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h4>ETF Cross-Reference</h4>
+  <div class="table-wrapper">
+  <table>
+    <thead>
+      <tr><th>Fund</th><th>Ticker</th><th>AUM</th><th>Top Robotics Holdings</th><th>Best For</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Global X Robotics &amp; AI</td><td>BOTZ</td><td>~$3.4B</td><td>NVDA 11%, FANUC 9.4%, ISRG 6%</td><td>Pure robotics exposure</td></tr>
+      <tr><td>ARK Autonomous Tech</td><td>ARKQ</td><td>~$2.0B</td><td>TER 10.6%, TSLA 10.1%, KTOS 8.5%</td><td>Autonomous + humanoid thesis</td></tr>
+      <tr><td>ROBO Global</td><td>ROBO</td><td>~$1.6B</td><td>TER 2.3%, FANUC 1.9%, CGNX 1.7%</td><td>Most diversified</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="callout">
+    <strong>Key Signal:</strong> None of the robotics ETFs hold Harmonic Drive or Nabtesco &mdash; the highest-structural-conviction picks-and-shovels plays remain uninvestable through ETFs.
+  </div>
+
+  <h4>Performance vs. S&P 500</h4>
+  <div class="table-wrapper">
+  <table>
+    <thead><tr><th>Period</th><th>ARKQ</th><th>BOTZ</th><th>S&P 500</th></tr></thead>
+    <tbody>
+      <tr><td>2023</td><td>+40.7%</td><td>+39.0%</td><td>+26.2%</td></tr>
+      <tr><td>2024</td><td>+33.9%</td><td>+12.3%</td><td>+24.9%</td></tr>
+      <tr><td>5Y CAGR</td><td>4.4%</td><td>1.6%</td><td>11.7%</td></tr>
+      <tr><td>Max Drawdown (2022)</td><td>&minus;46.8%</td><td>&minus;42.7%</td><td>&minus;18.2%</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="depth-note">
+    <strong>Steps 6&ndash;9 (not shown):</strong> Chokepoint Analysis with power concentration scoring, Competitive Dynamics mapping (defender/disruptor/wildcard per layer), Bear Case Registry with 6 calibrated scenarios, and an Investment Implications handoff that feeds directly into the Investment Analyst agent for multi-lens valuation. The full 88KB analysis was consumed by the Investment Analyst as input to produce an additional 84KB of investment-grade output &mdash; scenario-weighted expected values, position sizing, exit rules, and stress tests.
+  </div>
+
+</article>
+</body>
+</html>

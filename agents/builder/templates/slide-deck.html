@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{TITLE}} — {{DATE}}</title>
+<!--
+  SLIDE DECK TEMPLATE — Work Prime Design System (v4)
+  Last updated: 2026-02-25
+  Based on: reference-deck.html (user-approved)
+
+  USAGE:
+  - Replace {{TITLE}}, {{DATE}}, {{AUTHOR}}, {{ROLE}} placeholders
+  - Add/remove slides as needed — each <div class="slide"> is one slide
+  - Update slide-nav buttons to match your slides
+  - Update slide-footer counters (N / total)
+  - F for fullscreen, arrows/space to navigate, Esc to exit
+
+  COMPONENT LIBRARY (copy from sections below):
+  - Title slide with stats row
+  - Pillar/card grid (2 or 3 columns)
+  - Before/After comparison (arch-compare)
+  - Unlock/feature row (3-up icons)
+  - Data table (compare-table, cspr-table)
+  - Callout box (left-border accent)
+  - Status chips (done/prog/pending)
+  - Timeline (horizontal dots)
+  - Architecture flow (nodes + arrows)
+  - Two-column content cards
+  - Two-column summary (what's working / open items)
+
+  DESIGN RULES:
+  - Warm palette: cream bg, terracotta accent, sage green, warm gold
+  - Serif headings (Source Serif 4), sans body (Inter), mono for data (JetBrains Mono)
+  - No dark/neon/tech styling. Understated. Editorial.
+  - Optimized for large screens / presentation mode
+-->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600;8..60,700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  /* === COLOR SYSTEM === */
+  :root {
+    --bg: #FDFAF6; --surface: #FFFFFF; --surface-warm: #F7F3ED;
+    --border: #E8E0D4; --border-light: #F0EBE3;
+    --text: #2C2520; --text-secondary: #6B5E52; --text-muted: #9B8E82;
+    --accent: #B85C38; --accent-light: rgba(184,92,56,0.08);
+    --sage: #5B7B6A; --sage-light: rgba(91,123,106,0.08);
+    --warm-gold: #B8963E; --warm-gold-light: rgba(184,150,62,0.08);
+    --stone: #8B7D6B;
+    --error: #A04030; --error-light: rgba(160,64,48,0.06);
+  }
+
+  /* === RESET & BASE === */
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Inter',system-ui,sans-serif; background:var(--bg); color:var(--text); line-height:1.7; -webkit-font-smoothing:antialiased; }
+
+  /* === SLIDE LAYOUT === */
+  .slide { width:100%; max-width:1400px; margin:0 auto; min-height:100vh; display:flex; flex-direction:column; justify-content:center; padding:60px 90px; position:relative; page-break-after:always; }
+  .slide + .slide { border-top:1px solid var(--border-light); }
+
+  /* === NAVIGATION === */
+  .slide-nav { position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(253,250,246,0.92); backdrop-filter:blur(12px); border-bottom:1px solid var(--border-light); display:flex; justify-content:center; gap:0; }
+  .slide-nav button { padding:14px 20px; border:none; background:none; font-family:'Inter',sans-serif; font-size:14px; font-weight:500; color:var(--text-muted); cursor:pointer; border-bottom:2px solid transparent; transition:all 0.15s; }
+  .slide-nav button.active { color:var(--text); border-bottom-color:var(--accent); }
+  .slide-nav button:hover:not(.active) { color:var(--text-secondary); }
+
+  /* === TYPOGRAPHY === */
+  .overline { font-size:14px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--accent); margin-bottom:20px; }
+  h1 { font-family:'Source Serif 4',Georgia,serif; font-size:54px; font-weight:700; line-height:1.15; margin-bottom:20px; }
+  h2 { font-family:'Source Serif 4',Georgia,serif; font-size:40px; font-weight:600; line-height:1.25; margin-bottom:20px; }
+  h3 { font-family:'Source Serif 4',Georgia,serif; font-size:26px; font-weight:600; line-height:1.3; margin-bottom:12px; }
+  .subtitle { font-size:22px; color:var(--text-secondary); max-width:820px; line-height:1.65; }
+  .slide-footer { position:absolute; bottom:28px; left:90px; right:90px; display:flex; justify-content:space-between; font-size:13px; color:var(--text-muted); }
+
+  /* === STATS ROW === */
+  .stats-row { display:flex; gap:48px; margin-top:40px; padding-top:28px; border-top:1px solid var(--border); }
+  .stat .val { font-family:'Source Serif 4',serif; font-size:36px; font-weight:600; }
+  .stat .lbl { font-size:14px; color:var(--text-muted); margin-top:4px; }
+
+  /* === PILLAR / CARD GRID === */
+  .pillars { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:10px; overflow:hidden; margin:28px 0; }
+  .pillar { padding:30px; background:var(--surface); }
+  .pillar.active { background:var(--accent-light); border-bottom:3px solid var(--accent); }
+  .pillar .p-num { font-size:13px; font-weight:600; color:var(--text-muted); letter-spacing:1px; text-transform:uppercase; margin-bottom:10px; }
+  .pillar .p-title { font-family:'Source Serif 4',serif; font-size:22px; font-weight:600; margin-bottom:8px; }
+  .pillar .p-desc { font-size:16px; color:var(--text-secondary); line-height:1.55; }
+  .pillar .p-status { font-size:15px; font-weight:500; margin-top:12px; }
+
+  /* === METRICS ROW === */
+  .metrics-row { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:8px; overflow:hidden; margin:24px 0; }
+  .metric-cell { padding:26px; background:var(--surface); text-align:center; }
+  .metric-cell .m-val { font-family:'Source Serif 4',serif; font-size:36px; font-weight:600; color:var(--sage); }
+  .metric-cell .m-vs { font-size:15px; color:var(--text-muted); margin-top:3px; }
+  .metric-cell .m-lbl { font-size:14px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.8px; margin-top:8px; }
+
+  /* === BEFORE / AFTER COMPARISON === */
+  .arch-compare { display:grid; grid-template-columns:1fr 50px 1fr; align-items:stretch; margin:32px 0 24px; }
+  .arch-side { padding:30px; border-radius:10px; }
+  .arch-side.before { background:var(--error-light); border:1.5px solid rgba(160,64,48,0.18); }
+  .arch-side.after { background:var(--sage-light); border:1.5px solid rgba(91,123,106,0.22); }
+  .arch-arrow { display:flex; align-items:center; justify-content:center; font-size:24px; color:var(--text-muted); }
+  .arch-label { font-size:13px; font-weight:600; letter-spacing:1.2px; text-transform:uppercase; margin-bottom:14px; }
+  .arch-side.before .arch-label { color:var(--error); }
+  .arch-side.after .arch-label { color:var(--sage); }
+  .arch-title { font-family:'Source Serif 4',serif; font-size:26px; font-weight:600; margin-bottom:8px; }
+  .arch-desc { font-size:16px; color:var(--text-secondary); line-height:1.55; margin-bottom:18px; }
+  .arch-items { list-style:none; }
+  .arch-items li { font-size:16px; color:var(--text-secondary); padding:7px 0; border-top:1px solid rgba(0,0,0,0.05); display:flex; align-items:center; gap:8px; }
+  .dot { font-size:10px; }
+  .arch-side.before .dot { color:var(--error); }
+  .arch-side.after .dot { color:var(--sage); }
+
+  /* === FEATURE / UNLOCK ROW === */
+  .unlock-row { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:10px; overflow:hidden; margin:24px 0; }
+  .unlock-cell { padding:26px; background:var(--surface); text-align:center; }
+  .unlock-cell .u-icon { font-size:32px; margin-bottom:10px; }
+  .unlock-cell .u-title { font-family:'Source Serif 4',serif; font-size:20px; font-weight:600; margin-bottom:6px; }
+  .unlock-cell .u-desc { font-size:15px; color:var(--text-secondary); line-height:1.55; }
+
+  /* === DATA TABLE === */
+  .data-table { width:100%; border-collapse:collapse; margin:20px 0; font-size:16px; }
+  .data-table th { font-size:13px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:var(--text-muted); text-align:left; padding:14px 18px; border-bottom:2px solid var(--border); }
+  .data-table td { padding:16px 18px; border-bottom:1px solid var(--border-light); color:var(--text-secondary); vertical-align:top; }
+  .data-table .label { font-weight:600; color:var(--text); }
+  .data-table .done { color:var(--sage); }
+  .data-table .prog { color:var(--warm-gold); }
+  .data-table .warn { color:var(--accent); }
+  .data-table .yes { color:var(--sage); font-weight:600; }
+  .data-table .no { color:var(--error); font-weight:500; }
+
+  /* === STATUS CHIPS === */
+  .status-row { display:flex; gap:10px; flex-wrap:wrap; margin:16px 0; }
+  .chip { display:inline-flex; align-items:center; gap:6px; padding:7px 16px; border-radius:18px; font-size:15px; font-weight:500; }
+  .chip.done { background:var(--sage-light); color:var(--sage); }
+  .chip.prog { background:var(--warm-gold-light); color:var(--warm-gold); }
+  .chip.pending { background:var(--accent-light); color:var(--accent); }
+
+  /* === CALLOUT === */
+  .callout { padding:22px 28px; background:var(--surface-warm); border-left:4px solid var(--accent); border-radius:0 8px 8px 0; margin:20px 0; }
+  .callout p { font-size:17px; color:var(--text-secondary); line-height:1.6; }
+  .callout strong { color:var(--text); }
+  .callout.sage { border-left-color:var(--sage); }
+  .callout.gold { border-left-color:var(--warm-gold); }
+
+  /* === TIMELINE === */
+  .timeline-compact { display:flex; gap:0; margin:24px 0; position:relative; }
+  .timeline-compact::before { content:''; position:absolute; top:24px; left:0; right:0; height:2px; background:var(--border); }
+  .tl-item { flex:1; text-align:center; position:relative; padding-top:40px; }
+  .tl-item .tl-dot { position:absolute; top:16px; left:50%; transform:translateX(-50%); width:18px; height:18px; border-radius:50%; border:3px solid var(--border); background:var(--bg); z-index:2; }
+  .tl-item .tl-dot.done { border-color:var(--sage); background:var(--sage); }
+  .tl-item .tl-dot.active { border-color:var(--accent); background:var(--accent); }
+  .tl-item .tl-dot.upcoming { border-color:var(--stone); }
+  .tl-item .tl-date { font-size:14px; font-weight:600; color:var(--text-muted); margin-bottom:3px; }
+  .tl-item .tl-label { font-size:16px; font-weight:500; color:var(--text); }
+  .tl-item .tl-sub { font-size:13px; color:var(--text-muted); margin-top:2px; }
+
+  /* === ARCHITECTURE FLOW === */
+  .flow { display:flex; align-items:center; justify-content:center; gap:0; margin:24px 0; }
+  .flow-node { padding:18px 24px; border-radius:10px; text-align:center; min-width:160px; }
+  .flow-node .f-icon { font-size:26px; margin-bottom:6px; }
+  .flow-node .f-label { font-size:16px; font-weight:600; }
+  .flow-node .f-sub { font-size:13px; color:var(--text-muted); margin-top:3px; }
+  .flow-node.primary { background:var(--sage-light); border:1.5px solid rgba(91,123,106,0.22); }
+  .flow-node.secondary { background:var(--surface-warm); border:1.5px solid var(--border); }
+  .flow-node.accent-n { background:var(--accent-light); border:1.5px solid rgba(184,92,56,0.2); }
+  .flow-arrow { font-size:24px; color:var(--text-muted); padding:0 8px; flex-shrink:0; }
+
+  /* === PRESENTER BAR === */
+  .presenter-bar { position:fixed; bottom:0; left:0; right:0; z-index:200; background:rgba(44,37,32,0.92); backdrop-filter:blur(12px); display:flex; align-items:center; justify-content:center; gap:14px; padding:9px 24px; transition:opacity 0.3s; }
+  .presenter-bar button { padding:5px 14px; border:1px solid rgba(255,255,255,0.2); border-radius:6px; background:rgba(255,255,255,0.08); color:#fff; font-family:'Inter',sans-serif; font-size:12px; font-weight:500; cursor:pointer; }
+  .presenter-bar button:hover { background:rgba(255,255,255,0.18); }
+  .presenter-bar button.present-btn { background:var(--accent); border-color:var(--accent); }
+  .presenter-bar .slide-counter { color:rgba(255,255,255,0.6); font-size:12px; font-family:'JetBrains Mono',monospace; min-width:50px; text-align:center; }
+  .presenter-bar .hint { color:rgba(255,255,255,0.35); font-size:10px; margin-left:6px; }
+
+  /* === PRESENTATION MODE === */
+  body.presenting .slide-nav { display:none; }
+  body.presenting .presenter-bar { opacity:0; }
+  body.presenting:hover .presenter-bar { opacity:1; }
+  body.presenting .slide { min-height:100vh; max-width:100%; padding:60px 8vw; }
+  body.presenting .slide-footer { left:8vw; right:8vw; }
+
+  /* === PRINT === */
+  @media print { .slide-nav,.presenter-bar { display:none; } .slide { min-height:auto; padding:40px; page-break-inside:avoid; } }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SLIDE NAV — Update buttons to match your slides
+     ============================================================ -->
+<div class="slide-nav">
+  <button class="active" onclick="goSlide(0)">Title</button>
+  <button onclick="goSlide(1)">Slide 2</button>
+  <button onclick="goSlide(2)">Slide 3</button>
+</div>
+
+<!-- ============================================================
+     SLIDE 1 — TITLE
+     ============================================================ -->
+<div class="slide" id="s0">
+  <div class="overline">{{MEETING NAME}} &nbsp;·&nbsp; {{DATE}}</div>
+  <h1>{{TITLE}}</h1>
+  <p class="subtitle">{{SUBTITLE — 1-2 sentence summary of what this deck covers}}</p>
+  <div class="stats-row">
+    <div class="stat"><div class="val">{{STAT1}}</div><div class="lbl">{{Label 1}}</div></div>
+    <div class="stat"><div class="val">{{STAT2}}</div><div class="lbl">{{Label 2}}</div></div>
+    <div class="stat"><div class="val">{{STAT3}}</div><div class="lbl">{{Label 3}}</div></div>
+  </div>
+  <div class="slide-footer">
+    <span>{{AUTHOR}} &nbsp;·&nbsp; {{ROLE}}</span>
+    <span>1 / {{TOTAL}}</span>
+  </div>
+</div>
+
+<!-- ============================================================
+     SLIDE 2 — THREE-COLUMN CARDS (pillar grid)
+     Use for: approaches, options, comparisons
+     ============================================================ -->
+<div class="slide" id="s1">
+  <div class="overline">{{Section Name}}</div>
+  <h2>{{Slide Title}}</h2>
+  <p class="subtitle">{{Brief context line}}</p>
+
+  <div class="pillars">
+    <div class="pillar">
+      <div class="p-num">{{Label 1}}</div>
+      <div class="p-title">{{Card Title}}</div>
+      <div class="p-desc">{{Card description — 2-3 sentences}}</div>
+      <div class="p-status" style="color:var(--sage);">{{Status text}}</div>
+    </div>
+    <div class="pillar">
+      <div class="p-num">{{Label 2}}</div>
+      <div class="p-title">{{Card Title}}</div>
+      <div class="p-desc">{{Card description}}</div>
+      <div class="p-status" style="color:var(--warm-gold);">{{Status text}}</div>
+    </div>
+    <div class="pillar active">
+      <div class="p-num">{{Label 3}}</div>
+      <div class="p-title">{{Card Title}}</div>
+      <div class="p-desc">{{Card description}}</div>
+      <div class="p-status" style="color:var(--accent);">{{Status text}}</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <p><strong>{{Callout headline}}:</strong> {{Callout body text — key insight or context}}</p>
+  </div>
+
+  <div class="slide-footer"><span>{{DECK NAME}}</span><span>2 / {{TOTAL}}</span></div>
+</div>
+
+<!-- ============================================================
+     SLIDE 3 — BEFORE/AFTER COMPARISON
+     Use for: architecture changes, process improvements
+     ============================================================ -->
+<!--
+<div class="slide" id="sN">
+  <div class="overline">{{Section}}</div>
+  <h2>{{Title}}</h2>
+  <p class="subtitle">{{Subtitle}}</p>
+
+  <div class="arch-compare">
+    <div class="arch-side before">
+      <div class="arch-label">Current</div>
+      <div class="arch-title">{{Before Title}}</div>
+      <div class="arch-desc">{{Before description}}</div>
+      <ul class="arch-items">
+        <li><span class="dot">✕</span> {{Pain point 1}}</li>
+        <li><span class="dot">✕</span> {{Pain point 2}}</li>
+      </ul>
+    </div>
+    <div class="arch-arrow">→</div>
+    <div class="arch-side after">
+      <div class="arch-label">Proposed</div>
+      <div class="arch-title">{{After Title}}</div>
+      <div class="arch-desc">{{After description}}</div>
+      <ul class="arch-items">
+        <li><span class="dot">✓</span> {{Benefit 1}}</li>
+        <li><span class="dot">✓</span> {{Benefit 2}}</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="slide-footer"><span>{{DECK NAME}}</span><span>N / {{TOTAL}}</span></div>
+</div>
+-->
+
+<!-- ============================================================
+     SLIDE — DATA TABLE
+     Use for: status tracking, CSPR, feature comparison
+     ============================================================ -->
+<!--
+<div class="slide" id="sN">
+  <div class="overline">{{Section}}</div>
+  <h2>{{Title}}</h2>
+
+  <table class="data-table">
+    <thead>
+      <tr><th>{{Col 1}}</th><th>{{Col 2}}</th><th>{{Col 3}}</th><th>{{Col 4}}</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="label">{{Row label}}</td>
+        <td class="done">{{Status}}</td>
+        <td>{{Details}}</td>
+        <td>{{Next steps}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="slide-footer"><span>{{DECK NAME}}</span><span>N / {{TOTAL}}</span></div>
+</div>
+-->
+
+<!-- ============================================================
+     SLIDE — TIMELINE + SUMMARY
+     Use for: roadmap, path forward, status overview
+     ============================================================ -->
+<!--
+<div class="slide" id="sN">
+  <div class="overline">{{Section}}</div>
+  <h2>{{Title}}</h2>
+
+  <div class="status-row">
+    <span class="chip done">✓ {{Done item}}</span>
+    <span class="chip prog">◐ {{In progress}}</span>
+    <span class="chip pending">○ {{Pending}}</span>
+  </div>
+
+  <div class="timeline-compact">
+    <div class="tl-item"><div class="tl-dot done"></div><div class="tl-date">{{Date}}</div><div class="tl-label">{{Label}}</div><div class="tl-sub">{{Detail}}</div></div>
+    <div class="tl-item"><div class="tl-dot active"></div><div class="tl-date">{{Date}}</div><div class="tl-label">{{Label}}</div><div class="tl-sub">{{Detail}}</div></div>
+    <div class="tl-item"><div class="tl-dot upcoming"></div><div class="tl-date">{{Date}}</div><div class="tl-label">{{Label}}</div><div class="tl-sub">{{Detail}}</div></div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:32px;">
+    <div style="padding:24px 26px;background:var(--sage-light);border-radius:8px;">
+      <h3 style="font-size:18px;color:var(--sage);margin-bottom:8px;">What's working</h3>
+      <ul style="list-style:none;font-size:16px;color:var(--text-secondary);line-height:1.9;">
+        <li>✓ {{Item}}</li>
+      </ul>
+    </div>
+    <div style="padding:24px 26px;background:var(--accent-light);border-radius:8px;">
+      <h3 style="font-size:18px;color:var(--accent);margin-bottom:8px;">Open items</h3>
+      <ul style="list-style:none;font-size:16px;color:var(--text-secondary);line-height:1.9;">
+        <li>◐ {{Item}}</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="slide-footer"><span>{{DECK NAME}}</span><span>N / {{TOTAL}}</span></div>
+</div>
+-->
+
+<!-- ============================================================
+     SLIDE — ARCHITECTURE FLOW
+     Use for: data flow, system architecture, process pipeline
+     ============================================================ -->
+<!--
+<div class="slide" id="sN">
+  <div class="overline">{{Section}}</div>
+  <h2>{{Title}}</h2>
+
+  <div class="flow">
+    <div class="flow-node secondary"><div class="f-icon">📧</div><div class="f-label">{{Step 1}}</div><div class="f-sub">{{Detail}}</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-node primary"><div class="f-icon">🧠</div><div class="f-label">{{Step 2}}</div><div class="f-sub">{{Detail}}</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-node accent-n"><div class="f-icon">💬</div><div class="f-label">{{Step 3}}</div><div class="f-sub">{{Detail}}</div></div>
+  </div>
+
+  <div class="slide-footer"><span>{{DECK NAME}}</span><span>N / {{TOTAL}}</span></div>
+</div>
+-->
+
+<!-- ============================================================
+     SLIDE — TWO-COLUMN CONTENT CARDS
+     Use for: parallel tracks, compare two concepts side by side
+     ============================================================ -->
+<!--
+<div class="slide" id="sN">
+  <div class="overline">{{Section}}</div>
+  <h2>{{Title}}</h2>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:24px;">
+    <div style="padding:30px;background:var(--surface);border:1.5px solid var(--border);border-radius:10px;">
+      <h3 style="font-size:22px;color:var(--warm-gold);margin-bottom:12px;">{{Card 1 Title}}</h3>
+      <p style="font-size:16px;color:var(--text-secondary);line-height:1.6;margin-bottom:14px;">{{Description}}</p>
+      <ul style="list-style:none;font-size:16px;color:var(--text-secondary);line-height:1.9;">
+        <li>• {{Item}}</li>
+      </ul>
+    </div>
+    <div style="padding:30px;background:var(--surface);border:1.5px solid var(--border);border-radius:10px;">
+      <h3 style="font-size:22px;color:var(--sage);margin-bottom:12px;">{{Card 2 Title}}</h3>
+      <p style="font-size:16px;color:var(--text-secondary);line-height:1.6;margin-bottom:14px;">{{Description}}</p>
+      <ul style="list-style:none;font-size:16px;color:var(--text-secondary);line-height:1.9;">
+        <li>• {{Item}}</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="slide-footer"><span>{{DECK NAME}}</span><span>N / {{TOTAL}}</span></div>
+</div>
+-->
+
+<!-- ============================================================
+     SLIDE — FEATURE / UNLOCK ROW (3-up icons)
+     Use for: key benefits, capabilities unlocked
+     ============================================================ -->
+<!--
+<div class="slide" id="sN">
+  <div class="unlock-row">
+    <div class="unlock-cell">
+      <div class="u-icon">🏢</div>
+      <div class="u-title">{{Feature 1}}</div>
+      <div class="u-desc">{{Description}}</div>
+    </div>
+    <div class="unlock-cell">
+      <div class="u-icon">💬</div>
+      <div class="u-title">{{Feature 2}}</div>
+      <div class="u-desc">{{Description}}</div>
+    </div>
+    <div class="unlock-cell">
+      <div class="u-icon">🔍</div>
+      <div class="u-title">{{Feature 3}}</div>
+      <div class="u-desc">{{Description}}</div>
+    </div>
+  </div>
+</div>
+-->
+
+<!-- PRESENTER BAR -->
+<div class="presenter-bar">
+  <button onclick="prevSlide()">← Prev</button>
+  <span class="slide-counter" id="slideCounter">1 / 3</span>
+  <button onclick="nextSlide()">Next →</button>
+  <button class="present-btn" id="presentBtn" onclick="togglePresent()">⛶ Present</button>
+  <span class="hint">F for fullscreen · ← → to navigate · Esc to exit</span>
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const btns = document.querySelectorAll('.slide-nav button');
+  const counter = document.getElementById('slideCounter');
+  let current = 0;
+  function goSlide(i) {
+    if (i < 0 || i >= slides.length) return;
+    current = i;
+    slides.forEach(s => s.style.display = 'none');
+    btns.forEach(b => b.classList.remove('active'));
+    slides[i].style.display = 'flex';
+    btns[i].classList.add('active');
+    counter.textContent = (i+1) + ' / ' + slides.length;
+    window.scrollTo(0,0);
+  }
+  function nextSlide() { goSlide(current+1); }
+  function prevSlide() { goSlide(current-1); }
+  function togglePresent() {
+    const body = document.body, btn = document.getElementById('presentBtn');
+    if (!body.classList.contains('presenting')) {
+      body.classList.add('presenting'); btn.textContent = '✕ Exit';
+      if (document.documentElement.requestFullscreen) document.documentElement.requestFullscreen();
+    } else {
+      body.classList.remove('presenting'); btn.textContent = '⛶ Present';
+      if (document.fullscreenElement) document.exitFullscreen();
+    }
+  }
+  goSlide(0);
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); nextSlide(); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); prevSlide(); }
+    if (e.key === 'f' || e.key === 'F') togglePresent();
+    if (e.key === 'Escape' && document.body.classList.contains('presenting')) {
+      document.body.classList.remove('presenting');
+      document.getElementById('presentBtn').textContent = '⛶ Present';
+    }
+  });
+  document.addEventListener('fullscreenchange', () => {
+    if (!document.fullscreenElement && document.body.classList.contains('presenting')) {
+      document.body.classList.remove('presenting');
+      document.getElementById('presentBtn').textContent = '⛶ Present';
+    }
+  });
+</script>
+</body>
+</html>
