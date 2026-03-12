@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Skills — Layer 05 — Agent Prime</title>
-  <meta name="description" content="Six PM skills that encode expert frameworks, failure modes, and quality gates. AI stops producing generic output when it knows how an expert thinks about a problem.">
+  <meta name="description" content="Twelve PM skills that encode expert frameworks, failure modes, and quality gates. AI stops producing generic output when it knows how an expert thinks about a problem.">
 
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -63,8 +63,8 @@
       </div>
       <div class="layer-hero__number">Layer 05</div>
       <h1 class="layer-hero__title">Skills</h1>
-      <p class="layer-hero__subtitle">Six PM skills that encode expert frameworks, failure modes, and quality gates. When an agent knows how an expert thinks about a problem, it stops producing generic output and starts producing defensible analysis.</p>
-      <div class="layer-hero__meta">1 directory &middot; Extensible &middot; shared/toolkits/skills/</div>
+      <p class="layer-hero__subtitle">Twelve PM skills that encode expert frameworks, failure modes, and quality gates. When an agent knows how an expert thinks about a problem, it stops producing generic output and starts producing defensible analysis.</p>
+      <div class="layer-hero__meta">12 skills &middot; ~1,200 lines each &middot; shared/toolkits/skills/</div>
     </div>
 
     <section class="layer-section">
@@ -75,15 +75,44 @@
 
     <section class="layer-section">
       <h2 class="layer-section__title">What gets encoded</h2>
-      <p>Six PM skills, each a standalone markdown file. Extensible to any domain you know deeply.</p>
+      <p>Twelve PM skills across four categories, each a standalone markdown file with ~1,200 lines of encoded methodology. Extensible to any domain you know deeply.</p>
 
+      <h3 class="layer-section__subtitle">Analysis &amp; Intelligence</h3>
       <div class="file-grid">
         <div class="file-card">
           <div class="file-card__name">Competitive Market Analysis</div>
           <div class="file-card__desc">9 frameworks: 7 Powers, Aggregation Theory, Wardley Mapping, JTBD, Blue Ocean, Crossing the Chasm, and more. Produces a Competitive War Map with evidence tier annotations.</div>
         </div>
         <div class="file-card">
-          <div class="file-card__name">Metric Design</div>
+          <div class="file-card__name">Discovery Research</div>
+          <div class="file-card__desc">Evidence triangulation, interview analysis, research quality assessment, signal vs noise classification. Turns raw data into defensible insight.</div>
+        </div>
+        <div class="file-card">
+          <div class="file-card__name">Problem Framing</div>
+          <div class="file-card__desc">Problem Definition Canvas, 5 Whys, opportunity sizing, constraint mapping, ICE/RICE prioritization. Separates the real problem from the presenting symptom.</div>
+        </div>
+      </div>
+
+      <h3 class="layer-section__subtitle">Strategy &amp; Planning</h3>
+      <div class="file-grid">
+        <div class="file-card">
+          <div class="file-card__name">Product Strategy</div>
+          <div class="file-card__desc">Vision-to-roadmap translation, portfolio prioritization, strategic bets framework, platform vs product decisions. Connects business goals to product decisions with evidence.</div>
+        </div>
+        <div class="file-card">
+          <div class="file-card__name">Go-to-Market Strategy</div>
+          <div class="file-card__desc">Launch sequencing, channel strategy, adoption flywheel design, market timing analysis. Builds GTM plans that survive contact with real users.</div>
+        </div>
+        <div class="file-card">
+          <div class="file-card__name">Pricing &amp; Packaging</div>
+          <div class="file-card__desc">Value metric identification, tier design, willingness-to-pay analysis, competitive pricing, packaging for expansion. Turns pricing from guesswork into structured methodology.</div>
+        </div>
+      </div>
+
+      <h3 class="layer-section__subtitle">Measurement &amp; Specification</h3>
+      <div class="file-grid">
+        <div class="file-card">
+          <div class="file-card__name">Metric Design &amp; Experimentation</div>
           <div class="file-card__desc">North Star metric rubrics, Goodhart&apos;s Law countermeasures, A/B test design, retention cohort methodology. Builds measurement systems that don&apos;t get gamed.</div>
         </div>
         <div class="file-card">
@@ -91,16 +120,24 @@
           <div class="file-card__desc">Outcome-first methodology, acceptance criteria taxonomy, scope boundary protocol. Produces zero-question documents &mdash; specs engineers can build from without a follow-up meeting.</div>
         </div>
         <div class="file-card">
-          <div class="file-card__name">Problem Framing</div>
-          <div class="file-card__desc">Problem Definition Canvas, 5 Whys, opportunity sizing, constraint mapping, ICE/RICE prioritization. Separates the real problem from the presenting symptom.</div>
+          <div class="file-card__name">Stakeholder Alignment</div>
+          <div class="file-card__desc">Stakeholder mapping, influence strategy, alignment rituals, escalation frameworks, decision rights clarity. Turns political complexity into structured navigation.</div>
         </div>
-        <div class="file-card">
-          <div class="file-card__name">Discovery Research</div>
-          <div class="file-card__desc">Evidence triangulation, interview analysis, research quality assessment, signal vs noise classification. Turns raw data into defensible insight.</div>
-        </div>
+      </div>
+
+      <h3 class="layer-section__subtitle">Communication &amp; Distribution</h3>
+      <div class="file-grid">
         <div class="file-card">
           <div class="file-card__name">Narrative Building</div>
           <div class="file-card__desc">Narrative arc construction, positioning, Why Now analysis, audience adaptation, objection anticipation. Builds arguments that hold up under pressure.</div>
+        </div>
+        <div class="file-card">
+          <div class="file-card__name">Executive Writing</div>
+          <div class="file-card__desc">Board memo structure, executive summary methodology, decision document formats, brevity-with-depth techniques. Writes for people who have 5 minutes and need to make a $10M decision.</div>
+        </div>
+        <div class="file-card">
+          <div class="file-card__name">Multi-Channel Publishing</div>
+          <div class="file-card__desc">Long-form to short-form compression, platform-native adaptation, distribution sequencing, content atomization. One thesis becomes 8 format-native pieces.</div>
         </div>
       </div>
     </section>
@@ -134,7 +171,7 @@ FM-9: Expert-only document (no reader navigation)</pre>
 
     <section class="layer-section">
       <h2 class="layer-section__title">How to set it up</h2>
-      <p>Each skill is a standalone markdown file that any agent can load. The structure is consistent across all six:</p>
+      <p>Each skill is a standalone markdown file that any agent can load. The structure is consistent across all twelve:</p>
       <div class="layer-code">
 <pre>Context Gate        &#8594; Is this the right artifact?
 Framework Selection &#8594; Which frameworks apply to this question?
@@ -151,9 +188,9 @@ Quality gates       &#8594; How to know if the output is good</pre>
       <h2 class="layer-section__title">What you get</h2>
       <div class="file-grid">
         <div class="file-card">
-          <div class="file-card__name">skills/</div>
-          <div class="file-card__desc">Six PM skills, each a complete methodology file. Portable across agents, extensible to any domain.</div>
-          <div class="file-card__meta">12 skills &middot; ~1,200 lines each &middot; portable across agents</div>
+          <div class="file-card__name">shared/toolkits/skills/</div>
+          <div class="file-card__desc">Twelve PM skills across analysis, strategy, measurement, and communication. Each a complete methodology file, portable across agents, extensible to any domain.</div>
+          <div class="file-card__meta">12 skills &middot; ~1,200 lines each &middot; ~14,000 lines total</div>
         </div>
       </div>
     </section>
