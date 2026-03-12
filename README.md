@@ -175,10 +175,53 @@ This is the compounding. Month 3 is unrecognizable from month 1.
 Agents trigger each other. Scout findings feed the Synthesizer. Synthesizer theses feed the Writer. Writer drafts feed the Connector. Each agent writes its successor task to the dispatch queue. The loop is self-sustaining — you review and decide, the system proposes and executes.
 
 ### Skills Library
-10 portable analytical methodologies — competitive analysis, metric design, narrative building, research synthesis, problem framing, and more. Any agent or human can load a skill and execute from it. No Agent Prime context required.
+12 portable analytical methodologies — competitive analysis, metric design, narrative building, research synthesis, problem framing, and more. Any agent or human can load a skill and execute from it. No Agent Prime context required.
 
 ### Python Automation
 5 scripts handle the plumbing: dashboard generation, briefing assembly, health checks, integrity validation. The system monitors itself.
+
+
+## See What It Produces
+
+These are real pipeline outputs — not templates, not mock-ups. One sentence of input, pages of structured output.
+
+### Example 1: "Map the AI robotics industry for investment"
+
+**Pipeline:** Scout → Industry Analyst → Investment Analyst
+**Input:** 1 sentence | **Output:** 1,328 lines (~50 pages) | **Time:** 2 sessions
+
+The system produced an 8-layer value chain decomposition, bottleneck analysis with severity scores, 6 deployment scenarios with probability weights, 4-lens investment valuation, and a stress-tested watchlist with exit rules. Raw AI on the same question: ~800 words of generic overview.
+
+→ [See the full pipeline trace](examples/ai-robotics-industry/)
+
+### Example 2: "Build me a complete product strategy"
+
+**Pipeline:** Problem Framing → Discovery Research → Competitive Analysis → Metric Design → Spec Writing → Narrative Building
+**Input:** 1 sentence | **Output:** 2,399 lines across 6 artifacts | **Time:** 3 sessions
+
+All 6 PM skills chained together. Each artifact feeds the next — the problem framing shapes the research, the research informs the competitive analysis, the analysis drives the metrics, the metrics anchor the spec, and the spec feeds the positioning narrative. Raw AI: ~500 words of generic advice.
+
+→ [See the full pipeline trace](examples/product-strategy-figma/)
+
+### Example 3: "Level up my PM team for the AI era"
+
+**Pipeline:** Scout → Synthesizer → Planner → Builder
+**Input:** 2 sentences | **Output:** 1,342 lines across 4 artifacts | **Time:** 3 sessions
+
+Scout gathered 10 sourced signals (MIT, Stanford, HBS studies + company examples). Synthesizer produced a thesis: "The PM Skill Stack is Inverting." Planner designed a 4-layer team operating system. Builder produced a phased implementation plan. Raw AI: ~600 words telling you to "invest in AI training."
+
+→ [See the full pipeline trace](examples/pm-team-performance/)
+
+### The pattern
+
+| | Raw AI | Agent Prime |
+|---|---|---|
+| **Input** | Same question | Same question |
+| **Output** | 500-800 words | 30-50 pages |
+| **Frameworks** | 0 | 13-30+ |
+| **Evidence citations** | 0 | 70-91 |
+| **Scenarios modeled** | 0 | 3-6 |
+| **Actionable deliverables** | "Do more research" | Watchlists, specs, implementation plans |
 
 ## Getting Started
 
@@ -256,7 +299,7 @@ agent-prime/
 │   ├── context.md                     ← Your identity & goals (fill this in)
 │   ├── registry.json                  ← All work items
 │   ├── learnings.md                   ← Accumulated corrections
-│   ├── toolkits/skills/               ← 10 analytical methodologies
+│   ├── toolkits/skills/               ← 12 analytical methodologies
 │   └── ...
 ├── prime/
 │   ├── dashboard.md                   ← Auto-generated status view

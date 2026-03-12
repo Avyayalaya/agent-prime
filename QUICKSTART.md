@@ -1,6 +1,51 @@
 # Quickstart Guide
 
-> Get Agent Prime running in 30 minutes. Two paths: automated (recommended) or manual.
+> Three paths to getting started. Pick the one that fits your patience level.
+
+| Path | Time | Best for |
+|------|------|----------|
+| **A: Automated** | 15 min | First-time users who want a guided setup |
+| **B: Manual** | 30 min | Users who want full control over configuration |
+| **C: Quick trial** | 5 min | Skeptics who want to see it work before investing time |
+
+---
+
+## Path C: Quick Trial (5 minutes)
+
+Want to see Agent Prime work before configuring it for yourself? Use the pre-built startup-founder example.
+
+### Step 1: Clone and copy the example
+
+```bash
+git clone https://github.com/avyayalaya/agent-prime.git
+cd agent-prime
+cp examples/startup-founder/context.md shared/context.md
+cp examples/startup-founder/registry.json shared/registry.json
+cp examples/startup-founder/dispatch.md prime/dispatch.md
+cp examples/startup-founder/config.json prime/config.json
+```
+
+### Step 2: Generate the dashboard
+
+```bash
+python meta/scripts/generate_dashboard.py
+```
+
+### Step 3: Run the system
+
+Open your AI coding environment (Claude Code or VS Code Copilot Chat) and try:
+
+```
+Show me the system pulse from prime/dashboard.md
+```
+
+You now have a working system with 6 real work items, 4 queued tasks, and 3 goals. Poke around. Run `@scout` on a topic. When you're ready to configure it for yourself, switch to Path A or B.
+
+### Step 4: Verify setup (optional)
+
+```bash
+python meta/scripts/verify_setup.py
+```
 
 ---
 
@@ -9,7 +54,7 @@
 ### Step 1: Clone and Open (2 min)
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/agent-prime.git
+git clone https://github.com/avyayalaya/agent-prime.git
 cd agent-prime
 code .
 ```

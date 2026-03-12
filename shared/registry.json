@@ -1,5 +1,19 @@
 {
-  "items": [],
+  "items": [
+    {
+      "id": "TSK-001",
+      "title": "Example: Configure your identity and goals",
+      "type": "task",
+      "status": "backlog",
+      "priority": "P0",
+      "goal": "System",
+      "owner": "owner",
+      "created": "2026-01-01",
+      "updated": "2026-01-01",
+      "next_action": "Fill in shared/context.md with your identity, goals, and voice rules. Use examples/startup-founder/context.md as a reference.",
+      "notes": "This is a sample work item showing the registry format. Delete it after you've configured your system."
+    }
+  ],
   "meta": {
     "last_updated": "",
     "version": "1.0",

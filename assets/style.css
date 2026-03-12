@@ -2165,3 +2165,136 @@ pre code {
     margin: 2rem 0;
   }
 }
+/* ── Pipeline Examples ─────────────────────────── */
+.pipeline-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.pipeline-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: box-shadow 0.2s;
+}
+
+.pipeline-card:hover {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.pipeline-card__input {
+  background: var(--bg);
+  border-radius: calc(var(--radius) - 2px);
+  padding: 1rem 1.25rem;
+}
+
+.pipeline-card__input p {
+  font-family: 'Source Serif 4', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  margin: 0.5rem 0 0;
+  color: var(--text);
+}
+
+.pipeline-card__label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.pipeline-card__arrow {
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.pipeline-card__output {
+  background: var(--bg);
+  border-radius: calc(var(--radius) - 2px);
+  padding: 1rem 1.25rem;
+}
+
+.pipeline-card__stats {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin: 0.5rem 0 0.75rem;
+}
+
+.pipeline-card__stats span {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  color: var(--text);
+}
+
+.pipeline-card__stats strong {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.pipeline-card__desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.pipeline-card__agents {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--muted);
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.pipeline-card__link {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.pipeline-card__link:hover {
+  opacity: 0.8;
+}
+
+.pipeline-comparison {
+  text-align: center;
+  margin-top: 2.5rem;
+  padding: 1.5rem 2rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.pipeline-comparison__text {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  color: var(--text);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.pipeline-comparison__text a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.pipeline-comparison__text a:hover {
+  text-decoration: underline;
+}
