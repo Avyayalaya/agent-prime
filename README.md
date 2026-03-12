@@ -1,143 +1,147 @@
 # Agent Prime
 
-**A persistent AI operating system for solving complex problems.**
+**A persistent AI operating system that compounds with every session.**
 
-AI forgets everything between sessions. Your corrections vanish. Output quality is inconsistent. None of it compounds.
+You ask AI to analyze an industry. It produces 800 words of generic overview. Agent Prime produces 1,328 lines of structural analysis with 13 frameworks, 91 citations, and a stress-tested investment watchlist — from the same one-sentence input.
 
-Agent Prime fixes this. Seven layers of persistent infrastructure — markdown files that give AI your thinking, your memory, your standards, and a recursive loop that improves every session. It leverages AI's strengths (tireless execution, cross-domain synthesis, parallel processing) while mitigating its biggest weaknesses (no memory, no judgment without structure, generic voice). It also encodes your own corrections as permanent constraints, covering blindspots that would otherwise recur.
+The difference isn't the model. It's the system.
+
+---
+
+## What Agent Prime Does
+
+Agent Prime is seven layers of persistent infrastructure — markdown files that give AI your thinking model, your memory, your standards, and a recursive loop that gets smarter every session. It leverages AI's strengths (tireless execution, cross-domain synthesis, parallel processing) while mitigating its biggest weaknesses (no memory, no judgment without structure, generic voice). Every correction you make becomes a permanent rule, applied automatically across all agents, in every future session.
 
 The architecture is goal-agnostic. The agents are composable. The system works for any domain.
 
----
+**Three ceilings it breaks:**
 
-## The Problem
-
-A human working alone with AI hits three ceilings:
-
-1. **Context ceiling.** Every conversation starts from zero. Yesterday's decisions, last week's corrections, the voice rules you refined over 20 iterations — all gone. You re-explain yourself endlessly.
-
-2. **Consistency ceiling.** Without encoded rules, the same mistake happens differently each time. The wrong voice. A hallucinated citation. An analysis that anchors on existing positions instead of reasoning independently. No mechanism to prevent recurrence.
-
-3. **Throughput ceiling.** One person can research, synthesize, write, distribute, manage projects, track deadlines, analyze industries, and build products — but not simultaneously, and not without dropping balls.
-
-Agent Prime solves all three. Context persists across sessions. Every correction becomes a permanent rule. Parallel workstreams run simultaneously with the human reviewing and deciding.
-
-The result: one person operating with the output, consistency, and strategic depth of a small team — with every session compounding on the last.
+| Ceiling | Without Agent Prime | With Agent Prime |
+|---------|-------------------|-----------------|
+| **Context** | Every session starts from zero | 42+ decisions, 14+ voice rules, 11+ design patterns — all persistent |
+| **Consistency** | Same mistakes, different sessions | Every correction becomes a permanent rule across all agents |
+| **Throughput** | One task, one thread | Parallel workstreams: research, analysis, writing, building |
 
 ---
 
-## How It Works
+## See What It Produces
 
-You define goals. The system selects agents. Agents chain into pipelines.
+Real pipeline outputs. One sentence in, pages of structured analysis out.
 
-```
-       ┌────────────────────────────────────────────────┐
-       │              YOU DEFINE GOALS                  │
-       │                                                │
-       │  "Build authority in X"  "Analyze industry Y"  │
-       │  "Ship product Z"       "Grow audience in W"   │
-       └────────────────────┬───────────────────────────┘
-                            │
-                            ▼
-       ┌────────────────────────────────────────────────┐
-       │                   PRIME                        │
-       │       reads goals → selects agents →           │
-       │       builds pipelines → tracks progress       │
-       └──────┬─────────────┬───────────────┬───────────┘
-              │             │               │
-              ▼             ▼               ▼
-        ┌──────────┐  ┌──────────┐   ┌──────────┐
-        │ Research │  │ Analysis │   │  Build   │
-        │ Pipeline │  │ Pipeline │   │ Pipeline │
-        │          │  │          │   │          │
-        │ Scout    │  │ Industry │   │ Planner  │
-        │ Synth    │  │ Analyst  │   │ Builder  │
-        │ Writer   │  │ Inv.     │   │ Writer   │
-        │ Connector│  │ Analyst  │   │ Connector│
-        └────┬─────┘  └────┬─────┘   └────┬─────┘
-             │             │              │
-             └─────────────┼──────────────┘
-                           ▼
-                    ┌────────────┐
-                    │  LEARNING  │
-                    │   LAYER    │
-                    │            │
-                    │ every      │
-                    │ output     │
-                    │ feeds back │
-                    └────────────┘
-```
+### "Map the AI robotics industry for investment"
 
-Different goals compose different agent combinations. Change your goals, change which agents activate. The system adapts to what you're pursuing.
+**Pipeline:** Scout → Industry Analyst → Investment Analyst
+**Output:** 1,328 lines | 13 frameworks | 91 citations
+
+8-layer value chain decomposition, bottleneck analysis with severity scores, 6 deployment scenarios with probability weights, 4-lens investment valuation, stress-tested watchlist with exit rules.
+
+Raw AI on the same question: ~800 words of generic overview.
+
+> [View the full pipeline](examples/ai-robotics-industry/) | [See the raw AI comparison](examples/ai-robotics-industry/comparison.md)
+
+### "Build me a complete product strategy"
+
+**Pipeline:** Problem Framing → Discovery Research → Competitive Analysis → Metric Design → Spec Writing → Narrative Building
+**Output:** 2,399 lines across 6 artifacts | 30+ frameworks | 70+ citations
+
+Six PM skills chained together. Each artifact feeds the next — problem framing shapes research, research informs competitive analysis, analysis drives metrics, metrics anchor the spec, spec feeds positioning. One sentence of input produced a complete product strategy across 6 interconnected documents.
+
+> [View the full pipeline](examples/product-strategy-figma/) | [See the raw AI comparison](examples/product-strategy-figma/comparison.md)
+
+### "Level up my PM team for the AI era"
+
+**Pipeline:** Scout → Synthesizer → Planner → Builder
+**Output:** 1,342 lines across 4 artifacts | 10 sourced signals | 4-phase implementation
+
+Scout gathered 10 signals (MIT, Stanford, HBS studies + Stripe, Figma, Linear examples). Synthesizer produced a thesis: "The PM Skill Stack is Inverting." Planner designed a 4-layer team OS. Builder produced a phased implementation plan with day-by-day scheduling.
+
+> [View the full pipeline](examples/pm-team-performance/) | [See the raw AI comparison](examples/pm-team-performance/comparison.md)
+
+### The Pattern
+
+| | Raw AI | Agent Prime |
+|---|---|---|
+| **Input** | Same question | Same question |
+| **Output** | 500-800 words | 1,300-2,400 lines (30-50 pages) |
+| **Frameworks applied** | 0 | 13-30+ |
+| **Evidence citations** | 0 | 70-91 |
+| **Actionable deliverables** | "Do more research" | Watchlists, specs, implementation plans |
 
 ---
 
-## Example: From Hunch to Published Authority
+## The Seven Layers
 
-You have a contrarian take about your industry. Here's what happens:
+Each layer is independently useful. Together, they compound.
 
-**You** → Brain dump. 15 raw thoughts in 10 minutes. Messy, unstructured, half-formed.
-
-**Scout** → Scans 50+ sources. Returns 8 signals with hard data — 3 confirming your hunch, 2 counter-evidence (you need to address these), 3 adjacent insights you hadn't considered. Captures author names, affiliations, URLs, visual evidence opportunities.
-
-**Synthesizer** → Finds the *structural* insight buried in your provocations + Scout's data. Not "AI trends are accelerating" but a specific mechanism with a portable name. Tests it against 9 epistemic failure modes (premature coherence, analogy capture, teleology smuggling). Produces a thesis with tiered evidence — not "AI said so" but T1-T6 sourced claims.
-
-**Writer** → 3,000-word Substack article. In YOUR voice — learned from your corrections over dozens of sessions, not default AI prose. Compresses to LinkedIn post. Then to conference abstract. Long → short, never reversed. Every claim hyperlinked. Every chart specced with real data.
-
-**Connector** → Maps 12 practitioners and researchers who'd care based on the thesis topic. Profiles each one — what they've published, what they care about, where they're reachable. Drafts personalized outreach. Sequences distribution: warm engagement first, then share, then pitch.
-
-**Render** *(optional)* → Builder + Artifact Rendering skill converts the article into a self-contained interactive HTML — tabbed navigation, design system, publication-ready formatting. One invocation, no manual CSS. Opens in any browser.
-
-**End state:** Published article with sourced claims. LinkedIn post. Conference pitch. Interactive HTML showcase. 12-person targeted distribution list with personalized outreach. Every voice rule applied. Every past correction already baked in. The system that produced this is smarter than the one that produced your last piece.
-
-**Time:** ~2-3 sessions. The same work without the system: 2-3 weeks, and you'd skip the evidence grading, the counter-arguments, the distribution.
+| Layer | What It Does | Files |
+|-------|-------------|-------|
+| **01 Identity** | Encodes who you are — thinking patterns, judgment heuristics, epistemic guardrails | `shared/context.md` |
+| **02 Memory** | Every correction compounds. Fix something once, it propagates everywhere. | `shared/learnings.md`, `shared/dependency_map.md` |
+| **03 Agents** | 11 specialized agents — scout, synthesizer, writer, planner, builder, and more | `agents/*/prompt.md` |
+| **04 Orchestration** | Registry tracks work items, dispatch queue sequences tasks, briefings surface priorities | `shared/registry.json`, `prime/dispatch.md`, `prime/dashboard.md` |
+| **05 Skills** | 12 PM methodologies — competitive analysis, metric design, problem framing, and more | `shared/toolkits/skills/` |
+| **06 Craft** | Design system + templates that turn markdown into publication-quality HTML | `agents/builder/templates/`, `assets/style.css` |
+| **07 The Loop** | The recursive mechanism — learnings propagate, agents chain, the system audits itself | Emerges from layers 1-6 |
 
 ---
 
 ## The 11 Agents
 
-Agents are **composable capabilities**, not a hierarchy. You don't use all 11 at once. Your goals determine which agents activate and how they chain together.
+Composable capabilities, not a hierarchy. Your goals determine which agents activate.
 
-### Research Track
-| Agent | What It Does |
-|-------|-------------|
-| **Scout** | Scans sources for signals, evidence, and market data. Captures authors, URLs, visual evidence. |
-| **Synthesizer** | Combines raw signals + your experience into structured theses with evidence tiers. |
-| **Writer** | Converts theses into publishable content — articles, briefs, talks — in your voice, with your rules. |
-| **Connector** | Maps audiences, builds strategic relationships, distributes published work to the right people. |
+| Track | Agent | What It Does |
+|-------|-------|-------------|
+| **Research** | **Scout** | Scans sources for signals, evidence, market data with provenance |
+| | **Synthesizer** | Combines raw signals into structured theses with evidence tiers |
+| | **Writer** | Converts theses into publishable content in your voice |
+| | **Connector** | Maps audiences, builds relationships, distributes work |
+| **Analysis** | **Industry Analyst** | 9-step structural mapping of industries (~80-90KB output) |
+| | **Investment Analyst** | Multi-lens valuation — SIG/EV, adoption curves, comparables, stress tests |
+| **Build** | **Planner** | 4-stage methodology: Excavation → Research → Architecture → Critique |
+| | **Builder** | Executes Build Handoff Specs with mechanical reliability |
+| **System** | **Prime** | Orchestrates everything — routes work, enforces quality, kills noise |
+| | **Experimenter** | Validates claims empirically before they become theses |
+| | **Clerk** | Tracks commitments, deadlines, and staleness across all workstreams |
 
-### Analysis Track
-| Agent | What It Does |
-|-------|-------------|
-| **Industry Analyst** | Deep structural mapping of industries — 9-step methodology producing ~80-90KB of structural analysis. |
-| **Investment Analyst** | Multi-lens investment-grade valuation from structural maps — SIG/EV, adoption curves, comparables, stress tests. |
+Plus an **Onboarder** agent that interviews you and configures the system in ≤10 minutes.
 
-### Build Track
-| Agent | What It Does |
-|-------|-------------|
-| **Planner** | 4-stage planning methodology: Excavation → Research → Architecture → Critique → Build Handoff Spec. |
-| **Builder** | Executes Build Handoff Specs with mechanical reliability. The thinking was the Planner's job. |
+---
 
-### System Track
-| Agent | What It Does |
-|-------|-------------|
-| **Prime** | Orchestrates everything — routes work, enforces quality gates, kills noise, manages priorities. |
-| **Experimenter** | Validates claims empirically with data and prototypes before they become theses. |
-| **Clerk** | Tracks commitments, deadlines, and staleness across all workstreams. |
+## The 12 Skills
 
-### Cross-Connections
-```
-Experimenter ──→ Synthesizer      Validates claims with data
-Industry Analyst ──→ Synthesizer  Structural analysis feeds theses
-Planner ──→ ANY workflow          Plans route into research, analysis, or build
-Clerk ──→ ALL                     Tracks deadlines across everything
-```
+Each skill encodes how an expert thinks about a problem — frameworks, failure modes, quality gates, adversarial self-critique. Any agent can load any skill. Agent Prime scored 93% on structured benchmarks vs. 45% baseline (same model, no skill).
+
+### Analysis & Intelligence
+| Skill | Frameworks | What It Produces |
+|-------|-----------|-----------------|
+| **Competitive Market Analysis** | 7 Powers, Aggregation Theory, Wardley, JTBD, Blue Ocean, Crossing the Chasm | Competitive War Map with evidence tiers |
+| **Discovery Research** | Evidence Triangulation, Interview Analysis, Signal vs Noise, Research Gap Mapping | Research Synthesis with confidence ratings |
+| **Problem Framing** | Problem Definition Canvas, 5 Whys, JTBD, Opportunity Sizing, ICE/RICE | Structured Problem Statement with constraints |
+
+### Strategy & Planning
+| Skill | Frameworks | What It Produces |
+|-------|-----------|-----------------|
+| **Product Strategy** | Vision-to-Roadmap, Portfolio Prioritization, Strategic Bets, Platform vs Product | Strategy Document with evidence-backed bets |
+| **Go-to-Market Strategy** | Launch Sequencing, Channel Strategy, Adoption Flywheel, Market Timing | GTM Plan with channel-specific tactics |
+| **Pricing & Packaging** | Value Metric ID, Tier Design, WTP Analysis, Competitive Pricing | Pricing Model with expansion paths |
+
+### Measurement & Specification
+| Skill | Frameworks | What It Produces |
+|-------|-----------|-----------------|
+| **Metric Design & Experimentation** | NSM Rubrics, Goodhart Countermeasures, A/B Design, Retention Cohorts | Measurement System with experiment designs |
+| **Specification Writing** | Outcome-First, AC Taxonomy, Scope Boundary, Executor Context | Zero-Question Spec engineers can build from |
+| **Stakeholder Alignment** | Stakeholder Mapping, Influence Strategy, Decision Rights, Escalation Frameworks | Alignment Plan with stakeholder profiles |
+
+### Communication & Distribution
+| Skill | Frameworks | What It Produces |
+|-------|-----------|-----------------|
+| **Narrative Building** | Narrative Arc, Dunford Positioning, Why Now, Audience Adaptation | Strategic Narrative with objection responses |
+| **Executive Writing** | Board Memo Structure, Decision Documents, Brevity-with-Depth | Executive Documents for 5-minute decisions |
+| **Multi-Channel Publishing** | Long-to-Short Compression, Platform Adaptation, Content Atomization | 8 format-native pieces from one thesis |
 
 ---
 
 ## What Makes This a System (Not a Prompt Collection)
-
-Most "agent frameworks" are prompt collections — files that tell AI what to do. Agent Prime is a **system** with persistent state, compounding intelligence, and self-correction.
 
 ### Knowledge Engineering
 Agents carry four layers of encoded expertise:
@@ -145,133 +149,74 @@ Agents carry four layers of encoded expertise:
 | Layer | What It Does | Why It Matters |
 |-------|-------------|----------------|
 | **Decision Architecture** | Scoring rubrics, decision tables, multi-lens analysis | AI knows *how* to think, not just *what* to do |
-| **Evidence Standards** | 6-tier evidence hierarchy, source verification, inline provenance | No hallucinated citations, no unsourced claims |
-| **Calibration System** | Confidence levels, adversarial self-critique, epistemic failure modes | AI flags uncertainty instead of faking confidence |
+| **Evidence Standards** | 6-tier hierarchy, source verification, inline provenance | No hallucinated citations, no unsourced claims |
+| **Calibration System** | Confidence levels, adversarial self-critique, 9 epistemic failure modes | AI flags uncertainty instead of faking confidence |
 | **Output Architecture** | Document skeletons, formatting rules, voice constraints | Consistent, publication-ready output every time |
 
-Most people build Layer 4 (templates) and stop. The gap between generic AI and Agent Prime lives in Layers 1–3.
-
-### Persistent Memory
-Five memory mechanisms give the system continuity across sessions:
-
-- **Identity memory** (`shared/context.md`) — who you are, how you think, your goals, your voice
-- **Learnings memory** (`shared/learnings.md`) — every correction becomes a permanent rule. Append-only. Never deleted.
-- **State memory** (`shared/registry.json`) — every work item, its status, its artifacts, its next action
-- **Decision memory** (`prime/session_state.md`) — past decisions with context and reasoning. Prevents re-asking decided questions.
-- **Artifact memory** (`agents/*/outputs/`) — every output every agent produced. Nothing is lost.
+Most people build Layer 4 (templates) and stop. The gap between generic AI and Agent Prime lives in Layers 1-3.
 
 ### Self-Correction Loop
-Every mistake becomes a permanent rule:
-
 1. You give feedback ("these sentences are too long")
-2. The system captures the **pattern**, not just the fix ("short sentences, subject-verb-object")
+2. The system captures the **pattern** ("short sentences, subject-verb-object")
 3. The rule propagates to every agent that needs it
 4. A Propagation Tracker ensures no learning is captured but never applied
 5. The mistake cannot recur in any agent, in any future session
 
-This is the compounding. Month 3 is unrecognizable from month 1.
+Month 3 is unrecognizable from month 1.
 
 ### Push Architecture
-Agents trigger each other. Scout findings feed the Synthesizer. Synthesizer theses feed the Writer. Writer drafts feed the Connector. Each agent writes its successor task to the dispatch queue. The loop is self-sustaining — you review and decide, the system proposes and executes.
+Agents trigger each other. Scout findings feed the Synthesizer. Synthesizer theses feed the Writer. Each agent writes successor tasks to the dispatch queue. You review and decide. The system proposes and executes.
 
-### Skills Library
-12 portable analytical methodologies — competitive analysis, metric design, narrative building, research synthesis, problem framing, and more. Any agent or human can load a skill and execute from it. No Agent Prime context required.
-
-### Python Automation
-5 scripts handle the plumbing: dashboard generation, briefing assembly, health checks, integrity validation. The system monitors itself.
-
-
-## See What It Produces
-
-These are real pipeline outputs — not templates, not mock-ups. One sentence of input, pages of structured output.
-
-### Example 1: "Map the AI robotics industry for investment"
-
-**Pipeline:** Scout → Industry Analyst → Investment Analyst
-**Input:** 1 sentence | **Output:** 1,328 lines (~50 pages) | **Time:** 2 sessions
-
-The system produced an 8-layer value chain decomposition, bottleneck analysis with severity scores, 6 deployment scenarios with probability weights, 4-lens investment valuation, and a stress-tested watchlist with exit rules. Raw AI on the same question: ~800 words of generic overview.
-
-→ [See the full pipeline trace](examples/ai-robotics-industry/)
-
-### Example 2: "Build me a complete product strategy"
-
-**Pipeline:** Problem Framing → Discovery Research → Competitive Analysis → Metric Design → Spec Writing → Narrative Building
-**Input:** 1 sentence | **Output:** 2,399 lines across 6 artifacts | **Time:** 3 sessions
-
-All 6 PM skills chained together. Each artifact feeds the next — the problem framing shapes the research, the research informs the competitive analysis, the analysis drives the metrics, the metrics anchor the spec, and the spec feeds the positioning narrative. Raw AI: ~500 words of generic advice.
-
-→ [See the full pipeline trace](examples/product-strategy-figma/)
-
-### Example 3: "Level up my PM team for the AI era"
-
-**Pipeline:** Scout → Synthesizer → Planner → Builder
-**Input:** 2 sentences | **Output:** 1,342 lines across 4 artifacts | **Time:** 3 sessions
-
-Scout gathered 10 sourced signals (MIT, Stanford, HBS studies + company examples). Synthesizer produced a thesis: "The PM Skill Stack is Inverting." Planner designed a 4-layer team operating system. Builder produced a phased implementation plan. Raw AI: ~600 words telling you to "invest in AI training."
-
-→ [See the full pipeline trace](examples/pm-team-performance/)
-
-### The pattern
-
-| | Raw AI | Agent Prime |
-|---|---|---|
-| **Input** | Same question | Same question |
-| **Output** | 500-800 words | 30-50 pages |
-| **Frameworks** | 0 | 13-30+ |
-| **Evidence citations** | 0 | 70-91 |
-| **Scenarios modeled** | 0 | 3-6 |
-| **Actionable deliverables** | "Do more research" | Watchlists, specs, implementation plans |
+---
 
 ## Getting Started
 
 ### Prerequisites
 
 - [Claude Code](https://docs.anthropic.com/en/docs/claude-code) (recommended) **or** [VS Code](https://code.visualstudio.com/) with [GitHub Copilot](https://github.com/features/copilot)
-- Python 3.10+ (for scripts)
+- Python 3.10+ (for automation scripts)
 
-### Setup (5 minutes)
+### Path A: Automated Setup (15 min)
 
-1. **Clone the repo:**
-   ```bash
-   git clone https://github.com/avyayalaya/agent-prime.git
-   cd agent-prime
-   code .
-   ```
+```bash
+git clone https://github.com/avyayalaya/agent-prime.git
+cd agent-prime
+```
 
-2. **Run the Onboarding Agent** in VS Code Copilot Chat:
-   ```
-   @onboarder
-   ```
-   
-   The Onboarding Agent interviews you (≤10 minutes) and generates:
-   - Your identity and goals (`shared/context.md`)
-   - Starter work items (`shared/registry.json`)
-   - Your first task queue (`prime/dispatch.md`)
-   - Goal → agent mappings (`prime/config.json`)
+Run the Onboarding Agent:
+```
+@onboarder
+```
 
-3. **Run your first workflow:**
-   - [Guided Project 1: Research & Publish](getting-started/project-1-research-publish/) — 20 minutes
-   - [Guided Project 2: Plan & Build](getting-started/project-2-plan-build/) — 25 minutes
+It interviews you and generates your identity, goals, starter registry, and task queue. Then run your first workflow:
+- [Guided Project 1: Research & Publish](getting-started/project-1-research-publish/) — 20 minutes
+- [Guided Project 2: Plan & Build](getting-started/project-2-plan-build/) — 25 minutes
 
-4. **Or jump in directly:**
-   ```
-   @prime Show me the system pulse.
-   ```
+### Path B: Manual Setup (30 min)
 
-### Manual Setup (Alternative)
-
-If you prefer to configure manually instead of using the Onboarding Agent:
-
-1. Fill in `shared/context.md` — your identity, goals, voice, NDA constraints
+1. Fill in `shared/context.md` — your identity, goals, voice, constraints
 2. Set your goals in `prime/config.json`
 3. Add your first work item to `shared/registry.json`
 4. Add your first task to `prime/dispatch.md`
 5. Run `python meta/scripts/generate_dashboard.py`
 
-See [QUICKSTART.md](QUICKSTART.md) for the detailed manual setup guide.
+See [QUICKSTART.md](QUICKSTART.md) for the detailed guide.
 
-## Every Session
+### Path C: Quick Trial (5 min)
+
+Copy the startup-founder example and explore:
+```bash
+cp -r examples/startup-founder/* .
+python meta/scripts/generate_dashboard.py
+```
+
+### Verify Setup
+
+```bash
+python meta/scripts/verify_setup.py
+```
+
+### Every Session
 
 ```
 1. Generate briefing     →  python meta/scripts/generate_briefing.py
@@ -281,56 +226,86 @@ See [QUICKSTART.md](QUICKSTART.md) for the detailed manual setup guide.
 5. System learns         →  your corrections become permanent rules, dispatch updated
 ```
 
+---
+
 ## Repository Structure
 
 ```
 agent-prime/
-├── .github/copilot-instructions.md    ← System rules (auto-injected)
-├── agents/                            ← 11 agent prompts
-│   ├── prime/prompt.md                ← Orchestrator
-│   ├── scout/prompt.md                ← Signal scanning
-│   ├── synthesizer/prompt.md          ← Thesis building
-│   ├── writer/prompt.md               ← Content production
-│   ├── planner/prompt.md              ← 4-stage planning
-│   ├── builder/prompt.md              ← Build execution
-│   ├── onboarder/prompt.md            ← Setup wizard
-│   └── ...                            ← + 5 more agents
+├── CLAUDE.md                             ← Claude Code system instructions (auto-loaded)
+├── .github/copilot-instructions.md       ← VS Code Copilot instructions (auto-injected)
+├── agents/                               ← 11 agent prompts + onboarder
+│   ├── prime/prompt.md                   ← Orchestrator
+│   ├── scout/prompt.md                   ← Signal scanning
+│   ├── synthesizer/prompt.md             ← Thesis building
+│   ├── writer/prompt.md                  ← Content production
+│   ├── planner/prompt.md                 ← 4-stage planning
+│   ├── builder/prompt.md                 ← Build execution
+│   ├── industry_analyst/prompt.md        ← Structural mapping
+│   ├── investment_analyst/prompt.md      ← Investment analysis
+│   ├── connector/prompt.md               ← Distribution
+│   ├── experimenter/prompt.md            ← Validation
+│   ├── clerk/prompt.md                   ← Tracking
+│   └── onboarder/prompt.md              ← Setup wizard
 ├── shared/
-│   ├── context.md                     ← Your identity & goals (fill this in)
-│   ├── registry.json                  ← All work items
-│   ├── learnings.md                   ← Accumulated corrections
-│   ├── toolkits/skills/               ← 12 analytical methodologies
-│   └── ...
+│   ├── context.md                        ← Your identity & goals
+│   ├── registry.json                     ← All work items (single source of truth)
+│   ├── learnings.md                      ← Accumulated corrections (append-only)
+│   ├── dependency_map.md                 ← Change propagation registry
+│   └── toolkits/skills/                  ← 12 PM methodologies (~1,200 lines each)
 ├── prime/
-│   ├── dashboard.md                   ← Auto-generated status view
-│   ├── dispatch.md                    ← Task queue
-│   └── config.json                    ← Agent cadences & goals
-├── meta/scripts/                      ← Python automation
-├── examples/startup-founder/          ← Fully worked example
-└── getting-started/                   ← Guided projects
+│   ├── dashboard.md                      ← Auto-generated status view
+│   ├── briefing.md                       ← Session-start priorities
+│   ├── dispatch.md                       ← Task queue with successor rules
+│   └── config.json                       ← Agent cadences & goal mappings
+├── meta/scripts/                         ← Python automation (5 scripts)
+├── examples/
+│   ├── startup-founder/                  ← Fully configured example system
+│   ├── ai-robotics-industry/             ← Pipeline: investment analysis (1,328 lines)
+│   ├── product-strategy-figma/           ← Pipeline: 6-skill product strategy (2,399 lines)
+│   └── pm-team-performance/              ← Pipeline: team transformation (1,342 lines)
+└── getting-started/                      ← Guided projects (20-25 min each)
 ```
 
 See [ARCHITECTURE.md](ARCHITECTURE.md) for the full system design.
 
-## Example: Startup Founder
+---
 
-The `examples/startup-founder/` directory shows a fully configured system for Maya Chen, a Series A startup CEO. It includes:
+## Examples
+
+### Pipeline Examples (Real Output)
+
+Three complete pipeline traces showing input → agent chain → output, with raw AI comparisons:
+
+| Example | Input | Agents | Output | Lines |
+|---------|-------|--------|--------|-------|
+| [AI Robotics Industry](examples/ai-robotics-industry/) | 1 sentence | Scout → Industry → Investment | Value chain + valuation + watchlist | 1,328 |
+| [Product Strategy](examples/product-strategy-figma/) | 1 sentence | 6 PM skills chained | 6 interconnected artifacts | 2,399 |
+| [PM Team Performance](examples/pm-team-performance/) | 2 sentences | Scout → Synth → Plan → Build | Thesis + team OS + implementation | 1,342 |
+
+### Worked Example: Startup Founder
+
+The `examples/startup-founder/` directory shows a fully configured system for Maya Chen, a Series A startup CEO:
 - Complete `context.md` with identity, goals, and voice rules
-- Seeded registry with 6 real work items across 3 goals
+- Seeded registry with 6 work items across 3 goals
 - Active dispatch queue with 4 agent tasks
 - Goal → agent mappings
 
+Clone this to skip manual setup and explore the system immediately.
+
+---
+
 ## Requirements
 
-| Component | Required | Optional |
-|-----------|----------|----------|
-| Claude Code **or** VS Code + GitHub Copilot | ✅ | |
-| Python 3.10+ | ✅ (for scripts) | |
-| LM Studio | | For local model dispatch |
+| Component | Required | Notes |
+|-----------|----------|-------|
+| Claude Code **or** VS Code + GitHub Copilot | Yes | Claude Code recommended — auto-loads CLAUDE.md |
+| Python 3.10+ | Yes | For automation scripts |
+| LM Studio | Optional | For local model dispatch |
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md). Short version: new skills, agent improvements, and documentation fixes welcome. Keep PRs focused.
+See [CONTRIBUTING.md](CONTRIBUTING.md). New skills, agent improvements, and documentation fixes welcome. Keep PRs focused.
 
 ## License
 
