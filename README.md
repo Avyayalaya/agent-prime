@@ -1,10 +1,34 @@
 # Agent Prime
 
-**A persistent AI operating system that compounds with every session.**
+**A persistent AI operating system that gets better every time you use it.**
 
 You ask AI to analyze an industry. It produces 800 words of generic overview. Agent Prime produces 1,328 lines of structural analysis with 13 frameworks, 91 citations, and a stress-tested investment watchlist — from the same one-sentence input.
 
 The difference isn't the model. It's the system.
+
+---
+
+## Start Here
+
+If you're new, don't start by reading the whole architecture.
+
+| Path | What you get | How to start |
+|------|---------------|--------------|
+| **Try the live preview** | See the app-shaped direction in your browser | [Open the hosted workspace preview](https://avyayalaya.github.io/agent-prime/workspace-mvp/) |
+| **Run first-time setup** | Choose preview, quick trial, or guided onboarding from one entry point | Clone the repo, then run `./install.sh`, `.\install.ps1`, or `python meta/scripts/first_run.py` |
+| **Load a prebuilt example** | Start with a fully configured founder system and inspect how the pieces fit | Run the first-time setup flow and choose `quick-trial` |
+
+**Recommended first move:**
+
+```bash
+git clone https://github.com/avyayalaya/agent-prime.git
+cd agent-prime
+python meta/scripts/first_run.py
+```
+
+Use the Python command everywhere, or the platform wrappers if you prefer:
+- macOS/Linux: `./install.sh`
+- PowerShell: `.\install.ps1`
 
 ---
 
@@ -176,11 +200,31 @@ Agents trigger each other. Scout findings feed the Synthesizer. Synthesizer thes
 - [Claude Code](https://docs.anthropic.com/en/docs/claude-code) (recommended) **or** [VS Code](https://code.visualstudio.com/) with [GitHub Copilot](https://github.com/features/copilot)
 - Python 3.10+ (for automation scripts)
 
+### Fastest Path (Recommended)
+
+Clone the repo and run the guided first-run command:
+
+```bash
+git clone https://github.com/avyayalaya/agent-prime.git
+cd agent-prime
+python meta/scripts/first_run.py
+```
+
+Platform wrappers:
+- macOS/Linux: `./install.sh`
+- PowerShell: `.\install.ps1`
+
+The first-run flow lets you choose:
+- **preview** — open the workspace MVP locally and use the hosted preview link
+- **quick-trial** — load the startup-founder example, generate the dashboard, and verify setup
+- **onboard** — run `@onboarder`, then finish setup and verification
+
 ### Product-Shell Preview (5 min)
 
-If you want to see the plug-and-play direction before working directly with prompts and files, open:
+If you want to see the plug-and-play direction before working directly with prompts and files:
 
-`workspace-mvp/index.html`
+- Hosted preview: `https://avyayalaya.github.io/agent-prime/workspace-mvp/`
+- Local clone: `workspace-mvp/index.html`
 
 This static preview shows what Agent Prime could feel like as an app shell:
 - guided onboarding
@@ -197,9 +241,10 @@ It is a product-shell demo, not a replacement for the markdown-first system in t
 ```bash
 git clone https://github.com/avyayalaya/agent-prime.git
 cd agent-prime
+python meta/scripts/first_run.py --mode onboard
 ```
 
-Run the Onboarding Agent:
+Then run the Onboarding Agent:
 ```
 @onboarder
 ```
@@ -220,10 +265,9 @@ See [QUICKSTART.md](QUICKSTART.md) for the detailed guide.
 
 ### Path C: Quick Trial (5 min)
 
-Copy the startup-founder example and explore:
+Load the startup-founder example and let the first-run flow wire the system:
 ```bash
-cp -r examples/startup-founder/* .
-python meta/scripts/generate_dashboard.py
+python meta/scripts/first_run.py --mode quick-trial --yes
 ```
 
 ### Verify Setup
@@ -277,7 +321,10 @@ agent-prime/
 ├── workspace-mvp/                        ← Plug-and-play product-shell prototype
 │   ├── index.html                        ← Guided workspace experience
 │   └── assets/                           ← Local JS + styling for the prototype
-├── meta/scripts/                         ← Python automation (5 scripts)
+├── meta/scripts/                         ← Python automation (6 scripts)
+│   └── first_run.py                      ← Guided entry point for preview / trial / onboarding
+├── install.sh                            ← macOS/Linux first-run wrapper
+├── install.ps1                           ← PowerShell first-run wrapper
 ├── examples/
 │   ├── startup-founder/                  ← Fully configured example system
 │   ├── ai-robotics-industry/             ← Pipeline: investment analysis (1,328 lines)

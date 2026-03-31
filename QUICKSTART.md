@@ -1,6 +1,6 @@
 # Quickstart Guide
 
-> Four ways to get started. Pick the one that fits your patience level.
+> Four ways to get started. The easiest path is now one guided first-run command.
 
 | Path | Time | Best for |
 |------|------|----------|
@@ -11,11 +11,38 @@
 
 ---
 
+## Start Here First
+
+Clone the repo and run the first-run guide:
+
+```bash
+git clone https://github.com/avyayalaya/agent-prime.git
+cd agent-prime
+python meta/scripts/first_run.py
+```
+
+Platform wrappers:
+- macOS/Linux: `./install.sh`
+- PowerShell: `.\install.ps1`
+
+The guide offers three modes:
+- `preview` — opens the workspace MVP and points you to the hosted preview
+- `quick-trial` — loads the startup-founder example, generates the dashboard, and verifies the repo
+- `onboard` — tells you when to run `@onboarder`, then finishes generation + verification
+
+If you already know the path you want, use the direct options below.
+
+---
+
 ## Path 0: Product-Shell Preview (5 minutes)
 
 Want to see the app-shaped version of Agent Prime before you work directly with prompts and files?
 
-Open `workspace-mvp/index.html` in your browser.
+Open the hosted preview in your browser:
+
+`https://avyayalaya.github.io/agent-prime/workspace-mvp/`
+
+If you're working from a local clone, `workspace-mvp/index.html` is the same experience offline.
 
 What this preview includes:
 - guided onboarding instead of editing `shared/context.md`
@@ -32,21 +59,17 @@ Important: this is a static prototype that demonstrates the plug-and-play produc
 
 Want to see Agent Prime work before configuring it for yourself? Use the pre-built startup-founder example.
 
-### Step 1: Clone and copy the example
+### Step 1: Clone the repo
 
 ```bash
 git clone https://github.com/avyayalaya/agent-prime.git
 cd agent-prime
-cp examples/startup-founder/context.md shared/context.md
-cp examples/startup-founder/registry.json shared/registry.json
-cp examples/startup-founder/dispatch.md prime/dispatch.md
-cp examples/startup-founder/config.json prime/config.json
 ```
 
-### Step 2: Generate the dashboard
+### Step 2: Load the example
 
 ```bash
-python meta/scripts/generate_dashboard.py
+python meta/scripts/first_run.py --mode quick-trial --yes
 ```
 
 ### Step 3: Run the system
@@ -74,16 +97,18 @@ python meta/scripts/verify_setup.py
 ```bash
 git clone https://github.com/avyayalaya/agent-prime.git
 cd agent-prime
+python meta/scripts/first_run.py --mode onboard
+```
+
+### Step 2: Open the repo in your AI coding environment (10 min)
+
+```bash
 code .
 ```
 
-### Step 2: Run the Onboarding Agent (10 min)
+Then run the Onboarding Agent:
 
-Open VS Code Copilot Chat and type:
-
-```
-@onboarder
-```
+`@onboarder`
 
 The agent will:
 1. Ask you 10-12 questions about your identity, goals, and working style
@@ -92,12 +117,9 @@ The agent will:
 4. Set up your dispatch queue in `prime/dispatch.md`
 5. Map your goals to agents in `prime/config.json`
 
-### Step 3: Verify Setup (2 min)
+### Step 3: Return to the first-run flow and finish verification (2 min)
 
-```bash
-python meta/scripts/generate_dashboard.py
-python meta/scripts/integrity_check.py
-```
+After onboarding finishes, go back to the terminal where `first_run.py` is running and press Enter. It will generate the dashboard and run verification for you.
 
 Open `prime/dashboard.md` — you should see your work items and a system pulse.
 
@@ -113,19 +135,15 @@ Pick one:
 
 ### Step 1: Configure Your Identity
 
-Open `shared/context.md` and fill in each section. See `examples/startup-founder/context.md` for a fully worked example.
+Open `shared/context.md` and fill in each section. The file now explains what gets built on first run and what you should add manually if you skip onboarding. See `examples/startup-founder/context.md` for a fully worked example.
 
 **Required sections:**
 - Identity (name, role, organization)
-- Career Arc (2-3 sentences on your path)
-- Unique Lens (what you see that others miss)
+- Goals (2-3 strategic goals with success metrics)
 - Voice & Style (how you write, hard rules)
 - NDA Constraints (what's off-limits)
-- Goals (2-3 strategic goals with success metrics)
-
-**Keep universal sections as-is:**
-- Reasoning Operations (6 types)
-- Epistemic Failure Modes (9 guardrails)
+- Unique Lens / Fields You Draw From
+- Decision Patterns or Guardrails if they matter for your work
 
 ### Step 2: Set Your Goals
 
@@ -174,7 +192,7 @@ Edit `shared/registry.json`:
 }
 ```
 
-Work item types: `THS` (thesis), `BLD` (build), `STR` (strategy), `EVT` (event), `TSK` (task), `TLK` (toolkit), `EXP` (exploration), `PRG` (program), `SYS` (system).
+Work item types: `THS` (thesis), `BLD` (build), `STR` (strategy), `EVT` (event), `TSK` (task), `TLK` (toolkit), `EXP` (experiment), `PRG` (program), `SYS` (system).
 
 ### Step 4: Queue Your First Task
 

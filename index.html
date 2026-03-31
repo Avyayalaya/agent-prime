@@ -64,7 +64,7 @@
     </nav>
 
     <div class="site-nav__right">
-      <a href="#get-started" class="site-nav__cta">Clone the repo</a>
+      <a href="workspace-mvp/" class="site-nav__cta">Try live preview</a>
       <button
         class="theme-toggle"
         type="button"
@@ -117,8 +117,8 @@
         </div>
 
         <div class="hero__cta">
-          <a href="#get-started" class="btn btn--primary">Get Started</a>
-          <a href="https://github.com/avyayalaya/agent-prime" class="btn btn--secondary" target="_blank" rel="noopener">Star on GitHub</a>
+          <a href="workspace-mvp/" class="btn btn--primary">Try live preview</a>
+          <a href="#get-started" class="btn btn--secondary">Run first-time setup</a>
         </div>
       </div>
 
@@ -413,27 +413,40 @@
       <div class="section-number" aria-hidden="true">07</div>
       <div class="section__header">
         <h2 class="section__title">Get Started</h2>
+        <p class="section__subtitle">Three ways in: try the hosted preview, run the guided first-time setup, or clone and customize the full system.</p>
       </div>
 
       <div class="paths-grid stagger">
         <div class="path-card reveal">
-          <h3 class="path-card__title">Take One Piece</h3>
-          <p class="path-card__desc">Grab a context file, an agent prompt, or the memory pattern. Drop it into your workflow. Start compounding today.</p>
+          <h3 class="path-card__title">Try the live preview</h3>
+          <p class="path-card__desc">Open the hosted workspace MVP and see the product-shaped direction before you clone anything.</p>
+          <div class="hero__cta">
+            <a href="workspace-mvp/" class="btn btn--secondary">Open workspace preview</a>
+          </div>
         </div>
 
         <div class="path-card path-card--primary reveal">
-          <h3 class="path-card__title">Build Your Own</h3>
-          <p class="path-card__desc">Follow the guided projects. Research and Publish or Plan and Build. From zero to a working system in 30 minutes.</p>
+          <h3 class="path-card__title">Run first-time setup</h3>
+          <p class="path-card__desc">Clone the repo, run one command, then choose preview, quick trial, or guided onboarding.</p>
+          <div class="hero__cta">
+            <a href="https://github.com/avyayalaya/agent-prime" class="btn btn--primary" target="_blank" rel="noopener noreferrer">Clone from GitHub</a>
+          </div>
         </div>
 
         <div class="path-card reveal">
-          <h3 class="path-card__title">Clone Everything</h3>
-          <p class="path-card__desc">Full Agent Prime. Eleven agents, seven layers, recursive improvement. Instantiate it for your domain and make it yours.</p>
+          <h3 class="path-card__title">Clone and customize</h3>
+          <p class="path-card__desc">Take the full system — eleven agents, seven layers, and recursive improvement — and make it yours.</p>
+          <div class="hero__cta">
+            <a href="https://github.com/avyayalaya/agent-prime#readme" class="btn btn--secondary" target="_blank" rel="noopener noreferrer">Read setup docs</a>
+          </div>
         </div>
       </div>
 
       <div class="clone-command">
         <code class="clone-command__command">git clone https://github.com/avyayalaya/agent-prime</code>
+      </div>
+      <div class="clone-command">
+        <code class="clone-command__command">python meta/scripts/first_run.py</code>
       </div>
     </section>
   </main>
