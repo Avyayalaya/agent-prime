@@ -9,6 +9,16 @@ import json
 import os
 import sys
 
+
+def looks_like_blank_context(content):
+    markers = [
+        "AGENT_PRIME_TEMPLATE: CONTEXT",
+        "This file starts intentionally neutral.",
+        "<!-- Add your name -->",
+        "<!-- Goal 1 -->"
+    ]
+    return any(marker in content for marker in markers)
+
 def check(label, passed, detail=""):
     icon = "PASS" if passed else "FAIL"
     msg = f"  [{icon}] {label}"
@@ -33,14 +43,12 @@ def main():
     if os.path.exists(context_path):
         with open(context_path, "r", encoding="utf-8") as f:
             content = f.read()
-        # Check if it's still the template (has placeholder comments)
-        has_identity = "<!-- FILL IN:" not in content[:500] or len(content) > 3000
-        if has_identity and len(content) > 1000:
+        if not looks_like_blank_context(content) and len(content) > 400:
             passed += 1
             check("Identity configured", True, "shared/context.md")
         else:
             failed += 1
-            check("Identity configured", False, "shared/context.md looks like the blank template. Fill in your identity, goals, and voice.")
+            check("Identity configured", False, "shared/context.md is still the neutral template. Run @onboarder or fill in your identity, goals, voice, and constraints.")
     else:
         failed += 1
         check("Identity configured", False, "shared/context.md not found")
@@ -58,7 +66,7 @@ def main():
                     check("Registry has work items", True, f"{len(items)} item(s) in shared/registry.json")
                 else:
                     failed += 1
-                    check("Registry has work items", False, "shared/registry.json is empty. Add at least one work item.")
+                    check("Registry has work items", False, "shared/registry.json is still empty. This is normal on a fresh install; run @onboarder or add your first work item manually.")
             except json.JSONDecodeError:
                 failed += 1
                 check("Registry has work items", False, "shared/registry.json has invalid JSON")
@@ -79,7 +87,7 @@ def main():
                     check("Goals configured", True, f"{len(goals)} goal(s) in prime/config.json")
                 else:
                     failed += 1
-                    check("Goals configured", False, "prime/config.json has no goals defined")
+                    check("Goals configured", False, "prime/config.json still has no user goals. Run @onboarder or add your goal mappings manually.")
             except json.JSONDecodeError:
                 failed += 1
                 check("Goals configured", False, "prime/config.json has invalid JSON")

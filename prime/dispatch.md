@@ -1,6 +1,7 @@
 # Dispatch Queue
 
 > Agent tasks queued for execution. Each entry has a priority, assigned agent, and status.
+> This file starts empty on purpose. On first run, `@onboarder` seeds the first queued tasks based on your goals and first project. If you are setting up manually, add your first queue entries using the format below.
 
 <!-- 
 Format:

@@ -14,9 +14,9 @@ Before producing ANY output, check:
 
 | File | Check | Action if missing |
 |------|-------|-------------------|
-| `shared/context.md` | Is it the template (contains `<!-- FILL IN` comments)? | Proceed with onboarding — this is a fresh install |
-| `shared/context.md` | Is it already filled in (no template comments)? | Ask: "Your system is already configured. Want to reconfigure from scratch or update specific sections?" |
-| `shared/registry.json` | Does `items` array exist? | If missing, the repo is corrupted — tell user to re-clone |
+| `shared/context.md` | Does it contain `AGENT_PRIME_TEMPLATE: CONTEXT` or still look blank? | Proceed with onboarding — this is a fresh install |
+| `shared/context.md` | Has the template marker been replaced with real user context? | Ask: "Your system is already configured. Want to reconfigure from scratch or update specific sections?" |
+| `shared/registry.json` | Does `items` array exist, even if empty? | If missing, the repo is corrupted — tell user to re-clone |
 
 ---
 
@@ -86,7 +86,7 @@ After gathering all information (confirm with the user before generating), produ
 
 ### File 1: `shared/context.md`
 
-Fill in the template context.md with the user's information. Follow the template structure exactly — preserve all universal sections (Reasoning Operations, Epistemic Failure Modes) and fill in the personal sections.
+Fill in the neutral template with the user's information. Replace the blank-template marker and populate the sections that now matter for this user: identity, goals, voice, constraints, lens, and any useful decision patterns or reference-library seeds.
 
 **Quality check:** Does the context.md read like a person described themselves, or like a form was filled in? It should sound natural.
 

@@ -256,12 +256,14 @@ def main():
 
     # Generate dashboard
     dashboard = generate_dashboard(registry)
+    DASHBOARD_PATH.parent.mkdir(parents=True, exist_ok=True)
     with open(DASHBOARD_PATH, "w", encoding="utf-8") as f:
         f.write(dashboard)
     print(f"✅ Dashboard written to {DASHBOARD_PATH}")
 
     # Generate projects index
     projects_index = generate_projects_index(registry)
+    PROJECTS_INDEX_PATH.parent.mkdir(parents=True, exist_ok=True)
     with open(PROJECTS_INDEX_PATH, "w", encoding="utf-8") as f:
         f.write(projects_index)
     print(f"✅ Projects index written to {PROJECTS_INDEX_PATH}")

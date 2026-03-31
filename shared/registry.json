@@ -1,22 +1,20 @@
 {
-  "items": [
-    {
-      "id": "TSK-001",
-      "title": "Example: Configure your identity and goals",
-      "type": "task",
-      "status": "backlog",
-      "priority": "P0",
-      "goal": "System",
-      "owner": "owner",
-      "created": "2026-01-01",
-      "updated": "2026-01-01",
-      "next_action": "Fill in shared/context.md with your identity, goals, and voice rules. Use examples/startup-founder/context.md as a reference.",
-      "notes": "This is a sample work item showing the registry format. Delete it after you've configured your system."
-    }
-  ],
+  "items": [],
+  "type_definitions": {
+    "THS": "Thesis or research question",
+    "PRG": "Program or initiative",
+    "STR": "Strategy artifact",
+    "BLD": "Build or product effort",
+    "EVT": "Event or talk",
+    "EXP": "Experiment",
+    "SYS": "System or operations work",
+    "TSK": "Task"
+  },
   "meta": {
     "last_updated": "",
     "version": "1.0",
-    "notes": "This is the single source of truth for all work items. Projects, tasks, theses, backlog — everything lives here. Use meta/scripts/generate_dashboard.py to regenerate the dashboard from this file."
+    "setup_status": "blank_template",
+    "first_run": "On first run, @onboarder seeds this file with starter work items based on your goals and first project. If you skip onboarding, add items manually, then run python meta/scripts/generate_dashboard.py.",
+    "notes": "This is the single source of truth for all work items. Projects, tasks, theses, backlog, and experiments all live here."
   }
 }
