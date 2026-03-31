@@ -176,6 +176,22 @@ Agents trigger each other. Scout findings feed the Synthesizer. Synthesizer thes
 - [Claude Code](https://docs.anthropic.com/en/docs/claude-code) (recommended) **or** [VS Code](https://code.visualstudio.com/) with [GitHub Copilot](https://github.com/features/copilot)
 - Python 3.10+ (for automation scripts)
 
+### Product-Shell Preview (5 min)
+
+If you want to see the plug-and-play direction before working directly with prompts and files, open:
+
+`workspace-mvp/index.html`
+
+This static preview shows what Agent Prime could feel like as an app shell:
+- guided onboarding
+- 3 starter workflows
+- visible run state
+- artifact review with approvals and revisions
+- saved rules
+- browser-local persistence, export, and reset
+
+It is a product-shell demo, not a replacement for the markdown-first system in the rest of the repo.
+
 ### Path A: Automated Setup (15 min)
 
 ```bash
@@ -258,6 +274,9 @@ agent-prime/
 │   ├── briefing.md                       ← Session-start priorities
 │   ├── dispatch.md                       ← Task queue with successor rules
 │   └── config.json                       ← Agent cadences & goal mappings
+├── workspace-mvp/                        ← Plug-and-play product-shell prototype
+│   ├── index.html                        ← Guided workspace experience
+│   └── assets/                           ← Local JS + styling for the prototype
 ├── meta/scripts/                         ← Python automation (5 scripts)
 ├── examples/
 │   ├── startup-founder/                  ← Fully configured example system

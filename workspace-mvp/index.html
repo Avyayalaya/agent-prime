@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agent Prime Workspace — Plug-and-Play MVP</title>
+  <meta name="description" content="A plug-and-play Agent Prime workspace prototype: guided onboarding, workflow templates, artifact review, saved rules, and persistent memory in one place.">
+  <meta property="og:title" content="Agent Prime Workspace — Plug-and-Play MVP">
+  <meta property="og:description" content="Guided onboarding, reusable workflows, artifact review, and compounding rules — a product shell around Agent Prime.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://avyayalaya.github.io/agent-prime/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Agent Prime Workspace — Plug-and-Play MVP">
+  <meta name="twitter:description" content="A hosted-workspace-style prototype for Agent Prime.">
+  <meta name="twitter:image" content="https://avyayalaya.github.io/agent-prime/assets/og-image.png">
+
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('agent-prime-theme');
+        if (saved === 'dark' || saved === 'light') {
+          document.documentElement.setAttribute('data-theme', saved);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600;1,8..60,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/workspace.css">
+</head>
+<body class="workspace-page">
+  <div class="progress-bar" aria-hidden="true"></div>
+
+  <header class="site-nav" role="banner">
+    <a href="index.html" class="site-nav__logo" aria-label="Agent Prime — home">Agent Prime</a>
+
+    <nav aria-label="Workspace navigation">
+      <ul class="site-nav__links" id="main-nav">
+        <li><a href="#dashboard">Dashboard</a></li>
+        <li><a href="#onboarding">Onboarding</a></li>
+        <li><a href="#workflows">Workflows</a></li>
+        <li><a href="#artifacts">Artifacts</a></li>
+        <li><a href="#rules">Rules</a></li>
+        <li><a href="#settings">Settings</a></li>
+      </ul>
+    </nav>
+
+    <div class="site-nav__right">
+      <a href="../README.md" class="site-nav__cta">Back to repo</a>
+      <button
+        class="theme-toggle"
+        type="button"
+        aria-label="Switch to dark mode"
+        title="Toggle dark mode"
+      >
+        <span class="theme-toggle__icon--light" aria-hidden="true">&#9788;</span>
+        <span class="theme-toggle__icon--dark" aria-hidden="true">&#9789;</span>
+      </button>
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-label="Open navigation"
+        aria-expanded="false"
+        aria-controls="main-nav"
+      >
+        <span aria-hidden="true">&#9776;</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="workspace-hero-section">
+      <div class="workspace-shell">
+        <div class="workspace-hero card">
+          <div class="workspace-hero__copy">
+            <span class="badge badge--warm">Plug-and-play MVP</span>
+            <h1>Agent Prime, without the repo-shaped learning curve.</h1>
+            <p class="subtitle">This prototype wraps the Agent Prime architecture in a product shell: guided onboarding, workflow templates, artifact review, saved rules, and workspace memory — all in one place.</p>
+            <div class="hero__cta">
+              <a href="#onboarding" class="btn btn--primary">Start onboarding</a>
+              <a href="#workflows" class="btn btn--secondary">See starter workflows</a>
+            </div>
+          </div>
+
+          <div class="workspace-hero__meta">
+            <div class="workspace-mini-stat">
+              <span class="workspace-mini-stat__label">Prototype promise</span>
+              <strong>First useful artifact in one session</strong>
+            </div>
+            <div class="workspace-mini-stat">
+              <span class="workspace-mini-stat__label">No local setup</span>
+              <strong>No repo clone. No prompt syntax. No file editing.</strong>
+            </div>
+            <div class="workspace-mini-stat">
+              <span class="workspace-mini-stat__label">Engine underneath</span>
+              <strong>Still powered by the same Agent Prime workflow model.</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="dashboard" class="section workspace-section fade-in">
+      <div class="section-number" aria-hidden="true">01</div>
+      <div class="section__header">
+        <h2 class="section__title">Workspace dashboard</h2>
+        <p class="section__subtitle">A persistent control center for your profile, current work, artifacts, and learned rules.</p>
+      </div>
+      <div class="workspace-shell">
+        <div id="workspaceDashboard"></div>
+      </div>
+    </section>
+
+    <section id="onboarding" class="section workspace-section fade-in">
+      <div class="section-number" aria-hidden="true">02</div>
+      <div class="section__header">
+        <h2 class="section__title">Guided onboarding</h2>
+        <p class="section__subtitle">Define identity, goals, style, and constraints without touching a context file.</p>
+      </div>
+      <div class="workspace-shell">
+        <div id="workspaceOnboarding"></div>
+      </div>
+    </section>
+
+    <section id="workflows" class="section workspace-section fade-in">
+      <div class="section-number" aria-hidden="true">03</div>
+      <div class="section__header">
+        <h2 class="section__title">Starter workflows</h2>
+        <p class="section__subtitle">Three tightly-scoped templates that make the system understandable fast.</p>
+      </div>
+      <div class="workspace-shell">
+        <div id="workspaceWorkflows"></div>
+      </div>
+    </section>
+
+    <section id="studio" class="section workspace-section fade-in">
+      <div class="section-number" aria-hidden="true">04</div>
+      <div class="section__header">
+        <h2 class="section__title">Run studio</h2>
+        <p class="section__subtitle">Launch a workflow, watch each step progress, and keep the human in control.</p>
+      </div>
+      <div class="workspace-shell">
+        <div id="workspaceStudio"></div>
+      </div>
+    </section>
+
+    <section id="artifacts" class="section workspace-section fade-in">
+      <div class="section-number" aria-hidden="true">05</div>
+      <div class="section__header">
+        <h2 class="section__title">Artifact review</h2>
+        <p class="section__subtitle">Approve, revise, or convert feedback into reusable rules that apply next time.</p>
+      </div>
+      <div class="workspace-shell">
+        <div id="workspaceArtifacts"></div>
+      </div>
+    </section>
+
+    <section id="rules" class="section workspace-section fade-in">
+      <div class="section-number" aria-hidden="true">06</div>
+      <div class="section__header">
+        <h2 class="section__title">Saved rules</h2>
+        <p class="section__subtitle">Preferences that turn one-off edits into reusable system memory.</p>
+      </div>
+      <div class="workspace-shell">
+        <div id="workspaceRules"></div>
+      </div>
+    </section>
+
+    <section id="settings" class="section workspace-section fade-in">
+      <div class="section-number" aria-hidden="true">07</div>
+      <div class="section__header">
+        <h2 class="section__title">Settings and export</h2>
+        <p class="section__subtitle">Trust features: persistence, portability, and full workspace reset.</p>
+      </div>
+      <div class="workspace-shell">
+        <div id="workspaceSettings"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Agent Prime Workspace MVP &middot; Prototype built on top of the public Agent Prime system</p>
+    <p class="site-footer__motto">From repo to product shell, step by step.</p>
+  </footer>
+
+  <script src="assets/main.js"></script>
+  <script src="assets/workspace.js"></script>
+</body>
+</html>

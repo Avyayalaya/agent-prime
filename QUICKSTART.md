@@ -1,12 +1,30 @@
 # Quickstart Guide
 
-> Three paths to getting started. Pick the one that fits your patience level.
+> Four ways to get started. Pick the one that fits your patience level.
 
 | Path | Time | Best for |
 |------|------|----------|
+| **0: Product shell** | 5 min | People who want to see the app-shaped direction first |
 | **A: Automated** | 15 min | First-time users who want a guided setup |
 | **B: Manual** | 30 min | Users who want full control over configuration |
 | **C: Quick trial** | 5 min | Skeptics who want to see it work before investing time |
+
+---
+
+## Path 0: Product-Shell Preview (5 minutes)
+
+Want to see the app-shaped version of Agent Prime before you work directly with prompts and files?
+
+Open `workspace-mvp/index.html` in your browser.
+
+What this preview includes:
+- guided onboarding instead of editing `shared/context.md`
+- 3 starter workflows instead of raw agent syntax
+- a run studio with visible step states
+- artifact review with `Approve`, `Request Revision`, and `Save as Rule`
+- browser-local persistence plus export/reset
+
+Important: this is a static prototype that demonstrates the plug-and-play product direction. It does **not** replace the main markdown-based system documented below.
 
 ---
 
