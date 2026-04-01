@@ -235,7 +235,68 @@
   })();
 
   /* --------------------------------------------------------------------------
-     7. MOBILE NAV TOGGLE
+     7. COPY BUTTONS
+     -------------------------------------------------------------------------- */
+  (function initCopyButtons() {
+    var buttons = document.querySelectorAll('[data-copy-text]');
+    if (!buttons.length) return;
+
+    function fallbackCopy(text) {
+      var input = document.createElement('textarea');
+      input.value = text;
+      input.setAttribute('readonly', '');
+      input.style.position = 'absolute';
+      input.style.left = '-9999px';
+      document.body.appendChild(input);
+      input.select();
+
+      var copied = false;
+      try {
+        copied = document.execCommand('copy');
+      } catch (e) {
+        copied = false;
+      }
+
+      document.body.removeChild(input);
+      return copied;
+    }
+
+    function updateButton(button, copied) {
+      if (!button.dataset.originalText) {
+        button.dataset.originalText = button.textContent.trim();
+      }
+
+      button.textContent = copied ? 'Copied' : 'Copy manually';
+      button.disabled = true;
+
+      window.setTimeout(function () {
+        button.textContent = button.dataset.originalText;
+        button.disabled = false;
+      }, 1400);
+    }
+
+    document.addEventListener('click', function (e) {
+      var button = e.target.closest('[data-copy-text]');
+      if (!button) return;
+
+      var text = button.getAttribute('data-copy-text');
+      if (!text) return;
+
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(function () {
+          updateButton(button, true);
+        }, function () {
+          updateButton(button, fallbackCopy(text));
+        });
+        return;
+      }
+
+      updateButton(button, fallbackCopy(text));
+    });
+  })();
+
+  /* --------------------------------------------------------------------------
+     8. MOBILE NAV TOGGLE
      -------------------------------------------------------------------------- */
   (function initMobileNav() {
     var toggle = document.querySelector('.nav-toggle');

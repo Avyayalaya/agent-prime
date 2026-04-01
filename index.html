@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Agent Prime — A Persistent AI Operating System</title>
-  <meta name="description" content="An open-source AI operating system built entirely from markdown files. Seven architectural layers that give any LLM persistent identity, memory, and craft.">
-  <meta property="og:title" content="Agent Prime — A Persistent AI Operating System">
-  <meta property="og:description" content="Seven architectural layers built from markdown files. Persistent identity, compounding memory, parallel agents, publication-quality output.">
+  <title>Agent Prime — Encode Yourself into AI</title>
+  <meta name="description" content="An open-source AI operating system for encoding your judgment, standards, and workflows into files, agents, and memory that compound over time.">
+  <meta property="og:title" content="Agent Prime — Encode Yourself into AI">
+  <meta property="og:description" content="What you encode persists. Agent Prime turns your context, standards, and workflows into a system of files, agents, memory, and compounding output.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://avyayalaya.github.io/agent-prime/assets/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Agent Prime — A Persistent AI Operating System">
-  <meta name="twitter:description" content="An open-source AI operating system. Seven layers, eleven agents, zero dependencies.">
+  <meta name="twitter:title" content="Agent Prime — Encode Yourself into AI">
+  <meta name="twitter:description" content="Open-source AI operating system with persistent memory, shared agents, a live preview, and a one-command start.">
   <meta name="twitter:image" content="https://avyayalaya.github.io/agent-prime/assets/og-image.png">
 
   <!-- Favicon -->
@@ -55,11 +55,11 @@
 
     <nav aria-label="Main navigation">
       <ul class="site-nav__links" id="main-nav">
-        <li><a href="#paradigm">The Problem</a></li>
-        <li><a href="#levels">Three Levels</a></li>
-        <li><a href="#layers">The System</a></li>
-        <li><a href="#entry-points">Explore</a></li>
-        <li><a href="#get-started">Get Started</a></li>
+        <li><a href="#paradigm">Why</a></li>
+        <li><a href="#levels">Possibility</a></li>
+        <li><a href="#layers">Inside</a></li>
+        <li><a href="#pipelines">Proof</a></li>
+        <li><a href="#get-started">Start</a></li>
       </ul>
     </nav>
 
@@ -89,37 +89,100 @@
   <main>
 
     <!-- ===================== HERO (Cinematic) ===================== -->
-    <section id="hero" class="hero">
+    <section id="hero" class="hero hero--split">
       <div class="hero-shape s1"></div>
       <div class="hero-shape s2"></div>
       <div class="hero__grid-overlay"></div>
 
-      <div class="hero__content">
-        <h1 class="hero__headline">Agent <span class="gradient-text">Prime</span></h1>
-        <div class="hero__manifesto">
-          <p>Your AI forgets everything between sessions. Your corrections vanish. Your output sounds like everyone else's. None of it gets better on its own.</p>
-          <p>Agent Prime is the fix. Seven layers of persistent infrastructure &mdash; markdown files that give AI your thinking, your memory, your standards, and a recursive loop that compounds every session.</p>
-        </div>
-
-        <div class="hero-stats">
-          <div class="hero-stat">
-            <div class="hero-stat__val" data-count="7">0</div>
-            <div class="hero-stat__label">Layers</div>
+      <div class="hero__content hero__content--split">
+        <div class="hero__copy">
+          <div class="hero__eyebrow">What you encode persists</div>
+          <h1 class="hero__headline">Encode yourself into <span class="gradient-text">AI</span>.</h1>
+          <div class="hero__manifesto">
+            <p>Agent Prime is an open-source AI operating system built on a simple idea: your judgment, your standards, your voice, and your ways of working can live in files, be shared across agents, and compound over time.</p>
+            <p>The files are the system. What you encode persists. That is how AI stops starting from zero and starts expressing something real.</p>
           </div>
-          <div class="hero-stat">
-            <div class="hero-stat__val" data-count="11">0</div>
-            <div class="hero-stat__label">Agents</div>
+
+          <div class="hero__signal-row" aria-label="Highlights">
+            <span class="hero__signal">Persistent memory</span>
+            <span class="hero__signal">Shared agents</span>
+            <span class="hero__signal">Portable files</span>
+            <span class="hero__signal">Real outputs</span>
+          </div>
+
+          <div class="hero__cta">
+            <a href="workspace-mvp/" class="btn btn--primary">Try live preview</a>
+            <a href="#get-started" class="btn btn--secondary">Start your system</a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <div class="hero-stat__val" data-count="7">0</div>
+              <div class="hero-stat__label">Layers</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat__val" data-count="11">0</div>
+              <div class="hero-stat__label">Agents</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat__val" data-count="3">0</div>
+              <div class="hero-stat__label">Ways In</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat__val" data-count="12">0</div>
+              <div class="hero-stat__label">Skills</div>
+            </div>
+          </div>
+
+          <div class="hero__author">
+            <strong>Open source</strong> &middot; MIT licensed &middot; Works with Claude Code or GitHub Copilot
           </div>
         </div>
 
-        <div class="hero__author">
-          <strong>Parth Sangani</strong> &middot; Open source &middot; Zero dependencies
-        </div>
+        <aside class="hero-panel reveal" aria-label="Agent Prime working model">
+          <div class="hero-panel__shell">
+            <div class="hero-panel__topbar">
+              <div class="hero-panel__dots" aria-hidden="true">
+                <span></span><span></span><span></span>
+              </div>
+              <div class="hero-panel__path">agent-prime / system</div>
+            </div>
 
-        <div class="hero__cta">
-          <a href="workspace-mvp/" class="btn btn--primary">Try live preview</a>
-          <a href="#get-started" class="btn btn--secondary">Run first-time setup</a>
-        </div>
+            <div class="hero-panel__body">
+              <div class="hero-panel__card hero-panel__card--accent">
+                <p class="hero-panel__eyebrow">The working idea</p>
+                <h3>The files are the system.</h3>
+                <p>Context, learnings, prompts, tasks, and outputs live in readable files. Agents share them. That is how the system remembers, improves, and stays yours.</p>
+              </div>
+
+              <div class="hero-mode-grid">
+                <div class="hero-mode-card">
+                  <span class="hero-mode-card__tag">01</span>
+                  <h4>Preview</h4>
+                  <p>See the system in the browser before you install anything.</p>
+                </div>
+
+                <div class="hero-mode-card">
+                  <span class="hero-mode-card__tag">02</span>
+                  <h4>Quick trial</h4>
+                  <p>Load a working example and inspect a fully wired system on your own machine.</p>
+                </div>
+
+                <div class="hero-mode-card">
+                  <span class="hero-mode-card__tag">03</span>
+                  <h4>Onboard</h4>
+                  <p>Start from blank files and encode your own context, standards, and workflows into the system.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-panel__footer">
+              <span>Markdown + JSON</span>
+              <span>Compounding learnings</span>
+              <span>Readable by humans and AI</span>
+            </div>
+          </div>
+        </aside>
       </div>
 
       <div class="scroll-indicator" aria-hidden="true"><span></span></div>
@@ -129,24 +192,27 @@
     <section id="paradigm" class="section fade-in">
       <div class="section-number" aria-hidden="true">01</div>
       <div class="section__header">
-        <h2 class="section__title">Three ceilings</h2>
-        <p class="section__subtitle">What breaks when you try to do serious work with AI</p>
+        <h2 class="section__title">Why this exists</h2>
+        <p class="section__subtitle">AI is useful on day one. Serious work breaks when context resets, corrections vanish, and every thread starts cold.</p>
       </div>
 
       <div class="ceilings-grid stagger">
         <div class="ceiling-card reveal">
-          <h3 class="ceiling-card__title">Context Ceiling</h3>
-          <p class="ceiling-card__desc">Every session starts from zero. Your goals, your thinking patterns, what you tried last week — gone. Agent Prime retains 42+ key decisions, 14+ voice corrections, and 11+ agent design learnings. Every session starts where the last one ended.</p>
+          <div class="ceiling-card__icon" aria-hidden="true">&#10022;</div>
+          <h3 class="ceiling-card__title">Context resets</h3>
+          <p class="ceiling-card__desc">Your goals, standards, and prior decisions fade between sessions. You keep re-explaining yourself to a system that should already know how you work.</p>
         </div>
 
         <div class="ceiling-card reveal">
-          <h3 class="ceiling-card__title">Consistency Ceiling</h3>
-          <p class="ceiling-card__desc">You fix the same mistake three times. Each correction is local to one session. Agent Prime captures each mistake as a permanent rule. The rule propagates to every agent that needs it. The mistake cannot recur.</p>
+          <div class="ceiling-card__icon" aria-hidden="true">&#9881;</div>
+          <h3 class="ceiling-card__title">Corrections vanish</h3>
+          <p class="ceiling-card__desc">You fix the same mistake in different places. The output improves for a moment. The pattern comes back because the learning never stuck.</p>
         </div>
 
         <div class="ceiling-card reveal">
-          <h3 class="ceiling-card__title">Throughput Ceiling</h3>
-          <p class="ceiling-card__desc">One conversation, one task, one thread. Agent Prime runs parallel workstreams — research, synthesis, writing, analysis — each agent carrying encoded expertise. You review and decide. The system does the rest.</p>
+          <div class="ceiling-card__icon" aria-hidden="true">&#9711;</div>
+          <h3 class="ceiling-card__title">Throughput stalls</h3>
+          <p class="ceiling-card__desc">Research, analysis, writing, planning, and building all compete for the same attention. Good work happens, but it does not compound as a system.</p>
         </div>
       </div>
     </section>
@@ -155,27 +221,27 @@
     <section id="levels" class="section fade-in">
       <div class="section-number" aria-hidden="true">02</div>
       <div class="section__header">
-        <h2 class="section__title">Three levels</h2>
-        <p class="section__subtitle">How people actually use AI, and where Agent Prime sits</p>
+        <h2 class="section__title">What becomes possible</h2>
+        <p class="section__subtitle">When you encode your judgment into a system, AI stops behaving like a disposable chat window.</p>
       </div>
 
       <div class="levels-grid stagger">
         <div class="level-card reveal">
           <div class="level-card__num">1</div>
-          <h3>AI as Tool</h3>
-          <p>Give AI your thinking model — your frameworks, evidence standards, quality bar. Output quality jumps immediately.</p>
+          <h3>Encode your thinking</h3>
+          <p>Capture your standards, voice, and ways of reasoning in shared files every agent can read before it works.</p>
         </div>
 
         <div class="level-card reveal">
           <div class="level-card__num">2</div>
-          <h3>AI as Partner</h3>
-          <p>It challenges you. Each conversation sharpens your mental model. AI as thinking partner, pushing back where you're wrong.</p>
+          <h3>Let memory compound</h3>
+          <p>Correct something once. Carry it forward. Build a system that keeps getting sharper through use.</p>
         </div>
 
         <div class="level-card level-card--featured reveal">
           <div class="level-card__num">3</div>
-          <h3>AI as Infrastructure</h3>
-          <p>A system of agents pursuing your goals. Every session makes the next one smarter. Recursive loops. A system that builds systems. Agent Prime is what Level 3 looks like in practice.</p>
+          <h3>Run work as a system</h3>
+          <p>Research, analysis, writing, planning, and building can chain together instead of living in separate conversations.</p>
         </div>
       </div>
     </section>
@@ -184,8 +250,8 @@
     <section id="layers" class="section fade-in">
       <div class="section-number" aria-hidden="true">03</div>
       <div class="section__header">
-        <h2 class="section__title">The System</h2>
-        <p class="section__subtitle">Seven layers, each independently useful. Together, they compound.</p>
+        <h2 class="section__title">What&rsquo;s inside</h2>
+        <p class="section__subtitle">The files are the system. Context, learnings, prompts, skills, outputs, and the loop that keeps improving them.</p>
         <a href="https://github.com/avyayalaya/agent-prime/blob/main/system_map_v3.md" class="section__map-link" target="_blank" rel="noopener noreferrer">View the full system map &rarr;</a>
       </div>
 
@@ -256,44 +322,44 @@
     <section id="entry-points" class="section fade-in">
       <div class="section-number" aria-hidden="true">04</div>
       <div class="section__header">
-        <h2 class="section__title">Where do you start?</h2>
-        <p class="section__subtitle">Pick the layer that solves your most pressing problem.</p>
+        <h2 class="section__title">Why this is different</h2>
+        <p class="section__subtitle">Most AI setups stop at better prompting. Agent Prime gives you a persistent operating model you can inspect and own.</p>
       </div>
 
       <div class="decision-grid stagger">
         <a href="identity.html" class="decision-card reveal" data-layer="identity">
-          <p class="decision-card__problem">Identity</p>
-          <span class="decision-card__solution">AI becomes dramatically more effective when it knows how you think</span>
+          <p class="decision-card__problem">Your thinking becomes infrastructure</p>
+          <span class="decision-card__solution">Shared context files carry judgment, standards, voice, and guardrails into every agent that needs them</span>
         </a>
 
-        <a href="memory.html" class="decision-card reveal" data-layer="memory">
-          <p class="decision-card__problem">Memory</p>
-          <span class="decision-card__solution">Every correction compounds across every session and every agent</span>
+        <a href="workspace-mvp/" class="decision-card reveal" data-layer="memory">
+          <p class="decision-card__problem">Corrections compound</p>
+          <span class="decision-card__solution">Learnings can carry forward so the system gets better through use instead of repeating the same mistakes</span>
         </a>
 
-        <a href="agents.html" class="decision-card reveal" data-layer="agents">
-          <p class="decision-card__problem">Agents</p>
-          <span class="decision-card__solution">Run research, writing, and analysis in parallel with specialized agents</span>
+        <a href="#pipelines" class="decision-card reveal" data-layer="agents">
+          <p class="decision-card__problem">Agents share one operating model</p>
+          <span class="decision-card__solution">Eleven agents can work like one system because they draw from the same files, standards, and memory</span>
         </a>
 
-        <a href="orchestration.html" class="decision-card reveal" data-layer="orchestration">
-          <p class="decision-card__problem">Orchestration</p>
-          <span class="decision-card__solution">A system that tracks everything, sequences work, and knows the plan</span>
+        <a href="#get-started" class="decision-card reveal" data-layer="orchestration">
+          <p class="decision-card__problem">Expertise is loadable</p>
+          <span class="decision-card__solution">Skills bring deep domain methods into the system when the work calls for them</span>
         </a>
 
         <a href="skills.html" class="decision-card reveal" data-layer="skills">
-          <p class="decision-card__problem">Skills</p>
-          <span class="decision-card__solution">Encode domain expertise as repeatable methodology any agent can use</span>
+          <p class="decision-card__problem">Files stay portable</p>
+          <span class="decision-card__solution">Markdown and JSON keep the system readable, editable, and portable across tools you already use</span>
         </a>
 
         <a href="craft.html" class="decision-card reveal" data-layer="craft">
-          <p class="decision-card__problem">Craft</p>
-          <span class="decision-card__solution">Publication-quality output that carries your voice and design standards</span>
+          <p class="decision-card__problem">Proof comes from artifacts</p>
+          <span class="decision-card__solution">The system earns trust by producing real outputs, not by stopping at a polished wrapper or a clever demo</span>
         </a>
 
-        <a href="#get-started" class="decision-card decision-card--full reveal" data-layer="all">
-          <p class="decision-card__problem">The whole system</p>
-          <span class="decision-card__solution">All seven layers, recursive improvement, compounding from day one &rarr; Clone Agent Prime</span>
+        <a href="https://github.com/avyayalaya/agent-prime" class="decision-card decision-card--full reveal" data-layer="all" target="_blank" rel="noopener noreferrer">
+          <p class="decision-card__problem">Clone the full system</p>
+          <span class="decision-card__solution">Seven layers, eleven agents, twelve skills, a live preview, a first-run flow, and a recursive loop that compounds from day one &rarr;</span>
         </a>
       </div>
     </section>
@@ -302,8 +368,8 @@
     <section id="artifacts" class="section fade-in">
       <div class="section-number" aria-hidden="true">05</div>
       <div class="section__header">
-        <h2 class="section__title">Built with Agent Prime</h2>
-        <p class="section__subtitle">Every artifact below was produced by the system. Actual rendered output.</p>
+        <h2 class="section__title">Real outputs</h2>
+        <p class="section__subtitle">These are actual artifacts produced with Agent Prime. The system matters because the work holds up.</p>
       </div>
 
       <div class="gallery-grid stagger">
@@ -338,8 +404,8 @@
     <section id="pipelines" class="section fade-in">
       <div class="section-number" aria-hidden="true">06</div>
       <div class="section__header">
-        <h2 class="section__title">See what it produces</h2>
-        <p class="section__subtitle">Real pipeline outputs. One sentence in, pages of structured analysis out.</p>
+        <h2 class="section__title">See the system at work</h2>
+        <p class="section__subtitle">One request can expand into chained research, analysis, writing, planning, and outputs you can build on.</p>
       </div>
 
       <div class="pipeline-grid stagger">
@@ -404,7 +470,7 @@
       </div>
 
       <div class="pipeline-comparison">
-        <p class="pipeline-comparison__text">The same questions asked to raw AI produce 500&ndash;800 words of generic advice. Agent Prime produces 30&ndash;50 pages of evidence-graded, framework-driven, actionable analysis. <a href="https://github.com/avyayalaya/agent-prime/tree/main/examples" target="_blank" rel="noopener noreferrer">See the comparisons &rarr;</a></p>
+        <p class="pipeline-comparison__text">Raw AI gives you a response. Agent Prime can give you an operating sequence, durable artifacts, and work that keeps improving as the system learns. <a href="https://github.com/avyayalaya/agent-prime/tree/main/examples" target="_blank" rel="noopener noreferrer">See the comparisons &rarr;</a></p>
       </div>
     </section>
 
@@ -412,48 +478,95 @@
     <section id="get-started" class="section fade-in">
       <div class="section-number" aria-hidden="true">07</div>
       <div class="section__header">
-        <h2 class="section__title">Get Started</h2>
-        <p class="section__subtitle">Three ways in: try the hosted preview, run the guided first-time setup, or clone and customize the full system.</p>
+        <h2 class="section__title">Start your system</h2>
+        <p class="section__subtitle">Explore in the browser first. Then run the same first step locally when you are ready.</p>
+      </div>
+
+      <div class="setup-panel reveal">
+        <div class="setup-panel__header">
+          <div>
+            <span class="badge badge--accent">Recommended</span>
+            <h3 class="setup-panel__title">Start with one command</h3>
+            <p class="setup-panel__desc">The first-run script is the cleanest way in. It lets you preview, quick-trial, or onboard from the same entry point.</p>
+          </div>
+        </div>
+
+        <div class="setup-panel__command-row">
+          <pre class="setup-panel__command"><code>git clone https://github.com/avyayalaya/agent-prime.git
+cd agent-prime
+python meta/scripts/first_run.py</code></pre>
+          <button
+            class="copy-button copy-button--dark"
+            type="button"
+            data-copy-text="git clone https://github.com/avyayalaya/agent-prime.git
+cd agent-prime
+python meta/scripts/first_run.py"
+          >
+            Copy setup
+          </button>
+        </div>
+
+        <div class="setup-option-grid">
+          <div class="setup-option">
+            <h4>preview</h4>
+            <p>See the workspace, then jump to the hosted preview.</p>
+          </div>
+          <div class="setup-option">
+            <h4>quick-trial</h4>
+            <p>Load a working example and inspect a fully wired system.</p>
+          </div>
+          <div class="setup-option">
+            <h4>onboard</h4>
+            <p>Begin with blank files and encode your own context, standards, and workflows.</p>
+          </div>
+        </div>
+
+        <div class="setup-panel__meta">
+          <span><strong>macOS/Linux:</strong> <code>./install.sh</code></span>
+          <span><strong>PowerShell:</strong> <code>.\install.ps1</code></span>
+        </div>
       </div>
 
       <div class="paths-grid stagger">
         <div class="path-card reveal">
-          <h3 class="path-card__title">Try the live preview</h3>
-          <p class="path-card__desc">Open the hosted workspace MVP and see the product-shaped direction before you clone anything.</p>
+          <span class="path-card__kicker">Path 01</span>
+          <h3 class="path-card__title">Hosted preview</h3>
+          <p class="path-card__desc">Best if you want to understand the idea in the browser first and decide whether the system is worth cloning.</p>
           <div class="hero__cta">
-            <a href="workspace-mvp/" class="btn btn--secondary">Open workspace preview</a>
+            <a href="workspace-mvp/" class="btn btn--secondary">Try live preview</a>
           </div>
         </div>
 
         <div class="path-card path-card--primary reveal">
-          <h3 class="path-card__title">Run first-time setup</h3>
-          <p class="path-card__desc">Clone the repo, run one command, then choose preview, quick trial, or guided onboarding.</p>
+          <span class="path-card__kicker">Path 02</span>
+          <h3 class="path-card__title">Quick trial</h3>
+          <p class="path-card__desc">Best if you want local proof fast with a working example you can inspect end to end.</p>
           <div class="hero__cta">
-            <a href="https://github.com/avyayalaya/agent-prime" class="btn btn--primary" target="_blank" rel="noopener noreferrer">Clone from GitHub</a>
+            <a href="https://github.com/avyayalaya/agent-prime/blob/main/QUICKSTART.md" class="btn btn--primary" target="_blank" rel="noopener noreferrer">Read quickstart</a>
           </div>
         </div>
 
         <div class="path-card reveal">
-          <h3 class="path-card__title">Clone and customize</h3>
-          <p class="path-card__desc">Take the full system — eleven agents, seven layers, and recursive improvement — and make it yours.</p>
+          <span class="path-card__kicker">Path 03</span>
+          <h3 class="path-card__title">Guided onboarding</h3>
+          <p class="path-card__desc">Best if you are ready to encode your own thinking, context, standards, and workflows into the system from a blank slate.</p>
           <div class="hero__cta">
-            <a href="https://github.com/avyayalaya/agent-prime#readme" class="btn btn--secondary" target="_blank" rel="noopener noreferrer">Read setup docs</a>
+            <a href="https://github.com/avyayalaya/agent-prime" class="btn btn--secondary" target="_blank" rel="noopener noreferrer">Clone from GitHub</a>
           </div>
         </div>
       </div>
 
-      <div class="clone-command">
-        <code class="clone-command__command">git clone https://github.com/avyayalaya/agent-prime</code>
-      </div>
-      <div class="clone-command">
-        <code class="clone-command__command">python meta/scripts/first_run.py</code>
+      <div class="setup-checklist reveal">
+        <div class="setup-checklist__item">Blank-slate files ship that way on purpose</div>
+        <div class="setup-checklist__item">The hosted preview works before any install</div>
+        <div class="setup-checklist__item">The same first-run flow powers preview, trial, and onboarding</div>
       </div>
     </section>
   </main>
 
   <!-- Site footer -->
   <footer class="site-footer">
-    <p>Agent Prime &middot; MIT License &middot; Built by <a href="https://github.com/avyayalaya" target="_blank" rel="noopener noreferrer">Parth Sangani</a></p>
+    <p>Agent Prime &middot; MIT License &middot; Open source on <a href="https://github.com/avyayalaya/agent-prime" target="_blank" rel="noopener noreferrer">GitHub</a></p>
     <p class="site-footer__motto">Gradatim Ferociter &mdash; Step by step, ferociously</p>
   </footer>
 
