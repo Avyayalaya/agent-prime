@@ -1,0 +1,35 @@
+id: signal-to-action
+name: Signal Detection to External Action
+description: Emissary's sensing-to-execution pipeline
+trigger: Daily sensing run (7:00 AM) or on-demand
+
+steps:
+  - id: sense
+    agent: emissary
+    decision_type: auto
+    description: Run all sensors, write signals to inbox
+    script: python meta/scripts/sense_platforms.py
+    output: prime/signal_inbox.jsonl (new entries)
+
+  - id: process
+    agent: emissary
+    decision_type: auto
+    description: Convert signals to queued actions
+    script: python meta/scripts/process_signals.py
+    output: prime/action_queue.jsonl (new entries)
+
+  - id: permission
+    agent: emissary
+    decision_type: varies_by_tier
+    description: Apply 3-tier permission model
+    rules:
+      tier_1_auto: "reversible + low-visibility (GitHub stars, calendar blocks)"
+      tier_2_batch: "external-facing + semi-reversible (posts, comments, emails) — operator approves in batch"
+      tier_3_human: "irreversible + high-stakes (offers, live presentations) — operator only"
+    gate: dead_man_switch (EMI-003) pauses Tier 2 if no review in 7 days
+
+  - id: execute
+    agent: emissary
+    decision_type: auto (tier 1) or approve (tier 2+)
+    script: python meta/scripts/execute_actions.py
+    output: prime/action_log.jsonl (append-only audit)

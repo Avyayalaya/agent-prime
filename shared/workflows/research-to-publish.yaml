@@ -1,0 +1,68 @@
+id: research-to-publish
+name: Research to Publication Pipeline
+description: From raw signal to published article across all channels
+trigger: New thesis registered in registry OR brain dump from operator
+production_order: Substack first -> LinkedIn second -> Conference third (Rule 5)
+
+steps:
+  - id: brain_dump
+    agent: operator
+    decision_type: input
+    time_budget: 30min
+    description: Operator dumps raw views — 15-20 provocations, personal experiences, observations
+    output: raw_provocations (markdown)
+
+  - id: signal_scan
+    agent: scout
+    decision_type: auto
+    time_budget: 30min
+    input: raw_provocations
+    description: Scans sources for supporting/counter evidence
+    output: signal_report (JSON signals in agents/scout/signals/)
+    successor: synthesize
+
+  - id: synthesize
+    agent: synthesizer
+    decision_type: auto
+    time_budget: 120min
+    input: [raw_provocations, signal_report]
+    description: Combines brain dump + signals into structured thesis
+    output: thesis_draft (markdown, ~4000-5000 words)
+    suspend_if: evidence_gaps > 3
+    resume_with: additional_signals OR operator_feedback
+    successor: write_longform
+
+  - id: write_longform
+    agent: writer
+    decision_type: review
+    time_budget: 120min
+    input: thesis_draft
+    description: Converts thesis to Substack article (FIRST — Rule 5)
+    output: substack_draft (markdown)
+    quality_gate: voice_check + quality_bar
+    successor: write_compressed
+
+  - id: write_compressed
+    agent: writer
+    decision_type: review
+    time_budget: 60min
+    input: substack_draft
+    description: Compresses to LinkedIn post (SECOND — Rule 5, Rule 31)
+    output: linkedin_draft (markdown)
+    quality_gate: voice_check + compression_not_omission
+    successor: distribute
+
+  - id: distribute
+    agent: connector
+    decision_type: review
+    time_budget: 60min
+    input: [substack_draft, linkedin_draft]
+    description: Identifies audience, drafts outreach, maps distribution
+    output: audience_map + outreach_drafts
+    successor: publish
+
+  - id: publish
+    agent: emissary
+    decision_type: approve
+    description: Queues publication actions through 3-tier permission
+    permission_tier: 2 (batch-approved, never auto)

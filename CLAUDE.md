@@ -24,6 +24,10 @@ This system has 11 specialized agents, each with its own prompt file. You are no
 | `prime/config.json` | Agent cadences, cycle state, kill rules | When scheduling or reviewing |
 | `shared/learnings.md` | Accumulated feedback patterns — voice, framing, process corrections | **Every session** — hard constraints |
 | `shared/dependency_map.md` | Change propagation registry | After modifying any file |
+| `shared/guardrails/` | Structured validation gates (input, output, permission). `registry.yaml` maps guardrails to agents. | When producing output or validating quality |
+| `shared/workflows/` | Declarative workflow specs (4 YAML pipelines). Documentation, not runtime. | When routing work or understanding pipelines |
+| `DESIGN.md` | Warm Editorial design system (9-section Google Stitch format). | When building any visual artifact |
+| `AGENTS.md` | Machine-readable capability manifest. What this system does, for other AI agents. | When updating system capabilities |
 
 ### Scripts
 | Script | Purpose | When to run |
@@ -46,6 +50,8 @@ This system has 11 specialized agents, each with its own prompt file. You are no
 | **Investment Analyst** | `agents/investment_analyst/prompt.md` | Investment-grade analysis |
 | **Planner** | `agents/planner/prompt.md` | 4-stage planning methodology |
 | **Builder** | `agents/builder/prompt.md` | Executes Build Handoff Specs |
+| **Judge** | `agents/judge/prompt.md` | Decision proxy — auto-acts low-risk, holds high-risk |
+| **Emissary** | `agents/emissary/prompt.md` | External boundary — sensing, permission tiers, action execution |
 | **Onboarder** | `agents/onboarder/prompt.md` | Interactive setup wizard |
 
 ---
@@ -91,6 +97,24 @@ This system has 11 specialized agents, each with its own prompt file. You are no
 19. **Agent methodology is sequential.** Execute EVERY step. Never compress a multi-step methodology into one pass.
 
 20. **Context Verification Gate is blocking.** No exceptions for short formats.
+
+21. **Discoverability by default.** Every agent, skill, or tool must be discoverable, evaluable, and composable by other AI systems. Three layers: (a) Identity — structured capability manifest, (b) Evaluability — benchmarks + example invocations, (c) Composability — typed input/output schemas.
+
+22. **Session Journal Protocol.** After any state change to registry.json, learnings.md, dispatch.md, or artifact creation, append a journal entry to `prime/session_journal.jsonl`. V2 format: `{"v": 2, "span_id": "sp-001", "parent_id": null, "sid": "manual", "ts": "<ISO>", "agent": "prime", "event": "<type>", "detail": "...", "status": "ok", "persisted": false}`.
+
+23. **Guardrails are structured, not just prose.** `shared/guardrails/` contains machine-readable validation gates. `registry.yaml` maps guardrails to agents. When an agent's Context Verification Gate loads, check applicable guardrails. Rules are canonical; guardrails are the structured spec.
+
+24. **Workflows are documented, not just implicit.** `shared/workflows/` contains declarative YAML specs for 4 core pipelines. Agents read them as context for understanding where their work fits.
+
+25. **Stress test with adversarial personas.** When validating scoring or evaluation logic, design simulation personas targeting specific failure modes — not generic test users.
+
+26. **Public/private gate.** Before creating ANY file in a repo, ask: "Should this be public?" Never commit sensitive content. Prevent, don't clean up.
+
+27. **Agent Completion Protocol.** After completing any task, append successor tasks to `prime/dispatch.md`. This is how the loop sustains itself.
+
+28. **Decision Layer Protocol.** Check `shared/decision_rules.md` first. Auto-act if confidence >80% AND reversible + internal. Hold for user if <80% OR irreversible/external. Log every decision.
+
+29. **Compression is not omission.** Short-form content must compress the full argument into fewer words, not pick one fact and pad around it. The source thesis must be visibly compressed.
 
 ---
 

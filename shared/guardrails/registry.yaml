@@ -1,0 +1,56 @@
+# Guardrail Registry — Maps guardrails to agents
+# Each agent checks this registry at Context Verification Gate time
+
+guardrails:
+  # INPUT GUARDRAILS — checked before producing output
+  context_gate:
+    type: input
+    action: block
+    applies_to: ["*"]  # All agents
+    description: "Every file in the agent's Context Verification Gate must be actually read before producing output"
+
+  # OUTPUT GUARDRAILS — checked before delivering output
+  nda_filter:
+    type: output
+    action: block
+    applies_to: ["*"]  # All agents
+    description: "No internal employer data, roadmaps, or unreleased features"
+
+  voice_check:
+    type: output
+    action: block
+    applies_to:
+      - writer
+      - connector
+      - emissary
+      - synthesizer  # When producing external-facing theses
+    description: "Output must match the operator's voice DNA — blunt, conversational, self-implicating"
+
+  quality_bar:
+    type: output
+    action: warn
+    applies_to: ["*"]
+    description: "Every substantial artifact must include a Quality Check section"
+
+  production_order:
+    type: output
+    action: block
+    applies_to:
+      - writer
+    description: "Substack first, LinkedIn second, Conference third — never write compressed before full"
+
+  publish_parity:
+    type: output
+    action: block
+    applies_to:
+      - planner
+      - builder
+    description: "Build Handoff Specs must include Publish & Distribution section with equal rigor to build spec"
+
+  # PERMISSION GATES — checked before external actions
+  permission_tier:
+    type: permission
+    action: block
+    applies_to:
+      - emissary
+    description: "3-tier permission model for external actions"

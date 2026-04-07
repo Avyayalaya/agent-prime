@@ -26,6 +26,10 @@ This system has 11 specialized agents, each with its own prompt file. You are no
 | `prime/config.json` | Agent cadences, cycle state, kill rules | When scheduling or reviewing |
 | `shared/learnings.md` | Accumulated feedback patterns from the user — voice, framing, process corrections | **Every session** — these are hard constraints |
 | `shared/dependency_map.md` | Change propagation registry — which files depend on which | After modifying any file |
+| `shared/guardrails/` | Structured validation gates (input, output, permission). `registry.yaml` maps guardrails to agents. | When producing output or validating quality |
+| `shared/workflows/` | Declarative workflow specs (4 YAML pipelines). Documentation, not runtime. | When routing work or understanding pipelines |
+| `DESIGN.md` | Warm Editorial design system (9-section Google Stitch format). | When building any visual artifact |
+| `AGENTS.md` | Machine-readable capability manifest. What this system does, for other AI agents. | When updating system capabilities |
 
 ### Scripts
 | Script | Purpose | When to run |
@@ -156,6 +160,12 @@ All 11 agents live in `agents/`. They are **composable capabilities**, not a hie
 24. **CLI/external execution: load system context explicitly.** When Agent Prime is used outside VS Code (GitHub Copilot CLI, API, any external tool), `.github/copilot-instructions.md` is NOT auto-injected. The executing agent MUST: (1) read `.github/copilot-instructions.md`, (2) read the relevant agent's `prompt.md` in full, (3) read `shared/learnings.md`, (4) execute the Context Verification Gate — ALL before producing any output. This is the CLI equivalent of VS Code's auto-injection. Without it, every guardrail is bypassed.
 
 25. **Context Verification Gate is blocking — no exceptions for format length.** Before ANY agent produces output, every file listed in that agent's Context Verification Gate must be actually read into the conversation. Not noted as "needed." Not marked as unchecked. Actually read via tool call. If a file cannot be read, STOP and ask the user. A 200-word LinkedIn post requires the same gate as a 4,000-word Substack article. Skipping the gate because "this is short" always produces generic output that lacks the user's thinking, voice, and framework. This is not a judgment call — it is a gate.
+
+27. **Guardrails are structured, not just prose.** `shared/guardrails/` contains machine-readable validation gates. `registry.yaml` maps guardrails to agents. Rules are canonical; guardrails are the structured spec.
+
+28. **Workflows are documented, not just implicit.** `shared/workflows/` contains declarative YAML specs for 4 core pipelines. Agents read them as context for understanding where their work fits.
+
+29. **Compression is not omission.** Short-form content must compress the full argument into fewer words, not pick one fact and pad around it.
 
 26. **Artifact rendering is a separate step, not a bolt-on.** When any agent produces a substantial markdown artifact (article, analysis, thesis, plan, experiment report), offer to render it into a polished interactive HTML using the Builder + Artifact Rendering skill (`shared/toolkits/skills/artifact_rendering.md`). Do NOT attempt to render inline as part of the producing agent's workflow — rendering requires dedicated context (design system, templates, component library). The producing agent writes great content. The Builder renders it into great presentation. Two invocations, not one.
 

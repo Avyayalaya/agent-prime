@@ -1,0 +1,69 @@
+id: idea-to-build
+name: Idea to Build Pipeline
+description: From raw idea to shipped deliverable
+trigger: Item promoted from ideas_backlog to registry
+
+steps:
+  - id: register
+    agent: prime
+    decision_type: auto
+    description: Create registry entry, assign ID, set status=planning
+    output: registry_entry
+
+  - id: plan_stage_1
+    agent: planner
+    decision_type: review
+    description: "Stage 1: Problem definition + scope"
+    input: registry_entry + relevant context
+    output: problem_definition
+
+  - id: plan_stage_2
+    agent: planner
+    decision_type: review
+    description: "Stage 2: Solution design + architecture"
+    input: problem_definition
+    output: solution_design
+
+  - id: plan_stage_3
+    agent: planner
+    decision_type: review
+    description: "Stage 3: Implementation plan + task breakdown"
+    input: solution_design
+    output: implementation_plan
+
+  - id: plan_stage_4
+    agent: planner
+    decision_type: approve
+    description: "Stage 4: Build Handoff Spec (includes publish parity — Rule 21)"
+    input: implementation_plan
+    output: build_handoff_spec
+    quality_gate: must_include_publish_section + discoverability_section
+
+  - id: capability_map
+    agent: prime
+    decision_type: review
+    description: "Capability Deployment Map (Rule 44) — which agents/skills/scripts for this build"
+    input: build_handoff_spec
+    output: capability_deployment_map
+
+  - id: preflight
+    agent: builder
+    decision_type: auto
+    description: "Builder Pre-Flight (Rule 18) — check AD learnings against design"
+    input: [build_handoff_spec, shared/learnings.md (Agent Design category)]
+    output: preflight_checklist
+
+  - id: build
+    agent: builder
+    decision_type: review
+    description: Execute build handoff spec
+    input: [build_handoff_spec, capability_deployment_map, preflight_checklist]
+    output: built_artifact
+    successor: review
+
+  - id: review
+    agent: prime
+    decision_type: review
+    description: Quality review of built artifact
+    output: review_feedback
+    loop_to: build (if feedback requires changes)

@@ -1,0 +1,33 @@
+id: inbound-to-response
+name: Recruiter Inbound Processing
+description: Every inbound gets two actions — log + respond (Rule P22)
+trigger: Operator receives recruiter outreach
+
+steps:
+  - id: log
+    agent: prime
+    decision_type: auto
+    script: python meta/scripts/triage_inbound.py
+    description: Log to pipeline.json with assessment
+    output: pipeline_entry + assessment
+
+  - id: assess
+    agent: judge
+    decision_type: auto
+    description: "Quick filter: title regression? wrong tier? delivery scope?"
+    input: pipeline_entry
+    output: recommendation (PURSUE / PASS / EXPLORE)
+
+  - id: draft_response
+    agent: connector
+    decision_type: review
+    description: Draft response in operator's voice (short, direct, appreciative)
+    input: [pipeline_entry, recommendation]
+    output: response_draft
+    quality_gate: voice_check + no_bridge_burning
+
+  - id: send
+    agent: emissary
+    decision_type: approve
+    permission_tier: 2
+    description: Send response via appropriate channel
