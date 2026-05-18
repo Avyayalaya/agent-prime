@@ -2,11 +2,11 @@
 
 **A persistent AI operating system built entirely from markdown files.**
 
-Seven architectural layers. Sixteen specialized agents. A 5-deliberator quality gate ([agent-council](https://github.com/Avyayalaya/agent-council)) for tier-1 artifacts. A recursive improvement loop that compounds every session. Zero dependencies.
+Seven architectural layers. Thirteen specialized agents. A 5-deliberator quality gate ([agent-council](https://github.com/Avyayalaya/agent-council)) for tier-1 artifacts. A recursive improvement loop that compounds every session. Zero dependencies.
 
 | Agents | Skills | Guardrails | Workflows | Learnings | Dependencies |
 |--------|--------|------------|-----------|-----------|--------------|
-| 16     | 12     | 8          | 4         | 130+      | 0            |
+| 13     | 12     | 8          | 4         | 100+      | 0            |
 
 ---
 
