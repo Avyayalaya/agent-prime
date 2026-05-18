@@ -4,7 +4,7 @@
 
 ## Overview
 
-Agent Prime is an open-source AI operating system built entirely from markdown files. It provides 13 specialized agents, 12 domain skills with typed schemas, persistent memory with recursive self-improvement, 7 structured guardrails, and 4 declarative workflows. Zero dependencies — no database, no runtime, no package manager. Clone the repo and point any LLM at it. The system gets permanently smarter with every correction via an append-only learnings registry that propagates constraints to all agents.
+Agent Prime is an open-source AI operating system built entirely from markdown files. It provides 13 specialized agents + a runtime-portable 5-agent quality gate ([Agent Council](https://github.com/Avyayalaya/agent-council)), 12 domain skills with typed schemas, persistent memory with recursive self-improvement, 8 structured guardrails, and 4 declarative workflows. Zero dependencies — no database, no runtime, no package manager. Clone the repo and point any LLM at it. The system gets permanently smarter with every correction via an append-only learnings registry that propagates constraints to all agents.
 
 **Repository:** `https://github.com/avyayalaya/agent-prime`
 **Instruction files:** `CLAUDE.md` (Claude Code), `.github/copilot-instructions.md` (GitHub Copilot), both kept in sync.
@@ -15,9 +15,9 @@ Agent Prime is an open-source AI operating system built entirely from markdown f
 - **13 specialized agents** with typed inputs, outputs, and Context Verification Gates
 - **12 PM-domain skills** with codified methodologies, failure modes, and benchmark scores
 - **Recursive learning loop:** Every user correction becomes a permanent rule in `shared/learnings.md`, applied to all agents in all future sessions
-- **7 structured guardrails** enforced via system rules in `CLAUDE.md`
+- **8 structured guardrails** enforced via system rules in `CLAUDE.md` (including a runtime-portable 5-agent quality gate)
 - **4 declarative workflows** composing agents into end-to-end pipelines
-- **47 system rules** governing context verification, voice, NDA compliance, change propagation, and quality
+- **49 system rules** governing context verification, voice, NDA compliance, change propagation, and quality
 - **100+ accumulated learnings** across voice, content, process, quality, build, and agent design categories
 - **Session resilience:** Write-ahead journaling, crash recovery, session audit, learning extraction
 - **Cross-LLM compatibility:** Works on Claude Code, GitHub Copilot Chat, Gemini CLI without modification
@@ -115,6 +115,7 @@ Every skill follows codified standards (see `shared/toolkits/skill_file_spec.md`
 | 5 | **Permission Tier** | Gating | 3-tier governance for external actions (auto/confirm/escalate) | Emissary, Connector |
 | 6 | **Production Order** | Sequential | Long-form first, short-form second — never compress before the full argument exists | Writer, Multi-Channel Publishing |
 | 7 | **Publish Parity** | Parallel | Build specs must include distribution plans with equal rigor to the build itself | Planner, Builder, Writer |
+| 8 | **Council Gate** | Blocking | Tier-1 artifacts (external, irreversible, identity-shaping, memory writes) pass through 5-deliberator [Agent Council](https://github.com/Avyayalaya/agent-council) — Skeptic, Voice & Identity, Evidence & Calibration, Strategy & Stakes, Adjudicator. CI-tested modularity invariant. | Emissary (chokepoint); emitting agents have ZERO hard dependency |
 
 ## Getting Started
 
